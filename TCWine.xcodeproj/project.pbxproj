@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C01B8E1D1C8763650044F937 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C01B8E1C1C8763650044F937 /* main.m */; };
+		C01B8E201C8763650044F937 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C01B8E1F1C8763650044F937 /* AppDelegate.m */; };
+		C01B8E261C8763650044F937 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01B8E241C8763650044F937 /* Main.storyboard */; };
+		C01B8E281C8763650044F937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01B8E271C8763650044F937 /* Assets.xcassets */; };
+		C01B8E2B1C8763650044F937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01B8E291C8763650044F937 /* LaunchScreen.storyboard */; };
+		C01B8E361C8763650044F937 /* TCWineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01B8E351C8763650044F937 /* TCWineTests.m */; };
+		C01B8E411C8763650044F937 /* TCWineUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C01B8E401C8763650044F937 /* TCWineUITests.m */; };
+		C01B8E501C87668C0044F937 /* WineMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C01B8E4F1C87668C0044F937 /* WineMapVC.m */; };
+		C01B8E521C8768310044F937 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01B8E511C8768310044F937 /* MapKit.framework */; };
+		C01B8E541C8770140044F937 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C01B8E531C8770140044F937 /* .gitignore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C01B8E321C8763650044F937 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C01B8E101C8763650044F937 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C01B8E171C8763650044F937;
+			remoteInfo = TCWine;
+		};
+		C01B8E3D1C8763650044F937 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C01B8E101C8763650044F937 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C01B8E171C8763650044F937;
+			remoteInfo = TCWine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C01B8E181C8763650044F937 /* TCWine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCWine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01B8E1C1C8763650044F937 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C01B8E1E1C8763650044F937 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C01B8E1F1C8763650044F937 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C01B8E251C8763650044F937 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C01B8E271C8763650044F937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C01B8E2A1C8763650044F937 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C01B8E2C1C8763650044F937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01B8E311C8763650044F937 /* TCWineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCWineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01B8E351C8763650044F937 /* TCWineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCWineTests.m; sourceTree = "<group>"; };
+		C01B8E371C8763650044F937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01B8E3C1C8763650044F937 /* TCWineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCWineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01B8E401C8763650044F937 /* TCWineUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCWineUITests.m; sourceTree = "<group>"; };
+		C01B8E421C8763650044F937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01B8E4E1C87668C0044F937 /* WineMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineMapVC.h; sourceTree = "<group>"; };
+		C01B8E4F1C87668C0044F937 /* WineMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineMapVC.m; sourceTree = "<group>"; };
+		C01B8E511C8768310044F937 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C01B8E531C8770140044F937 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C01B8E151C8763650044F937 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01B8E521C8768310044F937 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01B8E2E1C8763650044F937 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01B8E391C8763650044F937 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C01B8E0F1C8763650044F937 = {
+			isa = PBXGroup;
+			children = (
+				C01B8E511C8768310044F937 /* MapKit.framework */,
+				C01B8E1A1C8763650044F937 /* TCWine */,
+				C01B8E341C8763650044F937 /* TCWineTests */,
+				C01B8E3F1C8763650044F937 /* TCWineUITests */,
+				C01B8E191C8763650044F937 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C01B8E191C8763650044F937 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C01B8E181C8763650044F937 /* TCWine.app */,
+				C01B8E311C8763650044F937 /* TCWineTests.xctest */,
+				C01B8E3C1C8763650044F937 /* TCWineUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C01B8E1A1C8763650044F937 /* TCWine */ = {
+			isa = PBXGroup;
+			children = (
+				C01B8E1E1C8763650044F937 /* AppDelegate.h */,
+				C01B8E1F1C8763650044F937 /* AppDelegate.m */,
+				C01B8E4E1C87668C0044F937 /* WineMapVC.h */,
+				C01B8E4F1C87668C0044F937 /* WineMapVC.m */,
+				C01B8E241C8763650044F937 /* Main.storyboard */,
+				C01B8E271C8763650044F937 /* Assets.xcassets */,
+				C01B8E291C8763650044F937 /* LaunchScreen.storyboard */,
+				C01B8E2C1C8763650044F937 /* Info.plist */,
+				C01B8E531C8770140044F937 /* .gitignore */,
+				C01B8E1B1C8763650044F937 /* Supporting Files */,
+			);
+			path = TCWine;
+			sourceTree = "<group>";
+		};
+		C01B8E1B1C8763650044F937 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C01B8E1C1C8763650044F937 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C01B8E341C8763650044F937 /* TCWineTests */ = {
+			isa = PBXGroup;
+			children = (
+				C01B8E351C8763650044F937 /* TCWineTests.m */,
+				C01B8E371C8763650044F937 /* Info.plist */,
+			);
+			path = TCWineTests;
+			sourceTree = "<group>";
+		};
+		C01B8E3F1C8763650044F937 /* TCWineUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C01B8E401C8763650044F937 /* TCWineUITests.m */,
+				C01B8E421C8763650044F937 /* Info.plist */,
+			);
+			path = TCWineUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C01B8E171C8763650044F937 /* TCWine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01B8E451C8763650044F937 /* Build configuration list for PBXNativeTarget "TCWine" */;
+			buildPhases = (
+				C01B8E141C8763650044F937 /* Sources */,
+				C01B8E151C8763650044F937 /* Frameworks */,
+				C01B8E161C8763650044F937 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TCWine;
+			productName = TCWine;
+			productReference = C01B8E181C8763650044F937 /* TCWine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C01B8E301C8763650044F937 /* TCWineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01B8E481C8763650044F937 /* Build configuration list for PBXNativeTarget "TCWineTests" */;
+			buildPhases = (
+				C01B8E2D1C8763650044F937 /* Sources */,
+				C01B8E2E1C8763650044F937 /* Frameworks */,
+				C01B8E2F1C8763650044F937 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C01B8E331C8763650044F937 /* PBXTargetDependency */,
+			);
+			name = TCWineTests;
+			productName = TCWineTests;
+			productReference = C01B8E311C8763650044F937 /* TCWineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C01B8E3B1C8763650044F937 /* TCWineUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01B8E4B1C8763650044F937 /* Build configuration list for PBXNativeTarget "TCWineUITests" */;
+			buildPhases = (
+				C01B8E381C8763650044F937 /* Sources */,
+				C01B8E391C8763650044F937 /* Frameworks */,
+				C01B8E3A1C8763650044F937 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C01B8E3E1C8763650044F937 /* PBXTargetDependency */,
+			);
+			name = TCWineUITests;
+			productName = TCWineUITests;
+			productReference = C01B8E3C1C8763650044F937 /* TCWineUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C01B8E101C8763650044F937 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = DonovanCotter;
+				TargetAttributes = {
+					C01B8E171C8763650044F937 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					C01B8E301C8763650044F937 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = C01B8E171C8763650044F937;
+					};
+					C01B8E3B1C8763650044F937 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = C01B8E171C8763650044F937;
+					};
+				};
+			};
+			buildConfigurationList = C01B8E131C8763650044F937 /* Build configuration list for PBXProject "TCWine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C01B8E0F1C8763650044F937;
+			productRefGroup = C01B8E191C8763650044F937 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C01B8E171C8763650044F937 /* TCWine */,
+				C01B8E301C8763650044F937 /* TCWineTests */,
+				C01B8E3B1C8763650044F937 /* TCWineUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C01B8E161C8763650044F937 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01B8E541C8770140044F937 /* .gitignore in Resources */,
+				C01B8E2B1C8763650044F937 /* LaunchScreen.storyboard in Resources */,
+				C01B8E281C8763650044F937 /* Assets.xcassets in Resources */,
+				C01B8E261C8763650044F937 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01B8E2F1C8763650044F937 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01B8E3A1C8763650044F937 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C01B8E141C8763650044F937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01B8E501C87668C0044F937 /* WineMapVC.m in Sources */,
+				C01B8E201C8763650044F937 /* AppDelegate.m in Sources */,
+				C01B8E1D1C8763650044F937 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01B8E2D1C8763650044F937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01B8E361C8763650044F937 /* TCWineTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01B8E381C8763650044F937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01B8E411C8763650044F937 /* TCWineUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C01B8E331C8763650044F937 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C01B8E171C8763650044F937 /* TCWine */;
+			targetProxy = C01B8E321C8763650044F937 /* PBXContainerItemProxy */;
+		};
+		C01B8E3E1C8763650044F937 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C01B8E171C8763650044F937 /* TCWine */;
+			targetProxy = C01B8E3D1C8763650044F937 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C01B8E241C8763650044F937 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C01B8E251C8763650044F937 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C01B8E291C8763650044F937 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C01B8E2A1C8763650044F937 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01B8E431C8763650044F937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01B8E441C8763650044F937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01B8E461C8763650044F937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TCWine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.TCWine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C01B8E471C8763650044F937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TCWine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.TCWine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C01B8E491C8763650044F937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TCWineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.TCWineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCWine.app/TCWine";
+			};
+			name = Debug;
+		};
+		C01B8E4A1C8763650044F937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TCWineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.TCWineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCWine.app/TCWine";
+			};
+			name = Release;
+		};
+		C01B8E4C1C8763650044F937 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TCWineUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.TCWineUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TCWine;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C01B8E4D1C8763650044F937 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TCWineUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.TCWineUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TCWine;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01B8E131C8763650044F937 /* Build configuration list for PBXProject "TCWine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01B8E431C8763650044F937 /* Debug */,
+				C01B8E441C8763650044F937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01B8E451C8763650044F937 /* Build configuration list for PBXNativeTarget "TCWine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01B8E461C8763650044F937 /* Debug */,
+				C01B8E471C8763650044F937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C01B8E481C8763650044F937 /* Build configuration list for PBXNativeTarget "TCWineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01B8E491C8763650044F937 /* Debug */,
+				C01B8E4A1C8763650044F937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C01B8E4B1C8763650044F937 /* Build configuration list for PBXNativeTarget "TCWineUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01B8E4C1C8763650044F937 /* Debug */,
+				C01B8E4D1C8763650044F937 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C01B8E101C8763650044F937 /* Project object */;
+}
