@@ -14,9 +14,12 @@
 
 @implementation WineMapVC
 
+@synthesize mapView = mapView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
 
 }
 
