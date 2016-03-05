@@ -30,9 +30,8 @@
     return [[self alloc]initWithClientSecret:clientSecret clientID:clientID categoryId:categoryId];
     }
 
--(void)foursquareAPI {
+-(void)foursquareAPI:(NSMutableArray*)wineryArray {
     NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
-    NSLog(@"URL: %@", url);
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
     
@@ -47,7 +46,27 @@
                 NSDictionary *foursquareJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&JSONError];
                 
                 if (!JSONError) {
-                    NSLog(@"%@", foursquareJSON);
+                    
+                    //Try casting the JSON data into a dictionary and then using a for-in loop on it. The wineries are being added as one object.
+                    
+                    NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.venues"];
+                    
+                    for (NSDictionary *foursquareData in jsonResponse) {
+                        Winery *winery = [Winery initWithWineryName:[foursquareData valueForKey:@"name"]];
+                        winery.address = [foursquareJSON valueForKeyPath:@"response.venues.location.formattedAddress"];
+                        winery.phoneNumber = [foursquareJSON valueForKeyPath:@"response.venues.contact.formattedPhone"];
+                        winery.website = [foursquareJSON valueForKeyPath:@"response.venues.url"];
+                        winery.longitude = [foursquareJSON valueForKeyPath:@"response.venues.location.lng"];
+                        winery.latitude = [foursquareJSON valueForKeyPath:@"response.venues.location.lat"];
+                        [wineryArray addObject:winery];
+                        NSLog(@"%lu", wineryArray.count);
+                    
+                    }
+
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                    });
+                    
                 } else {
                     NSLog(@"ERROR with JSON");
                 }

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Winery.h"
 
 @interface FoursquareAPI : NSObject
 
@@ -15,7 +16,7 @@
 -(id)initWithClientSecret:(NSString *)clientSecret clientID:(NSString *)clientID categoryId:(NSString*)categoryId;
 +(id)initWithClientSecret:(NSString *)clientSecret clientID:(NSString *)clientID categoryId:(NSString*)categoryId;
 
--(void)foursquareAPI;
+-(void)foursquareAPI:(NSMutableArray*)wineryArray;
 
 @end
 
