@@ -19,6 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CLLocationCoordinate2D mapZoomLocation;
+    mapZoomLocation.latitude = 44.954;
+    mapZoomLocation.longitude = -85.615;
+    _distanceSpan = 55000;
+    
+    _viewRegion = MKCoordinateRegionMakeWithDistance(mapZoomLocation, _distanceSpan, _distanceSpan);
+    [mapView setRegion:_viewRegion];
+
     _wineryArray = [NSMutableArray array];
     
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
@@ -27,8 +35,7 @@
 
     _foursquareAPI = [FoursquareAPI initWithClientSecret: _clientSecret clientID:_clientId categoryId: _categoryId];
 
-    [_foursquareAPI foursquareAPI:_wineryArray];
-
+    [_foursquareAPI foursquareAPI:_wineryArray mapView:mapView];
     
 }
 
@@ -37,14 +44,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
