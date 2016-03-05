@@ -19,6 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CLLocationCoordinate2D mapZoomLocation;
+    mapZoomLocation.latitude = 44.981;
+    mapZoomLocation.longitude = -85.565;
+    int distanceSpan = 55000;
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(mapZoomLocation, distanceSpan, distanceSpan);
+    
+    [mapView setRegion:viewRegion];
+
+
+    
     _wineryArray = [NSMutableArray array];
     
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
