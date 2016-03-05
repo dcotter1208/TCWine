@@ -17,6 +17,9 @@
 		C01B8E501C87668C0044F937 /* WineMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C01B8E4F1C87668C0044F937 /* WineMapVC.m */; };
 		C01B8E521C8768310044F937 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01B8E511C8768310044F937 /* MapKit.framework */; };
 		C01B8E541C8770140044F937 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C01B8E531C8770140044F937 /* .gitignore */; };
+		C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C01C89F1F0006E0C82 /* Winery.m */; };
+		C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */; };
+		C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,12 @@
 		C01B8E4F1C87668C0044F937 /* WineMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineMapVC.m; sourceTree = "<group>"; };
 		C01B8E511C8768310044F937 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C01B8E531C8770140044F937 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C0CE32BF1C89F1F0006E0C82 /* Winery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Winery.h; sourceTree = "<group>"; };
+		C0CE32C01C89F1F0006E0C82 /* Winery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Winery.m; sourceTree = "<group>"; };
+		C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteWine.h; sourceTree = "<group>"; };
+		C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteWine.m; sourceTree = "<group>"; };
+		C0CE32C61C8A47C8006E0C82 /* FoursquareAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareAPI.h; sourceTree = "<group>"; };
+		C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +123,7 @@
 				C01B8E241C8763650044F937 /* Main.storyboard */,
 				C01B8E271C8763650044F937 /* Assets.xcassets */,
 				C01B8E291C8763650044F937 /* LaunchScreen.storyboard */,
+				C0CE32C51C89F465006E0C82 /* Model */,
 				C01B8E2C1C8763650044F937 /* Info.plist */,
 				C01B8E531C8770140044F937 /* .gitignore */,
 				C01B8E1B1C8763650044F937 /* Supporting Files */,
@@ -145,6 +155,19 @@
 				C01B8E421C8763650044F937 /* Info.plist */,
 			);
 			path = TCWineUITests;
+			sourceTree = "<group>";
+		};
+		C0CE32C51C89F465006E0C82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C0CE32C61C8A47C8006E0C82 /* FoursquareAPI.h */,
+				C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */,
+				C0CE32BF1C89F1F0006E0C82 /* Winery.h */,
+				C0CE32C01C89F1F0006E0C82 /* Winery.m */,
+				C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */,
+				C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +302,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C01B8E501C87668C0044F937 /* WineMapVC.m in Sources */,
+				C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */,
+				C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */,
 				C01B8E201C8763650044F937 /* AppDelegate.m in Sources */,
 				C01B8E1D1C8763650044F937 /* main.m in Sources */,
+				C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +532,7 @@
 				C01B8E471C8763650044F937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01B8E481C8763650044F937 /* Build configuration list for PBXNativeTarget "TCWineTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +541,7 @@
 				C01B8E4A1C8763650044F937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01B8E4B1C8763650044F937 /* Build configuration list for PBXNativeTarget "TCWineUITests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +550,7 @@
 				C01B8E4D1C8763650044F937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
