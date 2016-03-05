@@ -19,6 +19,7 @@
 		C01B8E541C8770140044F937 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C01B8E531C8770140044F937 /* .gitignore */; };
 		C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C01C89F1F0006E0C82 /* Winery.m */; };
 		C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */; };
+		C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		C0CE32C01C89F1F0006E0C82 /* Winery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Winery.m; sourceTree = "<group>"; };
 		C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteWine.h; sourceTree = "<group>"; };
 		C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteWine.m; sourceTree = "<group>"; };
+		C0CE32C61C8A47C8006E0C82 /* FoursquareAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareAPI.h; sourceTree = "<group>"; };
+		C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 		C0CE32C51C89F465006E0C82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C0CE32C61C8A47C8006E0C82 /* FoursquareAPI.h */,
+				C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */,
 				C0CE32BF1C89F1F0006E0C82 /* Winery.h */,
 				C0CE32C01C89F1F0006E0C82 /* Winery.m */,
 				C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */,
@@ -297,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C01B8E501C87668C0044F937 /* WineMapVC.m in Sources */,
+				C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */,
 				C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */,
 				C01B8E201C8763650044F937 /* AppDelegate.m in Sources */,
 				C01B8E1D1C8763650044F937 /* main.m in Sources */,

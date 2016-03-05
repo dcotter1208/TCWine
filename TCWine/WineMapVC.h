@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FoursquareAPI.h"
 #import <MapKit/MapKit.h>
 
 @interface WineMapVC : UIViewController {
@@ -17,6 +18,9 @@
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
-
+@property(nonatomic, strong) NSString *clientSecret;
+@property(nonatomic, strong) NSString *clientId;
+@property(nonatomic, strong) NSString *categoryId;
+@property(nonatomic, strong) FoursquareAPI *foursquareAPI;
 
 @end
