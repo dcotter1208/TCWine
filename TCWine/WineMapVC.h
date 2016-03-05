@@ -21,6 +21,7 @@
 @property(nonatomic, strong) NSString *clientSecret;
 @property(nonatomic, strong) NSString *clientId;
 @property(nonatomic, strong) NSString *categoryId;
+@property(nonatomic, strong) NSMutableArray *wineryArray;
 @property(nonatomic, strong) FoursquareAPI *foursquareAPI;
 
 @end

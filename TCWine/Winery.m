@@ -10,4 +10,18 @@
 
 @implementation Winery
 
+-(id)initWithWineryName:(NSString *)wineryName {
+    self = [super init];
+    
+    if (self) {
+        _name = wineryName;
+    }
+    return self;
+}
+
++(id)initWithWineryName:(NSString *)wineryName {
+    return [[self alloc]initWithWineryName:wineryName];
+}
+
+
 @end
