@@ -33,6 +33,9 @@ DerivedData
 *.xcuserstate
 *.xcscmblueprint
 *.xcworkspace
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
 
 ## Obj-C/Swift specific
 *.hmap
