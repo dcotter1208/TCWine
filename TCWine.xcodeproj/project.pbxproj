@@ -20,6 +20,7 @@
 		C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C01C89F1F0006E0C82 /* Winery.m */; };
 		C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */; };
 		C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */; };
+		C0CE32CB1C8B6B88006E0C82 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32CA1C8B6B88006E0C82 /* Annotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteWine.m; sourceTree = "<group>"; };
 		C0CE32C61C8A47C8006E0C82 /* FoursquareAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareAPI.h; sourceTree = "<group>"; };
 		C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
+		C0CE32C91C8B6B88006E0C82 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		C0CE32CA1C8B6B88006E0C82 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 				C0CE32C01C89F1F0006E0C82 /* Winery.m */,
 				C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */,
 				C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */,
+				C0CE32C91C8B6B88006E0C82 /* Annotation.h */,
+				C0CE32CA1C8B6B88006E0C82 /* Annotation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				C01B8E501C87668C0044F937 /* WineMapVC.m in Sources */,
 				C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */,
 				C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */,
+				C0CE32CB1C8B6B88006E0C82 /* Annotation.m in Sources */,
 				C01B8E201C8763650044F937 /* AppDelegate.m in Sources */,
 				C01B8E1D1C8763650044F937 /* main.m in Sources */,
 				C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */,

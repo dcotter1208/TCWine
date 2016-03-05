@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface Winery : NSObject
 
@@ -15,8 +16,8 @@
 @property(nonatomic, strong) NSString *phoneNumber;
 @property(nonatomic, strong) NSString *website;
 @property(nonatomic, strong) NSString *wineryDescription;
-@property(nonatomic, strong) NSString *latitude;
-@property(nonatomic, strong) NSString *longitude;
+@property(nonatomic) double latitude;
+@property(nonatomic) double longitude;
 
 -(id)initWithWineryName:(NSString *)wineryName;
 +(id)initWithWineryName:(NSString *)wineryName;

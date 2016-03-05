@@ -30,7 +30,7 @@
     return [[self alloc]initWithClientSecret:clientSecret clientID:clientID categoryId:categoryId];
     }
 
--(void)foursquareAPI:(NSMutableArray*)wineryArray {
+-(void)foursquareAPI:(NSMutableArray *)wineryArray mapView:(MKMapView *)mapView {
     NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
@@ -52,19 +52,24 @@
                     NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.venues"];
                     
                     for (NSDictionary *foursquareData in jsonResponse) {
+                        
+                        NSLog(@"%@", foursquareData);
+                        
                         Winery *winery = [Winery initWithWineryName:[foursquareData valueForKey:@"name"]];
-                        winery.address = [foursquareJSON valueForKeyPath:@"response.venues.location.formattedAddress"];
-                        winery.phoneNumber = [foursquareJSON valueForKeyPath:@"response.venues.contact.formattedPhone"];
-                        winery.website = [foursquareJSON valueForKeyPath:@"response.venues.url"];
-                        winery.longitude = [foursquareJSON valueForKeyPath:@"response.venues.location.lng"];
-                        winery.latitude = [foursquareJSON valueForKeyPath:@"response.venues.location.lat"];
+                        winery.address = [foursquareData valueForKeyPath:@"location.formattedAddress"];
+                        winery.phoneNumber = [foursquareData valueForKeyPath:@"contact.formattedPhone"];
+                        winery.website = [foursquareData valueForKeyPath:@"url"];
+                        winery.longitude = [[foursquareData valueForKeyPath:@"location.lng"] doubleValue];
+                        winery.latitude = [[foursquareData valueForKeyPath:@"location.lat"] doubleValue];
+                        NSMutableArray *formattedAddress = [foursquareData valueForKeyPath:@"location.formattedAddress"];
+                        NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
+                        winery.address = fullAddress;
                         [wineryArray addObject:winery];
-                        NSLog(@"%lu", wineryArray.count);
                     
                     }
 
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        
+                        [self createAnnotation:mapView wineryArray:wineryArray];
                     });
                     
                 } else {
@@ -78,6 +83,14 @@
     }];
 
     [dataTask resume];
+}
+
+-(void)createAnnotation:(MKMapView *)mapView wineryArray:(NSMutableArray *)wineryArray {
+    for (Winery *winery in wineryArray) {
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(winery.latitude, winery.longitude);
+        Annotation *annotation = [Annotation initWithLocation:coordinate wineryName:winery.name wineryAddress:winery.address];
+        [mapView addAnnotation:annotation];
+    }
 }
 
 @end
