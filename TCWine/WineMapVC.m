@@ -41,6 +41,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    
     self.navigationController.navigationBarHidden = true;
 
 }
@@ -50,40 +51,37 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation
-{
-    MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"];
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation {
+    MKPinAnnotationView *ann = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"];
     
-    newAnnotation.canShowCallout = YES;
-    newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    ann.canShowCallout = YES;
+    ann.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
-    return newAnnotation;
+    return ann;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    NSLog(@"PIN TAPPED");
+    
+    [self setSelectedAnnotation:view.annotation];
+    
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    NSLog(@"Window TAPPEd");
     
     [self performSegueWithIdentifier:@"showDetailViewFromMap" sender:self];
-
+    
 }
 
-//- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-//    
-//    NSLog(@"Annotation Window Tapped");
-//    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    
-//     WineryDetailVC *viewController = (WineryDetailVC *)[storyboard instantiateViewControllerWithIdentifier:@"wineryDetailVC"];
-//    
-//    [self presentViewController:viewController animated:YES completion:nil];
-//
-//    NSLog(@"view.annotation.title: %@", view.annotation.title); // SHOWS THE TITLE
-//
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier  isEqual: @"showDetailViewFromMap"]) {
+        
+        WineryDetailVC *destinationVC = (WineryDetailVC *)segue.destinationViewController;
+        destinationVC.passedAnnotation = _selectedAnnotation;
+        
+    }
+
+}
 
 
 @end

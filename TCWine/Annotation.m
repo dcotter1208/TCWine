@@ -10,10 +10,11 @@
 
 @implementation Annotation
 
--(id)initWithLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle{
+-(id)initWithWinery:(Winery *)winery coordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle {
     self = [super init];
     
     if (self) {
+        _wineryAtAnnotation = winery;
         _title = title;
         _subtitle = subtitle;
         _coordinate = coordinate;
@@ -22,8 +23,8 @@
     return self;
 }
 
-+(id)initWithLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle{
-    return [[self alloc]initWithLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle];
++(id)initWithWinery:(Winery *)winery coordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle {
+    return [[self alloc]initWithWinery:winery coordinate:coordinate title:title subtitle:subtitle];
 }
 
 
