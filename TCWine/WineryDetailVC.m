@@ -16,26 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationController.navigationBarHidden = false;
-    
-    // Do any additional setup after loading the view.
-}
 
+    _winery = _passedAnnotation.wineryAtAnnotation;
+    
+    NSLog(@"Winery Name: %@", _winery.name);
+    NSLog(@"Winery Address: %@", _winery.address);
+    NSLog(@"Winery Website: %@", _winery.website);
+    NSLog(@"Winery Phone: %@", _winery.phoneNumber);
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
