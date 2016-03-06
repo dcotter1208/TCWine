@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
     CLLocationCoordinate2D mapZoomLocation;
     mapZoomLocation.latitude = 44.954;
     mapZoomLocation.longitude = -85.615;
@@ -38,6 +38,11 @@
 
     [_foursquareAPI foursquareAPI:_wineryArray mapView:mapView];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = true;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +66,8 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     NSLog(@"Window TAPPEd");
+    
+    [self performSegueWithIdentifier:@"showDetailViewFromMap" sender:self];
 
 }
 
