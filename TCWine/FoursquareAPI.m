@@ -52,9 +52,7 @@
                     NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.venues"];
                     
                     for (NSDictionary *foursquareData in jsonResponse) {
-                        
-                        NSLog(@"%@", foursquareData);
-                        
+                                                
                         Winery *winery = [Winery initWithWineryName:[foursquareData valueForKey:@"name"]];
                         winery.address = [foursquareData valueForKeyPath:@"location.formattedAddress"];
                         winery.phoneNumber = [foursquareData valueForKeyPath:@"contact.formattedPhone"];
@@ -88,7 +86,8 @@
 -(void)createAnnotation:(MKMapView *)mapView wineryArray:(NSMutableArray *)wineryArray {
     for (Winery *winery in wineryArray) {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(winery.latitude, winery.longitude);
-        Annotation *annotation = [Annotation initWithLocation:coordinate wineryName:winery.name wineryAddress:winery.address];
+        Annotation *annotation = [Annotation initWithLocation:coordinate title:winery.name subtitle:winery.address];
+        
         [mapView addAnnotation:annotation];
     }
 }

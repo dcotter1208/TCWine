@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Map-->
+        <!--Wine MapVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WineMapVC" sceneMemberID="viewController">
@@ -19,6 +19,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hp2-BH-rVf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rCw-OD-j2M"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -29,14 +32,15 @@
                             <constraint firstAttribute="bottom" secondItem="Hp2-BH-rVf" secondAttribute="bottom" id="nDc-Wy-u6f"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="Svs-Yo-7Gr"/>
+                    <navigationItem key="navigationItem" id="4SO-rc-GCG"/>
                     <connections>
                         <outlet property="mapView" destination="Hp2-BH-rVf" id="ey0-Jb-xF6"/>
+                        <segue destination="q9n-PX-Rkn" kind="show" identifier="showDetailViewFromMap" id="tBY-ss-GUz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="-45"/>
+            <point key="canvasLocation" x="1381" y="-45"/>
         </scene>
         <!--List-->
         <scene sceneID="tii-CC-2nc">
@@ -97,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="569" y="675"/>
         </scene>
-        <!--View Controller-->
+        <!--Winery DetailVC-->
         <scene sceneID="oCx-OK-5yc">
             <objects>
-                <viewController id="q9n-PX-Rkn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wineryDetailVC" id="q9n-PX-Rkn" customClass="WineryDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WWh-Te-M8i"/>
                         <viewControllerLayoutGuide type="bottom" id="zr0-cB-3gj"/>
@@ -113,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FtX-MP-hGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="675"/>
+            <point key="canvasLocation" x="2186" y="296"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8UC-nK-QPC">
@@ -125,7 +129,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MwF-LF-1qT"/>
+                        <segue destination="1XF-JB-my0" kind="relationship" relationship="viewControllers" id="MwF-LF-1qT"/>
                         <segue destination="i1i-Jg-nT8" kind="relationship" relationship="viewControllers" id="y38-Pf-RVQ"/>
                     </connections>
                 </tabBarController>
@@ -133,5 +137,27 @@
             </objects>
             <point key="canvasLocation" x="-113" y="-45"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="iKR-Wi-wnK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1XF-JB-my0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" id="Svs-Yo-7Gr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j3e-Mn-gq1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="QzQ-NW-ieB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqB-Xb-d3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="569" y="-45"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tBY-ss-GUz"/>
+    </inferredMetricsTieBreakers>
 </document>

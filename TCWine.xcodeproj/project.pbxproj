@@ -21,6 +21,7 @@
 		C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */; };
 		C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */; };
 		C0CE32CB1C8B6B88006E0C82 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32CA1C8B6B88006E0C82 /* Annotation.m */; };
+		C0CE32CE1C8BA4E4006E0C82 /* WineryDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32CD1C8BA4E4006E0C82 /* WineryDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
 		C0CE32C91C8B6B88006E0C82 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		C0CE32CA1C8B6B88006E0C82 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		C0CE32CC1C8BA4E4006E0C82 /* WineryDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryDetailVC.h; sourceTree = "<group>"; };
+		C0CE32CD1C8BA4E4006E0C82 /* WineryDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryDetailVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				C01B8E1F1C8763650044F937 /* AppDelegate.m */,
 				C01B8E4E1C87668C0044F937 /* WineMapVC.h */,
 				C01B8E4F1C87668C0044F937 /* WineMapVC.m */,
+				C0CE32CC1C8BA4E4006E0C82 /* WineryDetailVC.h */,
+				C0CE32CD1C8BA4E4006E0C82 /* WineryDetailVC.m */,
 				C01B8E241C8763650044F937 /* Main.storyboard */,
 				C01B8E271C8763650044F937 /* Assets.xcassets */,
 				C01B8E291C8763650044F937 /* LaunchScreen.storyboard */,
@@ -311,6 +316,7 @@
 				C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */,
 				C0CE32CB1C8B6B88006E0C82 /* Annotation.m in Sources */,
 				C01B8E201C8763650044F937 /* AppDelegate.m in Sources */,
+				C0CE32CE1C8BA4E4006E0C82 /* WineryDetailVC.m in Sources */,
 				C01B8E1D1C8763650044F937 /* main.m in Sources */,
 				C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */,
 			);

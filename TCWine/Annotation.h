@@ -11,12 +11,12 @@
 
 @interface Annotation : NSObject <MKAnnotation>
 
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *subtitle;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
--(id)initWithLocation:(CLLocationCoordinate2D)coordinate wineryName:(NSString *)wineryName wineryAddress:(NSString *)wineryAddress;
-+(id)initWithLocation:(CLLocationCoordinate2D)coordinate wineryName:(NSString *)wineryName wineryAddress:(NSString *)wineryAddress;
+-(id)initWithLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle;
++(id)initWithLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle;
 
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "WineMapVC.h"
+#import "WineryDetailVC.h"
 
 @interface WineMapVC ()
 
@@ -39,11 +40,50 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = true;
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation
+{
+    MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"];
+    
+    newAnnotation.canShowCallout = YES;
+    newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    return newAnnotation;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    NSLog(@"PIN TAPPED");
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    NSLog(@"Window TAPPEd");
+    
+    [self performSegueWithIdentifier:@"showDetailViewFromMap" sender:self];
+
+}
+
+//- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+//    
+//    NSLog(@"Annotation Window Tapped");
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    
+//     WineryDetailVC *viewController = (WineryDetailVC *)[storyboard instantiateViewControllerWithIdentifier:@"wineryDetailVC"];
+//    
+//    [self presentViewController:viewController animated:YES completion:nil];
+//
+//    NSLog(@"view.annotation.title: %@", view.annotation.title); // SHOWS THE TITLE
+//
+//}
 
 
 @end
