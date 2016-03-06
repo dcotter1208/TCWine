@@ -10,19 +10,20 @@
 
 @implementation Annotation
 
--(id)initWithLocation:(CLLocationCoordinate2D)coordinate wineryName:(NSString *)wineryName wineryAddress:(NSString *)wineryAddress{
+-(id)initWithLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle{
     self = [super init];
     
     if (self) {
+        _title = title;
+        _subtitle = subtitle;
         _coordinate = coordinate;
-        _title = wineryName;
-        _subtitle = wineryAddress;
+
     }
     return self;
 }
 
-+(id)initWithLocation:(CLLocationCoordinate2D)coordinate wineryName:(NSString *)wineryName wineryAddress:(NSString *)wineryAddress{
-    return [[self alloc]initWithLocation:coordinate wineryName:wineryName wineryAddress:wineryAddress];
++(id)initWithLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle{
+    return [[self alloc]initWithLocation:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle];
 }
 
 
