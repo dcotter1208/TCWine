@@ -22,18 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = false;
-
     _winery = _passedAnnotation.wineryAtAnnotation;
+    
+    [self displayWineryDetails];
     
     NSLog(@"Winery Name: %@", _winery.name);
     NSLog(@"Winery Address: %@", _winery.address);
     NSLog(@"Winery Website: %@", _winery.website);
     NSLog(@"Winery Phone: %@", _winery.phoneNumber);
     
-    self.wineryNameCellLabel.text = _winery.name;
-    self.wineryAddressLabel.text = _winery.address;
-    self.wineryPhoneLabel.text = _winery.phoneNumber;
-    self.wineryWebsiteLabel.text = _winery.website;
+
     
 }
 
@@ -61,6 +59,13 @@
 //    
 //    return cell;
 //}
+
+-(void)displayWineryDetails{
+    self.wineryNameCellLabel.text = _winery.name;
+    self.wineryAddressLabel.text = _winery.address;
+    self.wineryPhoneLabel.text = _winery.phoneNumber;
+    self.wineryWebsiteLabel.text = _winery.website;
+}
 
 
 @end
