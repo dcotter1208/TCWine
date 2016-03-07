@@ -18,6 +18,8 @@
 @property(nonatomic, strong) NSString *wineryDescription;
 @property(nonatomic) double latitude;
 @property(nonatomic) double longitude;
+@property(nonatomic, strong) NSMutableArray *photos;
+@property(nonatomic, strong) NSString *wineryId;
 
 -(id)initWithWineryName:(NSString *)wineryName;
 +(id)initWithWineryName:(NSString *)wineryName;
