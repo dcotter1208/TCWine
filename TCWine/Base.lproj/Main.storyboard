@@ -58,7 +58,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRp-1p-eaQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-129" y="423"/>
+            <point key="canvasLocation" x="-27" y="385"/>
         </scene>
         <!--Map-->
         <scene sceneID="iKR-Wi-wnK">
@@ -249,7 +249,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2103" y="311"/>
+            <point key="canvasLocation" x="2111" y="311"/>
         </scene>
         <!--Item-->
         <scene sceneID="vhI-So-YcL">

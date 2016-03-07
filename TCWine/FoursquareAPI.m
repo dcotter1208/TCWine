@@ -61,8 +61,6 @@
                         winery.latitude = [[foursquareData valueForKeyPath:@"location.lat"] doubleValue];
                         winery.wineryId = [foursquareData valueForKeyPath:@"id"];
                         NSMutableArray *formattedAddress = [foursquareData valueForKeyPath:@"location.formattedAddress"];
-                        NSLog(@"Winery: %@", winery.name);
-                        NSLog(@"Formatted Address[0]: %@", formattedAddress[0]);
                         NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
                         winery.address = fullAddress;
                         
