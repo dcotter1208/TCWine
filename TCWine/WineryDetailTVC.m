@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = false;
+    
     _winery = _passedAnnotation.wineryAtAnnotation;
     
     [self displayWineryDetails];
@@ -30,9 +31,7 @@
     NSLog(@"Winery Address: %@", _winery.address);
     NSLog(@"Winery Website: %@", _winery.website);
     NSLog(@"Winery Phone: %@", _winery.phoneNumber);
-    
 
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,31 +39,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
-
 -(void)displayWineryDetails{
     self.wineryNameCellLabel.text = _winery.name;
     self.wineryAddressLabel.text = _winery.address;
-    self.wineryPhoneLabel.text = _winery.phoneNumber;
-    self.wineryWebsiteLabel.text = _winery.website;
+    
+    if (_winery.phoneNumber == NULL){
+        self.wineryPhoneLabel.text = @"Not Available";
+    } else {
+        self.wineryPhoneLabel.text = _winery.phoneNumber;
+    }
+    
+    if (_winery.website == NULL){
+        self.wineryWebsiteLabel.text = @"Not Available";
+    } else {
+        self.wineryWebsiteLabel.text = _winery.website;
+    }
+    
 }
 
 
