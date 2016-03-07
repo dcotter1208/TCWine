@@ -52,16 +52,21 @@
                     NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.venues"];
                     
                     for (NSDictionary *foursquareData in jsonResponse) {
-                                                
+                        
+//                        NSLog(@"%@", foursquareData);
+                        
                         Winery *winery = [Winery initWithWineryName:[foursquareData valueForKey:@"name"]];
                         winery.address = [foursquareData valueForKeyPath:@"location.formattedAddress"];
                         winery.phoneNumber = [foursquareData valueForKeyPath:@"contact.formattedPhone"];
                         winery.website = [foursquareData valueForKeyPath:@"url"];
                         winery.longitude = [[foursquareData valueForKeyPath:@"location.lng"] doubleValue];
                         winery.latitude = [[foursquareData valueForKeyPath:@"location.lat"] doubleValue];
+                        winery.wineryId = [foursquareData valueForKeyPath:@"id"];
                         NSMutableArray *formattedAddress = [foursquareData valueForKeyPath:@"location.formattedAddress"];
                         NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
                         winery.address = fullAddress;
+                        
+                        NSLog(@"ID: %@", winery.wineryId);
                         [wineryArray addObject:winery];
                     
                     }
