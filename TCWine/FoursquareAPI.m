@@ -46,9 +46,7 @@
                 NSDictionary *foursquareJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&JSONError];
                 
                 if (!JSONError) {
-                    
-                    //Try casting the JSON data into a dictionary and then using a for-in loop on it. The wineries are being added as one object.
-                    
+
                     NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.venues"];
                     
                     for (NSDictionary *foursquareData in jsonResponse) {
