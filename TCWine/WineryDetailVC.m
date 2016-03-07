@@ -20,10 +20,7 @@
 
     _winery = _passedAnnotation.wineryAtAnnotation;
     
-    NSLog(@"Winery Name: %@", _winery.name);
-    NSLog(@"Winery Address: %@", _winery.address);
-    NSLog(@"Winery Website: %@", _winery.website);
-    NSLog(@"Winery Phone: %@", _winery.phoneNumber);
+
     
 }
 

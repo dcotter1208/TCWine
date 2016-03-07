@@ -66,7 +66,6 @@
                         NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
                         winery.address = fullAddress;
                         
-                        NSLog(@"ID: %@", winery.wineryId);
                         [wineryArray addObject:winery];
                     
                     }
