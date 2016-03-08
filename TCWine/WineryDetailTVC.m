@@ -26,6 +26,7 @@
 
     _foursquarePhotoArray = [NSMutableArray array];
     _foursquarePhotoData = [NSDictionary dictionary];
+    _imageArray = [NSMutableArray array];
 
     _winery = _passedAnnotation.wineryAtAnnotation;
     
@@ -44,8 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _foursquarePhotoArray.count;
+    return _imageArray.count;
 }
 
 
@@ -56,13 +58,9 @@
     
     UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
     
-    Photo *photo = [_foursquarePhotoArray objectAtIndex:indexPath.row];
+    _image = [_imageArray objectAtIndex:indexPath.row];
     
-    wineryImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photo.photoURLString]]];
-    
-//    wineryImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_photoURL]]];
-    
-//    wineryImageView.image = [UIImage imageNamed:[_foursquarePhotoArray objectAtIndex:indexPath.row]];
+    wineryImageView.image = _image;
     
     return cell;
 }
@@ -86,10 +84,8 @@
 }
 
 -(void)getFoursquarePhotos {
-    
-    
+
     FoursquarePhotosAPI *foursquarePhotoAPI = [FoursquarePhotosAPI initWithClientSecret:_clientSecret clientID:_clientId venueId:_venueId];
-    
     
     [foursquarePhotoAPI foursquarePhotosAPI:^(NSDictionary *data) {
        
@@ -98,12 +94,16 @@
         for (NSDictionary *foursquarePhotos in _foursquarePhotoData) {
             _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:@"450x450" suffix:[foursquarePhotos valueForKey:@"suffix"]];
             [_foursquarePhotoArray addObject:_photo];
-            NSLog(@"%@", _photo.photoURLString);
+            
+            _image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_photo.photoURLString]]];
+            [_imageArray addObject:_image];
+            NSLog(@"%lu", _imageArray.count);
+
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             _photoURL = _photo.photoURLString;
-            NSLog(@"%@", _photoURL);
             [self.collectionView reloadData];
             
         });
