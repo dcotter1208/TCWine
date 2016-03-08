@@ -18,11 +18,13 @@
 		C01B8E521C8768310044F937 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01B8E511C8768310044F937 /* MapKit.framework */; };
 		C01B8E541C8770140044F937 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C01B8E531C8770140044F937 /* .gitignore */; };
 		C04E59BC1C8DD7E60097684B /* WineryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E59BB1C8DD7E60097684B /* WineryListVC.m */; };
+		C04E59BF1C8DE00C0097684B /* WineryDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E59BE1C8DE00C0097684B /* WineryDetailTVC.m */; };
+		C04E59C21C8E04E30097684B /* FoursquarePhotosAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E59C11C8E04E30097684B /* FoursquarePhotosAPI.m */; };
+		C04E59C51C8E567C0097684B /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E59C41C8E567C0097684B /* Photo.m */; };
 		C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C01C89F1F0006E0C82 /* Winery.m */; };
 		C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */; };
 		C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */; };
 		C0CE32CB1C8B6B88006E0C82 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32CA1C8B6B88006E0C82 /* Annotation.m */; };
-		C0CE32CE1C8BA4E4006E0C82 /* WineryDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32CD1C8BA4E4006E0C82 /* WineryDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,12 @@
 		C01B8E531C8770140044F937 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C04E59BA1C8DD7E60097684B /* WineryListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryListVC.h; sourceTree = "<group>"; };
 		C04E59BB1C8DD7E60097684B /* WineryListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryListVC.m; sourceTree = "<group>"; };
+		C04E59BD1C8DE00C0097684B /* WineryDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryDetailTVC.h; sourceTree = "<group>"; };
+		C04E59BE1C8DE00C0097684B /* WineryDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryDetailTVC.m; sourceTree = "<group>"; };
+		C04E59C01C8E04E30097684B /* FoursquarePhotosAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquarePhotosAPI.h; sourceTree = "<group>"; };
+		C04E59C11C8E04E30097684B /* FoursquarePhotosAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquarePhotosAPI.m; sourceTree = "<group>"; };
+		C04E59C31C8E567C0097684B /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		C04E59C41C8E567C0097684B /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		C0CE32BF1C89F1F0006E0C82 /* Winery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Winery.h; sourceTree = "<group>"; };
 		C0CE32C01C89F1F0006E0C82 /* Winery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Winery.m; sourceTree = "<group>"; };
 		C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteWine.h; sourceTree = "<group>"; };
@@ -71,8 +79,6 @@
 		C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
 		C0CE32C91C8B6B88006E0C82 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		C0CE32CA1C8B6B88006E0C82 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
-		C0CE32CC1C8BA4E4006E0C82 /* WineryDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryDetailVC.h; sourceTree = "<group>"; };
-		C0CE32CD1C8BA4E4006E0C82 /* WineryDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryDetailVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +137,8 @@
 				C01B8E4F1C87668C0044F937 /* WineMapVC.m */,
 				C04E59BA1C8DD7E60097684B /* WineryListVC.h */,
 				C04E59BB1C8DD7E60097684B /* WineryListVC.m */,
-				C0CE32CC1C8BA4E4006E0C82 /* WineryDetailVC.h */,
-				C0CE32CD1C8BA4E4006E0C82 /* WineryDetailVC.m */,
+				C04E59BD1C8DE00C0097684B /* WineryDetailTVC.h */,
+				C04E59BE1C8DE00C0097684B /* WineryDetailTVC.m */,
 				C01B8E241C8763650044F937 /* Main.storyboard */,
 				C01B8E271C8763650044F937 /* Assets.xcassets */,
 				C01B8E291C8763650044F937 /* LaunchScreen.storyboard */,
@@ -175,8 +181,12 @@
 			children = (
 				C0CE32C61C8A47C8006E0C82 /* FoursquareAPI.h */,
 				C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */,
+				C04E59C01C8E04E30097684B /* FoursquarePhotosAPI.h */,
+				C04E59C11C8E04E30097684B /* FoursquarePhotosAPI.m */,
 				C0CE32BF1C89F1F0006E0C82 /* Winery.h */,
 				C0CE32C01C89F1F0006E0C82 /* Winery.m */,
+				C04E59C31C8E567C0097684B /* Photo.h */,
+				C04E59C41C8E567C0097684B /* Photo.m */,
 				C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */,
 				C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */,
 				C0CE32C91C8B6B88006E0C82 /* Annotation.h */,
@@ -318,13 +328,15 @@
 			files = (
 				C01B8E501C87668C0044F937 /* WineMapVC.m in Sources */,
 				C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */,
+				C04E59BF1C8DE00C0097684B /* WineryDetailTVC.m in Sources */,
 				C04E59BC1C8DD7E60097684B /* WineryListVC.m in Sources */,
 				C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */,
 				C0CE32CB1C8B6B88006E0C82 /* Annotation.m in Sources */,
 				C01B8E201C8763650044F937 /* AppDelegate.m in Sources */,
-				C0CE32CE1C8BA4E4006E0C82 /* WineryDetailVC.m in Sources */,
 				C01B8E1D1C8763650044F937 /* main.m in Sources */,
+				C04E59C51C8E567C0097684B /* Photo.m in Sources */,
 				C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */,
+				C04E59C21C8E04E30097684B /* FoursquarePhotosAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

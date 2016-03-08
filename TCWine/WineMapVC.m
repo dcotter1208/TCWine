@@ -7,7 +7,7 @@
 //
 
 #import "WineMapVC.h"
-#import "WineryDetailVC.h"
+#import "WineryDetailTVC.h"
 
 @interface WineMapVC ()
 
@@ -77,7 +77,7 @@
     
     if ([segue.identifier  isEqual: @"showDetailViewFromMap"]) {
         
-        WineryDetailVC *destinationVC = (WineryDetailVC *)segue.destinationViewController;
+        WineryDetailTVC *destinationVC = (WineryDetailTVC *)segue.destinationViewController;
         destinationVC.passedAnnotation = _selectedAnnotation;
         
     }
