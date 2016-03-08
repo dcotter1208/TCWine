@@ -272,6 +272,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="collectionView" destination="2MZ-le-cLp" id="WOT-hY-K1Z"/>
                         <outlet property="wineryAddressLabel" destination="Pv7-Ii-krC" id="kGp-DV-Exf"/>
                         <outlet property="wineryNameCellLabel" destination="GUJ-jk-UDe" id="eW2-iM-Bfx"/>
                         <outlet property="wineryPhoneLabel" destination="Y8K-qb-uNG" id="M5E-hT-cLi"/>

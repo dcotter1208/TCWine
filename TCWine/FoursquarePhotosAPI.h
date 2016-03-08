@@ -16,6 +16,7 @@
 -(id)initWithClientSecret:(NSString *)clientSecret clientID:(NSString *)clientID venueId:(NSString*)venueId;
 +(id)initWithClientSecret:(NSString *)clientSecret clientID:(NSString *)clientID venueId:(NSString*)venueId;
 
--(void)foursquarePhotosAPI:(NSMutableArray *)photosArray;
+// handler:(void(^)(NSError*, NSDictionary *data))handler
+-(void)foursquarePhotosAPI:(void(^)(NSDictionary *data))handler;
 
 @end

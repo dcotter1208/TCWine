@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *wineryAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wineryPhoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wineryWebsiteLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -21,11 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _foursquarePhotoArray = [NSMutableArray array];
-
     self.navigationController.navigationBarHidden = false;
-    
+
+    _foursquarePhotoArray = [NSMutableArray array];
+    _foursquarePhotoData = [NSDictionary dictionary];
+
     _winery = _passedAnnotation.wineryAtAnnotation;
     
     [self displayWineryDetails];    
@@ -33,10 +34,8 @@
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
     _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
     _venueId = _winery.wineryId;
-
-    FoursquarePhotosAPI *foursquarePhotoAPI = [FoursquarePhotosAPI initWithClientSecret:_clientSecret clientID:_clientId venueId:_venueId];
     
-    [foursquarePhotoAPI foursquarePhotosAPI:_foursquarePhotoArray];
+    [self getFoursquarePhotos];
     
 }
 
@@ -55,17 +54,11 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    Photo *photo = [[Photo alloc]init];
-    
-    _photoURL = photo.photoURLString;
-    
     UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
     
     wineryImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_photoURL]]];
     
-    NSLog(@"%@", _photoURL);
-    
-    wineryImageView.image = [UIImage imageNamed:[_foursquarePhotoArray objectAtIndex:indexPath.row]];
+//    wineryImageView.image = [UIImage imageNamed:[_foursquarePhotoArray objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -85,6 +78,33 @@
     } else {
         self.wineryWebsiteLabel.text = _winery.website;
     }
+    
+}
+
+-(void)getFoursquarePhotos {
+    
+    
+    FoursquarePhotosAPI *foursquarePhotoAPI = [FoursquarePhotosAPI initWithClientSecret:_clientSecret clientID:_clientId venueId:_venueId];
+    
+    
+    [foursquarePhotoAPI foursquarePhotosAPI:^(NSDictionary *data) {
+       
+        _foursquarePhotoData = data;
+        
+        for (NSDictionary *foursquarePhotos in _foursquarePhotoData) {
+            _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:@"450x450" suffix:[foursquarePhotos valueForKey:@"suffix"]];
+            [_foursquarePhotoArray addObject:_photo];
+            NSLog(@"%@", _photo.photoURLString);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _photoURL = _photo.photoURLString;
+            NSLog(@"%@", _photoURL);
+            [self.collectionView reloadData];
+            
+        });
+    }];
+    
     
 }
 
