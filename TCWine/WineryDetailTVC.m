@@ -56,7 +56,11 @@
     
     UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
     
-    wineryImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_photoURL]]];
+    Photo *photo = [_foursquarePhotoArray objectAtIndex:indexPath.row];
+    
+    wineryImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photo.photoURLString]]];
+    
+//    wineryImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_photoURL]]];
     
 //    wineryImageView.image = [UIImage imageNamed:[_foursquarePhotoArray objectAtIndex:indexPath.row]];
     
