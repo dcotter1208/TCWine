@@ -10,7 +10,7 @@
 
 @implementation Photo
 
--(id)initWithPrefix:(NSString *)prefix size:(NSString *)size suffix:(NSString *)suffix{
+-(id)initWithPrefix:(NSString *)prefix size:(NSString *)size suffix:(NSString *)suffix {
     self = [super init];
     
     if (self) {

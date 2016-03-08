@@ -10,12 +10,15 @@
 #import "Winery.h"
 #import "Annotation.h"
 #import "FoursquarePhotosAPI.h"
+#import "Photo.h"
 
-@interface WineryDetailTVC : UITableViewController
+@interface WineryDetailTVC : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property(nonatomic, strong) Winery *winery;
 @property(nonatomic, strong) Annotation *passedAnnotation;
-@property(nonatomic, strong) NSMutableArray *photosArray;
+
+@property(nonatomic, strong) NSMutableArray *foursquarePhotoArray;
+@property(nonatomic, strong) NSString *photoURL;
 @property(nonatomic, strong) NSString *wineryId;
 @property(nonatomic, strong) NSString *clientSecret;
 @property(nonatomic, strong) NSString *clientId;

@@ -21,19 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _foursquarePhotoArray = [NSMutableArray array];
 
     self.navigationController.navigationBarHidden = false;
     
     _winery = _passedAnnotation.wineryAtAnnotation;
     
-    [self displayWineryDetails];
-    
-//    NSLog(@"Winery Name: %@", _winery.name);
-//    NSLog(@"Winery Address: %@", _winery.address);
-//    NSLog(@"Winery Website: %@", _winery.website);
-//    NSLog(@"Winery Phone: %@", _winery.phoneNumber);
-    NSLog(@"Winery ID: %@", _winery.wineryId);
-    
+    [self displayWineryDetails];    
     
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
     _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
@@ -41,12 +36,38 @@
 
     FoursquarePhotosAPI *foursquarePhotoAPI = [FoursquarePhotosAPI initWithClientSecret:_clientSecret clientID:_clientId venueId:_venueId];
     
-    [foursquarePhotoAPI foursquarePhotosAPI:_photosArray];
+    [foursquarePhotoAPI foursquarePhotosAPI:_foursquarePhotoArray];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _foursquarePhotoArray.count;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"photoCell";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    Photo *photo = [[Photo alloc]init];
+    
+    _photoURL = photo.photoURLString;
+    
+    UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
+    
+    wineryImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_photoURL]]];
+    
+    NSLog(@"%@", _photoURL);
+    
+    wineryImageView.image = [UIImage imageNamed:[_foursquarePhotoArray objectAtIndex:indexPath.row]];
+    
+    return cell;
 }
 
 -(void)displayWineryDetails{
