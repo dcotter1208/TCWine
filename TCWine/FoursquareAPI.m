@@ -50,9 +50,7 @@
                     NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.venues"];
                     
                     for (NSDictionary *foursquareData in jsonResponse) {
-                        
-//                        NSLog(@"%@", foursquareData);
-                        
+        
                         Winery *winery = [Winery initWithWineryName:[foursquareData valueForKey:@"name"]];
                         winery.address = [foursquareData valueForKeyPath:@"location.formattedAddress"];
                         winery.phoneNumber = [foursquareData valueForKeyPath:@"contact.formattedPhone"];

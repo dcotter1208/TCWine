@@ -38,6 +38,7 @@
 
     [_foursquareAPI foursquareAPI:_wineryArray mapView:mapView];
     
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {

@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *wineryAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wineryPhoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wineryWebsiteLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -21,32 +22,47 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.navigationController.navigationBarHidden = false;
-    
+
+    _foursquarePhotoArray = [NSMutableArray array];
+    _foursquarePhotoData = [NSDictionary dictionary];
+    _imageArray = [NSMutableArray array];
+
     _winery = _passedAnnotation.wineryAtAnnotation;
     
-    [self displayWineryDetails];
-    
-//    NSLog(@"Winery Name: %@", _winery.name);
-//    NSLog(@"Winery Address: %@", _winery.address);
-//    NSLog(@"Winery Website: %@", _winery.website);
-//    NSLog(@"Winery Phone: %@", _winery.phoneNumber);
-    NSLog(@"Winery ID: %@", _winery.wineryId);
-    
+    [self displayWineryDetails];    
     
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
     _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
     _venueId = _winery.wineryId;
-
-    FoursquarePhotosAPI *foursquarePhotoAPI = [FoursquarePhotosAPI initWithClientSecret:_clientSecret clientID:_clientId venueId:_venueId];
     
-    [foursquarePhotoAPI foursquarePhotosAPI:_photosArray];
+    [self getFoursquarePhotos];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _imageArray.count;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"photoCell";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
+    
+    _image = [_imageArray objectAtIndex:indexPath.row];
+    
+    wineryImageView.image = _image;
+    
+    return cell;
 }
 
 -(void)displayWineryDetails{
@@ -64,6 +80,35 @@
     } else {
         self.wineryWebsiteLabel.text = _winery.website;
     }
+    
+}
+
+-(void)getFoursquarePhotos {
+
+    FoursquarePhotosAPI *foursquarePhotoAPI = [FoursquarePhotosAPI initWithClientSecret:_clientSecret clientID:_clientId venueId:_venueId];
+    
+    [foursquarePhotoAPI foursquarePhotosAPI:^(NSDictionary *data) {
+       
+        _foursquarePhotoData = data;
+        
+        for (NSDictionary *foursquarePhotos in _foursquarePhotoData) {
+            _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:@"450x450" suffix:[foursquarePhotos valueForKey:@"suffix"]];
+            [_foursquarePhotoArray addObject:_photo];
+            
+            _image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_photo.photoURLString]]];
+            [_imageArray addObject:_image];
+            NSLog(@"%lu", _imageArray.count);
+
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            _photoURL = _photo.photoURLString;
+            [self.collectionView reloadData];
+            
+        });
+    }];
+    
     
 }
 

@@ -24,9 +24,9 @@
     return [[self alloc]initWithClientSecret:clientSecret clientID:clientID venueId:venueId];
 }
 
--(void)foursquarePhotosAPI:(NSMutableArray *)photosArray {
+// handler:(void(^)(NSError*, NSDictionary *data))handler
+-(void)foursquarePhotosAPI:(void(^)(NSDictionary *data))handler {
     NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
-    
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
     
@@ -43,21 +43,11 @@
                 if (!JSONError) {
 
                     NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.photos.items"];
-                                        
-                    for (NSDictionary *foursquarePhotoData in jsonResponse) {
-                        
-                        NSString *prefix = [foursquarePhotoData valueForKey:@"prefix"];
-                        NSString *size = @"450x450";
-                        NSString *suffix = [foursquarePhotoData valueForKey:@"suffix"];
-                        
-                        Photo *photo = [Photo initWithPrefix:prefix size:size suffix:suffix];
 
-                        NSLog(@"%@", photo.photoURLString);
-                    }
-                    dispatch_async(dispatch_get_main_queue(), ^{
-
-                    });
+                    NSDictionary *foursquareData = (NSDictionary *)jsonResponse;
                     
+                    handler(foursquareData);
+
                 } else {
                     NSLog(@"ERROR with JSON");
                 }
@@ -67,7 +57,6 @@
         } else {
             NSLog(@"ERROR with Network Call");
         }
-        
     }];
     
     [dataTask resume];
