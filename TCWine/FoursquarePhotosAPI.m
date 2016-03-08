@@ -14,11 +14,9 @@
     self = [super init];
     
     if (self) {
-
-        _foursquareAPIURLString = [NSString stringWithFormat: @"https://api.foursquare.com/v2/venues/%@/photos?&v=20130815&client_id=%@&client_secret=%@", venueId, clientID, clientSecret];
         
+        _foursquareAPIURLString = [NSString stringWithFormat: @"https://api.foursquare.com/v2/venues/%@/photos?&group=venue&limit=150&v=20130815&client_id=%@&client_secret=%@", venueId, clientID, clientSecret];
     }
-    
     return self;
 }
 
@@ -28,8 +26,6 @@
 
 -(void)foursquarePhotosAPI:(NSMutableArray *)photosArray {
     NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
-    NSLog(@"%@", _foursquareAPIURLString);
-    NSLog(@"Called 1");
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
@@ -41,23 +37,25 @@
             
             if (URLResponse.statusCode == 200) {
                 NSError *JSONError;
-                NSLog(@"Called 3");
 
                 NSDictionary *foursquareJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&JSONError];
-//                NSLog(@"%@", foursquareJSON);
-                NSLog(@"Called 4");
 
                 if (!JSONError) {
 
-                    NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.photos"];
-                    
-                    NSLog(@"%@", jsonResponse);
-                    
-//                    for (NSDictionary *foursquarePhotoData in jsonResponse) {
-//                        NSLog(@"%@", foursquarePhotoData);
-//                    }
+                    NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.photos.items"];
+                                        
+                    for (NSDictionary *foursquarePhotoData in jsonResponse) {
+                        
+                        NSString *prefix = [foursquarePhotoData valueForKey:@"prefix"];
+                        NSString *size = @"450x450";
+                        NSString *suffix = [foursquarePhotoData valueForKey:@"suffix"];
+                        
+                        Photo *photo = [Photo initWithPrefix:prefix size:size suffix:suffix];
+
+                        NSLog(@"%@", photo.photoURLString);
+                    }
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        NSLog(@"Called 5");
+
                     });
                     
                 } else {
