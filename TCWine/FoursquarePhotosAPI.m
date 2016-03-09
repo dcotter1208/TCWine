@@ -44,8 +44,5 @@
     [operation start];
 }
 
--(void)getPhotoFromURL{
-    
-}
 
 @end

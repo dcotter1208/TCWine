@@ -58,6 +58,7 @@
     UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
     
     Photo *photo = [_foursquarePhotoArray objectAtIndex:indexPath.row];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [wineryImageView setImageWithURL:[NSURL URLWithString:photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
     });
@@ -115,8 +116,7 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-//            _foursquareMaxTenItemsArray = [_foursquarePhotoArray subarrayWithRange:NSMakeRange(0, 10)];
-//            NSLog(@"%lu", _foursquareMaxTenItemsArray.count);
+
             [self.collectionView reloadData];
             
         });
