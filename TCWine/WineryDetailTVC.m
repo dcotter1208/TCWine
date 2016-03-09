@@ -47,7 +47,7 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _imageArray.count;
+    return _foursquarePhotoArray.count;
 }
 
 
@@ -58,9 +58,10 @@
     
     UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
     
-    _image = [_imageArray objectAtIndex:indexPath.row];
-    
-    wineryImageView.image = _image;
+    Photo *photo = [_foursquarePhotoArray objectAtIndex:indexPath.row];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [wineryImageView setImageWithURL:[NSURL URLWithString:photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
+    });
     
     return cell;
 }
@@ -94,16 +95,12 @@
         for (NSDictionary *foursquarePhotos in _foursquarePhotoData) {
             _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:@"450x450" suffix:[foursquarePhotos valueForKey:@"suffix"]];
             [_foursquarePhotoArray addObject:_photo];
-            
-            _image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_photo.photoURLString]]];
-            [_imageArray addObject:_image];
-            NSLog(@"%lu", _imageArray.count);
+            NSLog(@"%lu", _foursquarePhotoArray.count);
 
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            _photoURL = _photo.photoURLString;
             [self.collectionView reloadData];
             
         });
