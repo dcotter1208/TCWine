@@ -7,7 +7,6 @@
 //
 
 #import "FoursquarePhotosAPI.h"
-#import "AFNetworking.h"
 
 @implementation FoursquarePhotosAPI
 
@@ -26,12 +25,24 @@
 }
 
 -(void)foursquarePhotosAPI:(void(^)(NSDictionary *data))handler{
+    
     NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *foursquareData = [responseObject valueForKeyPath:@"response.photos.items"];
+        NSLog(@"%@", foursquareData);
+        handler(foursquareData);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Network Operation Failed");
+    }];
 
+    [operation start];
 }
 
 //-(void)foursquarePhotosAPI:(void(^)(NSDictionary *data))handler {
