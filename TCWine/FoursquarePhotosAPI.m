@@ -7,6 +7,7 @@
 //
 
 #import "FoursquarePhotosAPI.h"
+#import "AFNetworking.h"
 
 @implementation FoursquarePhotosAPI
 
@@ -24,42 +25,50 @@
     return [[self alloc]initWithClientSecret:clientSecret clientID:clientID venueId:venueId];
 }
 
-// handler:(void(^)(NSError*, NSDictionary *data))handler
--(void)foursquarePhotosAPI:(void(^)(NSDictionary *data))handler {
+-(void)foursquarePhotosAPI:(void(^)(NSDictionary *data))handler{
     NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
 
-        if (!error) {
-            NSHTTPURLResponse *URLResponse = (NSHTTPURLResponse*) response;
-            
-            if (URLResponse.statusCode == 200) {
-                NSError *JSONError;
-
-                NSDictionary *foursquareJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&JSONError];
-
-                if (!JSONError) {
-
-                    NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.photos.items"];
-
-                    NSDictionary *foursquareData = (NSDictionary *)jsonResponse;
-                    
-                    handler(foursquareData);
-
-                } else {
-                    NSLog(@"ERROR with JSON");
-                }
-            } else {
-                NSLog(@"STATUS CODE: %@", URLResponse);
-            }
-        } else {
-            NSLog(@"ERROR with Network Call");
-        }
-    }];
-    
-    [dataTask resume];
 }
+
+//-(void)foursquarePhotosAPI:(void(^)(NSDictionary *data))handler {
+//    NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
+//    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+//    
+//    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//
+//        if (!error) {
+//            NSHTTPURLResponse *URLResponse = (NSHTTPURLResponse*) response;
+//            
+//            if (URLResponse.statusCode == 200) {
+//                NSError *JSONError;
+//
+//                NSDictionary *foursquareJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&JSONError];
+//
+//                if (!JSONError) {
+//
+//                    NSMutableArray *jsonResponse = [foursquareJSON valueForKeyPath: @"response.photos.items"];
+//
+//                    NSDictionary *foursquareData = (NSDictionary *)jsonResponse;
+//                    
+//                    handler(foursquareData);
+//
+//                } else {
+//                    NSLog(@"ERROR with JSON");
+//                }
+//            } else {
+//                NSLog(@"STATUS CODE: %@", URLResponse);
+//            }
+//        } else {
+//            NSLog(@"ERROR with Network Call");
+//        }
+//    }];
+//    
+//    [dataTask resume];
+//}
 
 @end

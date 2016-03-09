@@ -22,6 +22,7 @@
 		C04E59BF1C8DE00C0097684B /* WineryDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E59BE1C8DE00C0097684B /* WineryDetailTVC.m */; };
 		C04E59C21C8E04E30097684B /* FoursquarePhotosAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E59C11C8E04E30097684B /* FoursquarePhotosAPI.m */; };
 		C04E59C51C8E567C0097684B /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C04E59C41C8E567C0097684B /* Photo.m */; };
+		C0569C031C8FA2D20037A52C /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0569C021C8FA2D20037A52C /* libAFNetworking.a */; };
 		C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C01C89F1F0006E0C82 /* Winery.m */; };
 		C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */; };
 		C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */; };
@@ -75,6 +76,7 @@
 		C04E59C11C8E04E30097684B /* FoursquarePhotosAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquarePhotosAPI.m; sourceTree = "<group>"; };
 		C04E59C31C8E567C0097684B /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		C04E59C41C8E567C0097684B /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		C0569C021C8FA2D20037A52C /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/libAFNetworking.a"; sourceTree = "<group>"; };
 		C0CE32BF1C89F1F0006E0C82 /* Winery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Winery.h; sourceTree = "<group>"; };
 		C0CE32C01C89F1F0006E0C82 /* Winery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Winery.m; sourceTree = "<group>"; };
 		C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteWine.h; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0569C031C8FA2D20037A52C /* libAFNetworking.a in Frameworks */,
 				C01B8E521C8768310044F937 /* MapKit.framework in Frameworks */,
 				531AF710637602CCEB0040C9 /* libPods.a in Frameworks */,
 			);
@@ -124,6 +127,7 @@
 		AD19E578D795DB1E92739F5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0569C021C8FA2D20037A52C /* libAFNetworking.a */,
 				8DFEF9A63115F6700094A45D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -555,6 +559,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TCWine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.TCWine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -567,6 +575,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TCWine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.donovan.cotter.TCWine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
