@@ -8,7 +8,7 @@
 
 #import "WineryDetailTVC.h"
 
-@interface WineryDetailTVC ()
+@interface WineryDetailTVC () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UILabel *wineryNameCellLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wineryAddressLabel;
@@ -28,8 +28,8 @@
     _foursquarePhotoData = [NSDictionary dictionary];
 
     _winery = _passedAnnotation.wineryAtAnnotation;
-    
-    [self displayWineryDetails];    
+    [self collectionViewLayout];
+    [self displayWineryDetails];
     
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
     _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
@@ -65,22 +65,29 @@
     
     return cell;
 }
+//
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 1.0;
+//}
+//
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+//    return 1.0;
+//}
+//
+//- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+//    return UIEdgeInsetsMake(1, 1, 1, 1);
+//}
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    int numberOfCellInRow = 3;
+    CGFloat cellWidth =  [[UIScreen mainScreen] bounds].size.width/numberOfCellInRow;
+    return CGSizeMake(cellWidth, cellWidth);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 2.0;
-}
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 2.0;
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 0); // top, left, bottom, right
-}
 
 -(void)displayWineryDetails{
     self.wineryNameCellLabel.text = _winery.name;
@@ -121,8 +128,19 @@
             
         });
     }];
+
+}
+
+-(void)collectionViewLayout{
     
-    
+    CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
+    CGFloat collectionViewHeight = self.collectionView.bounds.size.height;
+
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+    layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
+    layout.itemSize = CGSizeMake(collectionViewWidth/3, collectionViewHeight/3);
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 0;
 }
 
 

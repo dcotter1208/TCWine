@@ -19,18 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    CLLocationCoordinate2D mapZoomLocation;
-    mapZoomLocation.latitude = 44.954;
-    mapZoomLocation.longitude = -85.615;
-    _distanceSpan = 55000;
-    
-    _viewRegion = MKCoordinateRegionMakeWithDistance(mapZoomLocation, _distanceSpan, _distanceSpan);
-    [mapView setRegion:_viewRegion];
 
     _wineryArray = [NSMutableArray array];
     _foursquareWineryData = [NSDictionary dictionary];
+    
+    [self mapSetup];
     [self getFoursquareWineries];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -102,12 +97,19 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [_foursquareAPI createAnnotation:mapView wineryArray:_wineryArray];
         });
-        
     }];
-    
 }
 
+-(void)mapSetup {
+    CLLocationCoordinate2D mapZoomLocation;
+    mapZoomLocation.latitude = 44.954;
+    mapZoomLocation.longitude = -85.615;
+    _distanceSpan = 55000;
+    _viewRegion = MKCoordinateRegionMakeWithDistance(mapZoomLocation, _distanceSpan, _distanceSpan);
+    [mapView setRegion:_viewRegion];
+}
 
 @end

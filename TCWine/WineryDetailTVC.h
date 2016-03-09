@@ -13,7 +13,7 @@
 #import "Photo.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface WineryDetailTVC : UITableViewController  <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface WineryDetailTVC : UITableViewController
 
 @property(nonatomic, strong) Winery *winery;
 @property(nonatomic, strong) Annotation *passedAnnotation;
@@ -26,5 +26,6 @@
 @property(nonatomic, strong) NSString *clientSecret;
 @property(nonatomic, strong) NSString *clientId;
 @property(nonatomic, strong) NSString *venueId;
+
 
 @end
