@@ -11,6 +11,7 @@
 #import "Annotation.h"
 #import "FoursquarePhotosAPI.h"
 #import "Photo.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface WineryDetailTVC : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
