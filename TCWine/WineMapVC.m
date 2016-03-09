@@ -29,17 +29,8 @@
     [mapView setRegion:_viewRegion];
 
     _wineryArray = [NSMutableArray array];
- 
-    
-    _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
-    _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
-    _categoryId = @"4bf58dd8d48988d14b941735";
-
-    _foursquareAPI = [FoursquareAPI initWithClientSecret: _clientSecret clientID:_clientId categoryId: _categoryId];
-
-    [_foursquareAPI foursquareAPI:_wineryArray mapView:mapView];
-    
-    
+    _foursquareWineryData = [NSDictionary dictionary];
+    [self getFoursquareWineries];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -83,6 +74,39 @@
         
     }
 
+}
+
+-(void)getFoursquareWineries{
+
+    _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
+    _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
+    _categoryId = @"4bf58dd8d48988d14b941735";
+    
+    _foursquareAPI = [FoursquareAPI initWithClientSecret: _clientSecret clientID:_clientId categoryId: _categoryId];
+    
+    [_foursquareAPI foursquareAPI:_wineryArray mapView:mapView handler:^(NSDictionary *data) {
+        
+        _foursquareWineryData = data;
+        
+        for (NSDictionary *wineryDict in _foursquareWineryData) {
+            Winery *winery = [Winery initWithWineryName:[wineryDict valueForKey:@"name"]];
+            winery.phoneNumber = [wineryDict valueForKeyPath:@"contact.formattedPhone"];
+            winery.website = [wineryDict valueForKeyPath:@"url"];
+            winery.longitude = [[wineryDict valueForKeyPath:@"location.lng"] doubleValue];
+            winery.latitude = [[wineryDict valueForKeyPath:@"location.lat"] doubleValue];
+            winery.wineryId = [wineryDict valueForKeyPath:@"id"];
+            NSMutableArray *formattedAddress = [wineryDict valueForKeyPath:@"location.formattedAddress"];
+            NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
+            winery.address = fullAddress;
+            [_wineryArray addObject:winery];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_foursquareAPI createAnnotation:mapView wineryArray:_wineryArray];
+        });
+        
+    }];
+    
 }
 
 
