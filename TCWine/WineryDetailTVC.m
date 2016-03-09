@@ -26,7 +26,6 @@
 
     _foursquarePhotoArray = [NSMutableArray array];
     _foursquarePhotoData = [NSDictionary dictionary];
-    _imageArray = [NSMutableArray array];
 
     _winery = _passedAnnotation.wineryAtAnnotation;
     
