@@ -19,7 +19,7 @@
 -(id)initWithClientSecret:(NSString *)clientSecret clientID:(NSString *)clientID categoryId:(NSString*)categoryId;
 +(id)initWithClientSecret:(NSString *)clientSecret clientID:(NSString *)clientID categoryId:(NSString*)categoryId;
 
--(void)foursquareAPI:(NSMutableArray *)wineryArray mapView:(MKMapView *)mapView handler:(void(^)(NSDictionary *data))handler;
+-(void)foursquareAPI:(NSMutableArray *)wineryArray handler:(void(^)(NSDictionary *data))handler;
 -(void)createAnnotation:(MKMapView *)mapView wineryArray:(NSMutableArray *)wineryArray;
 
 @end

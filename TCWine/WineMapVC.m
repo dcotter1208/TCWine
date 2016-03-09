@@ -84,7 +84,7 @@
     
     _foursquareAPI = [FoursquareAPI initWithClientSecret: _clientSecret clientID:_clientId categoryId: _categoryId];
     
-    [_foursquareAPI foursquareAPI:_wineryArray mapView:mapView handler:^(NSDictionary *data) {
+    [_foursquareAPI foursquareAPI:_wineryArray handler:^(NSDictionary *data) {
         
         _foursquareWineryData = data;
         
