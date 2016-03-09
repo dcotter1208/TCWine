@@ -29,6 +29,7 @@
     [mapView setRegion:_viewRegion];
 
     _wineryArray = [NSMutableArray array];
+ 
     
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
     _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
@@ -44,7 +45,6 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     self.navigationController.navigationBarHidden = true;
-
 }
 
 - (void)didReceiveMemoryWarning {

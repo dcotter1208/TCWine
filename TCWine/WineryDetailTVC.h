@@ -13,12 +13,13 @@
 #import "Photo.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface WineryDetailTVC : UITableViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface WineryDetailTVC : UITableViewController  <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic, strong) Winery *winery;
 @property(nonatomic, strong) Annotation *passedAnnotation;
 @property(nonatomic, strong) Photo *photo;
 @property(nonatomic, strong) NSMutableArray *foursquarePhotoArray;
+@property(nonatomic, strong) NSArray *foursquareMaxTenItemsArray;
 @property(nonatomic, strong) NSDictionary *foursquarePhotoData;
 @property(nonatomic, strong) NSString *photoURL;
 @property(nonatomic, strong) NSString *wineryId;
