@@ -30,7 +30,7 @@
     return [[self alloc]initWithClientSecret:clientSecret clientID:clientID categoryId:categoryId];
     }
 
--(void)foursquareAPI:(NSMutableArray *)wineryArray handler:(void(^)(NSDictionary *data))handler {
+-(void)foursquareAPI:(void(^)(NSDictionary *data))handler {
     
     NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -50,13 +50,18 @@
 
 }
 
--(void)createAnnotation:(MKMapView *)mapView wineryArray:(NSMutableArray *)wineryArray {
+-(void)createAnnotation:(MKMapView *)mapView {
+
+    RLMResults *wineryArray = [Winery allObjects];
+    
     for (Winery *winery in wineryArray) {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(winery.latitude, winery.longitude);
         Annotation *annotation = [Annotation initWithWinery:winery coordinate:coordinate title:winery.name subtitle:winery.address];
         
         [mapView addAnnotation:annotation];
     }
+    
+
 }
 
 @end

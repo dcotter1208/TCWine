@@ -19,18 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    CLLocationCoordinate2D mapZoomLocation;
-    mapZoomLocation.latitude = 44.954;
-    mapZoomLocation.longitude = -85.615;
-    _distanceSpan = 55000;
-    
-    _viewRegion = MKCoordinateRegionMakeWithDistance(mapZoomLocation, _distanceSpan, _distanceSpan);
-    [mapView setRegion:_viewRegion];
 
-    _wineryArray = [NSMutableArray array];
-    _foursquareWineryData = [NSDictionary dictionary];
+    [self mapSetup];
     [self getFoursquareWineries];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -84,30 +76,45 @@
     
     _foursquareAPI = [FoursquareAPI initWithClientSecret: _clientSecret clientID:_clientId categoryId: _categoryId];
     
-    [_foursquareAPI foursquareAPI:_wineryArray handler:^(NSDictionary *data) {
-        
+    [_foursquareAPI foursquareAPI:^(NSDictionary *data) {
+    
         _foursquareWineryData = data;
         
         for (NSDictionary *wineryDict in _foursquareWineryData) {
-            Winery *winery = [Winery initWithWineryName:[wineryDict valueForKey:@"name"]];
-            winery.phoneNumber = [wineryDict valueForKeyPath:@"contact.formattedPhone"];
-            winery.website = [wineryDict valueForKeyPath:@"url"];
-            winery.longitude = [[wineryDict valueForKeyPath:@"location.lng"] doubleValue];
-            winery.latitude = [[wineryDict valueForKeyPath:@"location.lat"] doubleValue];
-            winery.wineryId = [wineryDict valueForKeyPath:@"id"];
+            _winery = [Winery initWithWineryName:[wineryDict valueForKey:@"name"]];
+            _winery.phoneNumber = [wineryDict valueForKeyPath:@"contact.formattedPhone"];
+            _winery.website = [wineryDict valueForKeyPath:@"url"];
+            _winery.longitude = [[wineryDict valueForKeyPath:@"location.lng"] doubleValue];
+            _winery.latitude = [[wineryDict valueForKeyPath:@"location.lat"] doubleValue];
+            _winery.wineryId = [wineryDict valueForKeyPath:@"id"];
             NSMutableArray *formattedAddress = [wineryDict valueForKeyPath:@"location.formattedAddress"];
             NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
-            winery.address = fullAddress;
-            [_wineryArray addObject:winery];
+            _winery.address = fullAddress;
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [_foursquareAPI createAnnotation:mapView wineryArray:_wineryArray];
+            [self writeToRealm:_winery];
+            [_foursquareAPI createAnnotation:mapView];
         });
-        
     }];
-    
 }
 
+-(void)mapSetup {
+    CLLocationCoordinate2D mapZoomLocation;
+    mapZoomLocation.latitude = 44.954;
+    mapZoomLocation.longitude = -85.615;
+    _distanceSpan = 55000;
+    _viewRegion = MKCoordinateRegionMakeWithDistance(mapZoomLocation, _distanceSpan, _distanceSpan);
+    [mapView setRegion:_viewRegion];
+}
+
+-(void)writeToRealm:(Winery*)winery{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    NSLog(@"%@", realm.path);
+    [realm beginWriteTransaction];
+    [realm addOrUpdateObject:winery];
+    [realm commitWriteTransaction];
+    
+}
 
 @end

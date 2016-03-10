@@ -23,5 +23,8 @@
     return [[self alloc]initWithWineryName:wineryName];
 }
 
++ (NSString *)primaryKey {
+    return @"wineryId";
+}
 
 @end
