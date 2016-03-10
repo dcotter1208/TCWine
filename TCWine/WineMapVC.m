@@ -19,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    realm = [RLMRealm defaultRealm];
+    NSLog(@"%@", realm.path);
 
     [self mapSetup];
     [self getFoursquareWineries];
@@ -81,6 +84,7 @@
         _foursquareWineryData = data;
         
         for (NSDictionary *wineryDict in _foursquareWineryData) {
+            
             _winery = [Winery initWithWineryName:[wineryDict valueForKey:@"name"]];
             _winery.phoneNumber = [wineryDict valueForKeyPath:@"contact.formattedPhone"];
             _winery.website = [wineryDict valueForKeyPath:@"url"];
@@ -90,13 +94,15 @@
             NSMutableArray *formattedAddress = [wineryDict valueForKeyPath:@"location.formattedAddress"];
             NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
             _winery.address = fullAddress;
+            
+            [self writeToRealm:_winery];
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self writeToRealm:_winery];
             [_foursquareAPI createAnnotation:mapView];
         });
     }];
+    
 }
 
 -(void)mapSetup {

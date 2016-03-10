@@ -28,7 +28,7 @@
     _foursquarePhotoData = [NSDictionary dictionary];
 
     _winery = _passedAnnotation.wineryAtAnnotation;
-    [self collectionViewLayout];
+//    [self collectionViewLayout];
     [self displayWineryDetails];
     
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
@@ -65,28 +65,13 @@
     
     return cell;
 }
-//
-//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-//    return 1.0;
-//}
-//
-//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-//    return 1.0;
-//}
-//
-//- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-//    return UIEdgeInsetsMake(1, 1, 1, 1);
-//}
-
-
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    int numberOfCellInRow = 3;
-    CGFloat cellWidth =  [[UIScreen mainScreen] bounds].size.width/numberOfCellInRow;
+    int numberOfCellInRow = 5;
+    CGFloat cellWidth = collectionView.bounds.size.width/numberOfCellInRow;
     return CGSizeMake(cellWidth, cellWidth);
 }
-
 
 
 -(void)displayWineryDetails{
@@ -136,11 +121,11 @@
     CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
     CGFloat collectionViewHeight = self.collectionView.bounds.size.height;
 
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
     layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
     layout.itemSize = CGSizeMake(collectionViewWidth/3, collectionViewHeight/3);
-    layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing = 0;
+    layout.minimumInteritemSpacing = 1;
+    layout.minimumLineSpacing = 1;
 }
 
 
