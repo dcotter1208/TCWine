@@ -19,10 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//
-//    _wineryArray = [NSMutableArray array];
-//    _foursquareWineryData = [NSDictionary dictionary];
-    
+
     [self mapSetup];
     [self getFoursquareWineries];
     
@@ -93,7 +90,6 @@
             NSMutableArray *formattedAddress = [wineryDict valueForKeyPath:@"location.formattedAddress"];
             NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
             _winery.address = fullAddress;
-
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
