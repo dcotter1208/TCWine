@@ -30,7 +30,7 @@
     return [[self alloc]initWithClientSecret:clientSecret clientID:clientID categoryId:categoryId];
     }
 
--(void)foursquareAPI:(NSMutableArray *)wineryArray handler:(void(^)(NSDictionary *data))handler {
+-(void)foursquareAPI:(void(^)(NSDictionary *data))handler {
     
     NSURL *url = [NSURL URLWithString:_foursquareAPIURLString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "Realm/Realm.h"
 
-@interface Winery : NSObject
+@interface Winery : RLMObject
 
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *address;
@@ -18,7 +19,6 @@
 @property(nonatomic, strong) NSString *wineryDescription;
 @property(nonatomic) double latitude;
 @property(nonatomic) double longitude;
-@property(nonatomic, strong) NSMutableArray *photos;
 @property(nonatomic, strong) NSString *wineryId;
 
 -(id)initWithWineryName:(NSString *)wineryName;

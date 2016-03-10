@@ -10,6 +10,7 @@
 #import "FoursquareAPI.h"
 #import <MapKit/MapKit.h>
 #import "Annotation.h"
+#import "Realm/Realm.h"
 #import "Winery.h"
 
 @interface WineMapVC : UIViewController {
@@ -29,5 +30,6 @@
 @property(nonatomic) int distanceSpan;
 @property(nonatomic) MKCoordinateRegion viewRegion;
 @property(nonatomic, strong) Annotation *selectedAnnotation;
+@property(nonatomic, strong) Winery *winery;
 
 @end
