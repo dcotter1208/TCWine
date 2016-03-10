@@ -17,6 +17,7 @@
 
     MKMapView *mapView;
     RLMResults *wineryArray;
+    RLMRealm *realm;
 }
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
