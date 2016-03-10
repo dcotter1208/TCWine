@@ -16,7 +16,7 @@
 @interface WineMapVC : UIViewController {
 
     MKMapView *mapView;
-
+    RLMResults *wineryArray;
 }
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;

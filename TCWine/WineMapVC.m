@@ -98,7 +98,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self writeToRealm:_winery];
-//            [_foursquareAPI createAnnotation:mapView wineryArray:_wineryArray];
+            [_foursquareAPI createAnnotation:mapView];
         });
     }];
 }

@@ -20,6 +20,6 @@
 +(id)initWithClientSecret:(NSString *)clientSecret clientID:(NSString *)clientID categoryId:(NSString*)categoryId;
 
 -(void)foursquareAPI:(void(^)(NSDictionary *data))handler;
--(void)createAnnotation:(MKMapView *)mapView wineryArray:(NSMutableArray *)wineryArray;
+-(void)createAnnotation:(MKMapView *)mapView;
 
 @end

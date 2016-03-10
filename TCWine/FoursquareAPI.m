@@ -50,13 +50,18 @@
 
 }
 
--(void)createAnnotation:(MKMapView *)mapView wineryArray:(NSMutableArray *)wineryArray {
+-(void)createAnnotation:(MKMapView *)mapView {
+
+    RLMResults *wineryArray = [Winery allObjects];
+    
     for (Winery *winery in wineryArray) {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(winery.latitude, winery.longitude);
         Annotation *annotation = [Annotation initWithWinery:winery coordinate:coordinate title:winery.name subtitle:winery.address];
         
         [mapView addAnnotation:annotation];
     }
+    
+
 }
 
 @end
