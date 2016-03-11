@@ -8,6 +8,7 @@
 
 #import "WineMapVC.h"
 #import "WineryDetailTVC.h"
+#import "WineryPhotosCVC.h"
 
 @interface WineMapVC ()
 
@@ -31,6 +32,10 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     self.navigationController.navigationBarHidden = true;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +71,7 @@
         
         WineryDetailTVC *destinationVC = (WineryDetailTVC *)segue.destinationViewController;
         destinationVC.passedAnnotation = _selectedAnnotation;
-        
+
     }
 
 }
@@ -103,6 +108,8 @@
         });
     }];
     
+    
+    
 }
 
 -(void)mapSetup {
@@ -115,8 +122,6 @@
 }
 
 -(void)writeToRealm:(Winery*)winery{
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    NSLog(@"%@", realm.path);
     [realm beginWriteTransaction];
     [realm addOrUpdateObject:winery];
     [realm commitWriteTransaction];
