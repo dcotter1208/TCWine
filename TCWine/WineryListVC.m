@@ -7,23 +7,44 @@
 //
 
 #import "WineryListVC.h"
+#import "WineryDetailTVC.h"
 
-@interface WineryListVC ()
+@interface WineryListVC () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *wineryListTableView;
 
 @end
 
 @implementation WineryListVC
+@synthesize listWineryArray = _listWineryArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _listWineryArray = [Winery allObjects];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _listWineryArray.count;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    Winery *wineries = [_listWineryArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = wineries.name;
+    //cell.detailTextLabel.text = wineries.phoneNumber;
+    return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toWineryDetailVC"]) {
+        WineryDetailTVC *destinationVC = (WineryDetailTVC*)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.wineryListTableView indexPathForSelectedRow];
+        destinationVC.wineryFromTableview = [_listWineryArray objectAtIndex:indexPath.row];
+    }
 }
 
 

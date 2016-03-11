@@ -16,6 +16,7 @@
 @property(nonatomic, strong) Winery *winery;
 @property(nonatomic, strong) Annotation *passedAnnotation;
 @property(nonatomic, strong) UICollectionViewController *wineryPhotosCVC;
+@property(nonatomic, strong) Winery *wineryFromTableview;
 
 
 @end

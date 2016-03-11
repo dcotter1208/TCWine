@@ -22,16 +22,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    NSLog(@"here is from map view= %@", _winery);
     
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = false;
-    _winery = _passedAnnotation.wineryAtAnnotation;
-    [self displayWineryDetails];
-
-
+    if (_passedAnnotation == NULL) {
+        [self displayWineryDetails:_wineryFromTableview];
+    } else {
+        _winery = _passedAnnotation.wineryAtAnnotation;
+        [self displayWineryDetails:_winery];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,20 +42,20 @@
 }
 
 
--(void)displayWineryDetails{
-    self.wineryNameCellLabel.text = _winery.name;
-    self.wineryAddressLabel.text = _winery.address;
+-(void)displayWineryDetails:(Winery *)xwinery {
+    self.wineryNameCellLabel.text = xwinery.name;
+    self.wineryAddressLabel.text = xwinery.address;
     
-    if (_winery.phoneNumber == NULL){
+    if (xwinery.phoneNumber == NULL){
         self.wineryPhoneLabel.text = @"Not Available";
     } else {
-        self.wineryPhoneLabel.text = _winery.phoneNumber;
+        self.wineryPhoneLabel.text = xwinery.phoneNumber;
     }
     
-    if (_winery.website == NULL){
+    if (xwinery.website == NULL){
         self.wineryWebsiteLabel.text = @"Not Available";
     } else {
-        self.wineryWebsiteLabel.text = _winery.website;
+        self.wineryWebsiteLabel.text = xwinery.website;
     }
 }
 

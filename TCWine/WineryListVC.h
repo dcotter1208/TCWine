@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Realm/Realm.h"
+#import "Winery.h"
+#import "WineMapVC.h"
 
 @interface WineryListVC : UIViewController
+
+@property (nonatomic, strong) RLMResults *listWineryArray;
 
 @end
