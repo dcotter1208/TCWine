@@ -104,7 +104,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="RN2-oR-zqw" kind="show" id="utJ-FY-6IQ"/>
+                                            <segue destination="RN2-oR-zqw" kind="show" identifier="toWineryDetailVC" id="utJ-FY-6IQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -117,6 +117,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bl8-0o-nNj"/>
+                    <connections>
+                        <outlet property="wineryListTableView" destination="2mq-Uk-1JR" id="ob1-3k-82I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAJ-zy-Pd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,42 +128,19 @@
         <!--Winery DetailTVC-->
         <scene sceneID="WgS-y2-FqT">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="RN2-oR-zqw" customClass="WineryDetailTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VTM-gO-aqf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tgu-Nf-85o">
-                            <rect key="frame" x="0.0" y="338" width="600" height="264"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lC8-Ui-Aud">
-                                <size key="itemSize" width="80" height="80"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
-                            </collectionViewFlowLayout>
-                            <cells>
-                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="dNi-GP-yL8">
-                                    <rect key="frame" x="2" y="2" width="80" height="80"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sL7-Gd-Rkk">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </collectionViewCell>
-                            </cells>
+                        <containerView key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="EDq-h0-Bb6">
+                            <rect key="frame" x="0.0" y="338" width="600" height="263"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
-                                <outlet property="dataSource" destination="RN2-oR-zqw" id="R9B-0X-J7M"/>
-                                <outlet property="delegate" destination="RN2-oR-zqw" id="9oC-Hh-nPd"/>
+                                <segue destination="UMy-FQ-IRN" kind="embed" identifier="containerViewSegue" id="9qK-kr-Wfw"/>
                             </connections>
-                        </collectionView>
+                        </containerView>
                         <sections>
                             <tableViewSection id="weZ-i8-yi7">
                                 <cells>
@@ -337,18 +317,55 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="collectionView" destination="tgu-Nf-85o" id="wiN-Wy-VI5"/>
                         <outlet property="wineryAddressLabel" destination="Pv7-Ii-krC" id="kGp-DV-Exf"/>
                         <outlet property="wineryNameCellLabel" destination="GUJ-jk-UDe" id="eW2-iM-Bfx"/>
                         <outlet property="wineryPhoneLabel" destination="Y8K-qb-uNG" id="M5E-hT-cLi"/>
                         <outlet property="wineryWebsiteLabel" destination="mt3-qX-xRb" id="e6c-xu-bDb"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1031" y="1647"/>
+        </scene>
+        <!--Winery PhotosCVC-->
+        <scene sceneID="nTP-0p-Lzd">
+            <objects>
+                <collectionViewController id="UMy-FQ-IRN" customClass="WineryPhotosCVC" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="LVY-D7-2D2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="263"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xbV-mq-qA5">
+                            <size key="itemSize" width="109" height="110"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="KxG-NI-UaN">
+                                <rect key="frame" x="0.0" y="0.0" width="109" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="109" height="110"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beI-H2-RzU">
+                                            <rect key="frame" x="0.0" y="0.0" width="109" height="110"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="UMy-FQ-IRN" id="T1I-da-Jr8"/>
+                            <outlet property="delegate" destination="UMy-FQ-IRN" id="EN0-2p-wRm"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hnb-er-ZLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031" y="2200.5"/>
         </scene>
         <!--Favorite Wine ListVC-->
         <scene sceneID="Nfj-vF-lpo">
@@ -387,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7w-Kw-OoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="1647"/>
+            <point key="canvasLocation" x="1702" y="1647"/>
         </scene>
         <!--Item-->
         <scene sceneID="vhI-So-YcL">

@@ -10,6 +10,8 @@
 
 @interface WineryListVC ()
 
+@property (weak, nonatomic) IBOutlet UITableView *wineryListTableView;
+
 @end
 
 @implementation WineryListVC
