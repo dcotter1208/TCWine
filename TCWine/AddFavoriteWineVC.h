@@ -1,18 +1,18 @@
 //
-//  FavoriteWineListVC.h
+//  AddFavoriteWineVC.h
 //  TCWine
 //
-//  Created by Donovan Cotter on 3/9/16.
+//  Created by Donovan Cotter on 3/12/16.
 //  Copyright © 2016 DonovanCotter. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "FavoriteWineEntryTVC.h"
 #import "FavoriteWine.h"
-#import "Realm/Realm.h"
 
-
-@interface FavoriteWineListVC : UIViewController
+@interface AddFavoriteWineVC : UIViewController <FavoriteWineDelegate>
 
 @property (nonatomic, strong) FavoriteWine *favoriteWine;
+
 
 @end

@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = true;
+
     // Do any additional setup after loading the view.
 }
 
@@ -24,16 +26,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = false;
+}
+
 
 - (IBAction)addFavoriteWine:(id)sender {
     
 }
+
+
 
 - (IBAction)dismissView:(id)sender {
     
     [self dismissViewControllerAnimated:FALSE completion:nil];
     
 }
+
+
 
 
 @end
