@@ -310,7 +310,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="X4H-uS-8aE" kind="presentation" id="hau-h7-yXI"/>
+                                            <segue destination="YLu-Dl-WZm" kind="presentation" id="LEn-Sw-e7J"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -384,26 +384,30 @@
             <point key="canvasLocation" x="1127" y="2229.5"/>
         </scene>
         <!--Favorite Wine ListVC-->
-        <scene sceneID="Nfj-vF-lpo">
+        <scene sceneID="I0j-OB-OBw">
             <objects>
-                <viewController id="X4H-uS-8aE" customClass="FavoriteWineListVC" sceneMemberID="viewController">
+                <viewController id="YLu-Dl-WZm" customClass="FavoriteWineListVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="w1V-o0-31y"/>
-                        <viewControllerLayoutGuide type="bottom" id="xnO-1g-sJj"/>
+                        <viewControllerLayoutGuide type="top" id="I6X-zq-her"/>
+                        <viewControllerLayoutGuide type="bottom" id="e85-F4-fd5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Kkd-8b-RuW">
+                    <view key="view" contentMode="scaleToFill" id="mEI-ck-LIl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ux-TR-hvL">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zoH-oZ-gaU">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem id="Juc-0Z-JH4">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="PZ5-dY-3eV"/>
-                                        <barButtonItem key="rightBarButtonItem" title="X" id="3d1-wx-pZ6">
+                                    <navigationItem id="Qcf-2L-ZHR">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="E1r-ZX-Ase">
                                             <connections>
-                                                <action selector="dismissView:" destination="X4H-uS-8aE" id="Ael-PV-EED"/>
+                                                <segue destination="5Wb-Sb-G9E" kind="presentation" id="0JU-cb-21h"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="X" id="aTc-WP-8Yg">
+                                            <connections>
+                                                <action selector="dismissView:" destination="YLu-Dl-WZm" id="oAf-Hj-bDs"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -411,16 +415,44 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="8Ux-TR-hvL" firstAttribute="top" secondItem="w1V-o0-31y" secondAttribute="bottom" id="3jq-J9-WtN"/>
-                            <constraint firstItem="8Ux-TR-hvL" firstAttribute="leading" secondItem="Kkd-8b-RuW" secondAttribute="leading" id="fTF-a8-odj"/>
-                            <constraint firstAttribute="trailing" secondItem="8Ux-TR-hvL" secondAttribute="trailing" id="sa4-mE-awy"/>
-                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kzb-dS-tw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791" y="1700"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9lv-Jc-f4i">
+            <objects>
+                <viewController id="5Wb-Sb-G9E" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j4F-NH-2Ya"/>
+                        <viewControllerLayoutGuide type="bottom" id="5d4-Ha-Pu5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sKg-KH-IRe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOz-vD-BT9">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="2JO-Kz-MEx">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PFu-jz-HuG"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1nV-Fn-kq2"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c7w-Kw-OoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pnk-zV-qrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864" y="1700"/>
+            <point key="canvasLocation" x="2476" y="1700"/>
         </scene>
         <!--Item-->
         <scene sceneID="vhI-So-YcL">
