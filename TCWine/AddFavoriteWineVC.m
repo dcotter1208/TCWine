@@ -47,6 +47,12 @@
     _favoriteWine.note = note;
     _favoriteWine.note = note;
     
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm addOrUpdateObject:_favoriteWine];
+    [realm commitWriteTransaction];
+    
     NSLog(@"Winery Name AddFavoriteWineVC: %@", _favoriteWine.name);
 
 }
