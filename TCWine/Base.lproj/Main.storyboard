@@ -540,34 +540,50 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="56" id="TJA-vl-NHH">
-                                        <rect key="frame" x="0.0" y="164" width="600" height="56"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="TJA-vl-NHH">
+                                        <rect key="frame" x="0.0" y="164" width="600" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJA-vl-NHH" id="8f9-aN-Pld">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LaQ-eM-qDH">
-                                                    <rect key="frame" x="8" y="14" width="584" height="29"/>
+                                                    <rect key="frame" x="8" y="8" width="584" height="29"/>
                                                     <segments>
                                                         <segment title="Red"/>
                                                         <segment title="White"/>
                                                         <segment title="Rosé"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="segmentedControlOnePressed:" destination="J04-Eu-qwx" eventType="valueChanged" id="Zt0-gq-Gkx"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hAf-xd-a17">
+                                                    <rect key="frame" x="8" y="44" width="584" height="29"/>
+                                                    <segments>
                                                         <segment title="Sparkling"/>
                                                         <segment title="Dessert"/>
                                                         <segment title="Fortified"/>
                                                     </segments>
+                                                    <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="segmentedControlTwoPressed:" destination="J04-Eu-qwx" eventType="valueChanged" id="Ieu-77-XNs"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="hAf-xd-a17" firstAttribute="trailing" secondItem="LaQ-eM-qDH" secondAttribute="trailing" id="86k-uh-oaA"/>
+                                                <constraint firstItem="hAf-xd-a17" firstAttribute="leading" secondItem="LaQ-eM-qDH" secondAttribute="leading" id="900-IB-phz"/>
                                                 <constraint firstItem="LaQ-eM-qDH" firstAttribute="trailing" secondItem="8f9-aN-Pld" secondAttribute="trailingMargin" id="Yme-Ug-iK6"/>
-                                                <constraint firstItem="LaQ-eM-qDH" firstAttribute="centerY" secondItem="8f9-aN-Pld" secondAttribute="centerY" id="fnV-lv-lv6"/>
+                                                <constraint firstItem="LaQ-eM-qDH" firstAttribute="centerY" secondItem="8f9-aN-Pld" secondAttribute="centerY" constant="-22" id="fnV-lv-lv6"/>
                                                 <constraint firstItem="LaQ-eM-qDH" firstAttribute="leading" secondItem="8f9-aN-Pld" secondAttribute="leadingMargin" id="p5i-Qq-pEp"/>
+                                                <constraint firstItem="hAf-xd-a17" firstAttribute="top" secondItem="LaQ-eM-qDH" secondAttribute="bottom" constant="8" symbolic="YES" id="q7H-xN-6fR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="43" id="dxi-WG-Qm2">
-                                        <rect key="frame" x="0.0" y="220" width="600" height="43"/>
+                                        <rect key="frame" x="0.0" y="253" width="600" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dxi-WG-Qm2" id="YxV-TY-PeG">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="42"/>
@@ -597,7 +613,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="274" id="Wrf-5U-nA8">
-                                        <rect key="frame" x="0.0" y="263" width="600" height="274"/>
+                                        <rect key="frame" x="0.0" y="296" width="600" height="274"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wrf-5U-nA8" id="Dmd-d7-DkU">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="273"/>
@@ -639,7 +655,8 @@
                     </tableView>
                     <connections>
                         <outlet property="descriptionTextField" destination="Ziv-Dg-c1S" id="pGN-O7-amR"/>
-                        <outlet property="segmentedControl" destination="LaQ-eM-qDH" id="4Z1-2z-ZmE"/>
+                        <outlet property="segmentedControlOne" destination="LaQ-eM-qDH" id="mcX-aR-FXe"/>
+                        <outlet property="segmentedControlTwo" destination="hAf-xd-a17" id="liC-Un-ZZQ"/>
                         <outlet property="wineTextField" destination="RiY-Zw-94x" id="qs2-P5-jjd"/>
                         <outlet property="wineryTextField" destination="9pg-v3-q6U" id="A3s-Fc-WBK"/>
                         <outlet property="yearTextField" destination="7NH-8F-if2" id="nJi-fb-vw4"/>
