@@ -24,6 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)addFavoriteWine:(id)sender {
+    
+}
+
 - (IBAction)dismissView:(id)sender {
     
     [self dismissViewControllerAnimated:FALSE completion:nil];

@@ -22,17 +22,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"here is from map view= %@", _winery);
+    
     
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = false;
+    
+    WineryPhotosCVC *wineryPhotosCVC = self.childViewControllers[0];
+    
     if (_passedAnnotation == NULL) {
         [self displayWineryDetails:_wineryFromTableview];
+        wineryPhotosCVC.winery = self.wineryFromTableview;
     } else {
         _winery = _passedAnnotation.wineryAtAnnotation;
         [self displayWineryDetails:_winery];
+        wineryPhotosCVC.winery = self.winery;
     }
 }
 
@@ -42,35 +47,22 @@
 }
 
 
--(void)displayWineryDetails:(Winery *)xwinery {
-    self.wineryNameCellLabel.text = xwinery.name;
-    self.wineryAddressLabel.text = xwinery.address;
+-(void)displayWineryDetails:(Winery *)winery {
+    self.wineryNameCellLabel.text = winery.name;
+    self.wineryAddressLabel.text = winery.address;
     
-    if (xwinery.phoneNumber == NULL){
+    if (winery.phoneNumber == NULL){
         self.wineryPhoneLabel.text = @"Not Available";
     } else {
-        self.wineryPhoneLabel.text = xwinery.phoneNumber;
+        self.wineryPhoneLabel.text = winery.phoneNumber;
     }
     
-    if (xwinery.website == NULL){
+    if (winery.website == NULL){
         self.wineryWebsiteLabel.text = @"Not Available";
     } else {
-        self.wineryWebsiteLabel.text = xwinery.website;
+        self.wineryWebsiteLabel.text = winery.website;
     }
 }
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"Called");
-    if ([segue.identifier isEqual: @"containerViewSegue"]) {
-        NSLog(@"Called 2");
-        WineryPhotosCVC *wineryPhotosCVC = [segue destinationViewController];
-        wineryPhotosCVC.winery = _winery;
-        NSLog(@"%@", wineryPhotosCVC.winery);
-        
-    }
-    
-}
-
 
 
 @end
