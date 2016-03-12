@@ -16,13 +16,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *wineryPhoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wineryWebsiteLabel;
 
+@property (nonatomic, strong) WineryPhotosCVC *wineryPhotosCollectionViewController;
+
 @end
 
 @implementation WineryDetailTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"here is from map view= %@", _winery);
+    
     
 }
 
@@ -30,8 +32,12 @@
     self.navigationController.navigationBarHidden = false;
     if (_passedAnnotation == NULL) {
         [self displayWineryDetails:_wineryFromTableview];
+        NSLog(@"CALLED 1");
+        NSLog(@"Winery Property From TableView View Set: %@", _winery);
     } else {
         _winery = _passedAnnotation.wineryAtAnnotation;
+        NSLog(@"CALLED 2");
+        NSLog(@"Winery Property From Map View Set: %@", _winery);
         [self displayWineryDetails:_winery];
     }
 }
@@ -59,16 +65,37 @@
     }
 }
 
+-(void)setWinery:(Winery *)winery {
+    _winery = winery;
+    self.title = winery.wineryId;
+    // set the embedded WineryPhotosCVC's Model
+    // (in case our Model, the winery, is set AFTER embedding happens)
+    self.wineryPhotosCollectionViewController.winery = self.winery;
+}
+
+
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    NSLog(@"Embedded Segue Called");
+//    if ([segue.destinationViewController isKindOfClass:[WineryPhotosCVC class]]) {
+//        WineryPhotosCVC *wineryPhotosCVC = (WineryPhotosCVC *)segue.destinationViewController;
+//        wineryPhotosCVC.winery = _winery;
+//        self.wineryPhotosCollectionViewController = wineryPhotosCVC;
+//    } else {
+//        [super prepareForSegue:segue sender:sender];
+//    }
+//}
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"Called");
+
     if ([segue.identifier isEqual: @"containerViewSegue"]) {
-        NSLog(@"Called 2");
-        WineryPhotosCVC *wineryPhotosCVC = [segue destinationViewController];
+        NSLog(@"Embedded Segue Called");
+        WineryPhotosCVC *wineryPhotosCVC = segue.destinationViewController;
         wineryPhotosCVC.winery = _winery;
         NSLog(@"%@", wineryPhotosCVC.winery);
         
     }
-    
 }
 
 

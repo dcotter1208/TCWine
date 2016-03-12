@@ -10,4 +10,23 @@
 
 @implementation FavoriteWine
 
+-(id)initWithWineName:(NSString *)wineName {
+    self = [super init];
+    
+    if (self) {
+        _name = wineName;
+    }
+    return self;
+}
+
+
++(id)initWithWineName:(NSString *)wineName {
+    return [[self alloc]initWithWineName:wineName];
+}
+
++ (NSString *)primaryKey {
+    return @"name";
+}
+
+
 @end

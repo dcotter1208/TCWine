@@ -7,14 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Realm/Realm.h"
 
-@interface FavoriteWine : NSObject
+@interface FavoriteWine : RLMObject
 
-@property (nonatomic, strong) NSString *wineryOrigin;
-@property (nonatomic, strong) NSString *wine;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *winery;
 @property (nonatomic, strong) NSString *blend;
 @property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSString *note;
+
+-(id)initWithWineName:(NSString *)wineName;
++(id)initWithWineName:(NSString *)wineName;
 
 
 @end

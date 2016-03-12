@@ -41,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="301" y="1291"/>
+            <point key="canvasLocation" x="369" y="1291"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8UC-nK-QPC">
@@ -123,12 +123,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAJ-zy-Pd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="301" y="2111"/>
+            <point key="canvasLocation" x="361" y="2111"/>
         </scene>
         <!--Winery DetailTVC-->
         <scene sceneID="WgS-y2-FqT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="RN2-oR-zqw" customClass="WineryDetailTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VTM-gO-aqf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -325,8 +324,9 @@
                         <outlet property="wineryWebsiteLabel" destination="mt3-qX-xRb" id="e6c-xu-bDb"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="1647"/>
+            <point key="canvasLocation" x="1127" y="1700"/>
         </scene>
         <!--Winery PhotosCVC-->
         <scene sceneID="nTP-0p-Lzd">
@@ -365,7 +365,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnb-er-ZLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="2200.5"/>
+            <point key="canvasLocation" x="1127" y="2229.5"/>
         </scene>
         <!--Favorite Wine ListVC-->
         <scene sceneID="Nfj-vF-lpo">
@@ -384,7 +384,11 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="Juc-0Z-JH4">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="PZ5-dY-3eV"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="PZ5-dY-3eV">
+                                            <connections>
+                                                <action selector="addFavoriteWine:" destination="X4H-uS-8aE" id="f9h-tv-2xs"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="X" id="3d1-wx-pZ6">
                                             <connections>
                                                 <action selector="dismissView:" destination="X4H-uS-8aE" id="Ael-PV-EED"/>
@@ -404,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7w-Kw-OoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1702" y="1647"/>
+            <point key="canvasLocation" x="1864" y="1700"/>
         </scene>
         <!--Item-->
         <scene sceneID="vhI-So-YcL">
