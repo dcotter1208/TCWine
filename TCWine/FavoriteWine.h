@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *winery;
-@property (nonatomic, strong) NSString *blend;
+@property (nonatomic, strong) NSString *category;
 @property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSString *note;
 

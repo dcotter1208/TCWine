@@ -40,7 +40,6 @@
     wineryDetailTVC.winery = self.winery;
     
     _venueId = self.winery.wineryId;
-    NSLog(@"venue ID: %@", _venueId);
     
     [self getFoursquarePhotos];
 
@@ -85,8 +84,6 @@
         for (NSDictionary *foursquarePhotos in _foursquarePhotoData) {
             _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:@"450x450" suffix:[foursquarePhotos valueForKey:@"suffix"]];
             [_foursquarePhotoArray addObject:_photo];
-            NSLog(@"%lu", _foursquarePhotoArray.count);
-            
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{

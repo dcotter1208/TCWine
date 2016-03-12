@@ -10,6 +10,9 @@
 #import "FavoriteWine.h"
 #import "Realm/Realm.h"
 
+
 @interface FavoriteWineListVC : UIViewController
+
+@property (nonatomic, strong) FavoriteWine *favoriteWine;
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FavoriteWineEntryTVC.h"
+#import "FavoriteWine.h"
 
-@interface AddFavoriteWineVC : UIViewController
+@interface AddFavoriteWineVC : UIViewController <FavoriteWineDelegate>
+
+@property (nonatomic, strong) FavoriteWine *favoriteWine;
+
 
 @end

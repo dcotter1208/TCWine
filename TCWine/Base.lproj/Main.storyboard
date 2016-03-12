@@ -41,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="369" y="1291"/>
+            <point key="canvasLocation" x="-13" y="1431"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8UC-nK-QPC">
@@ -59,7 +59,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRp-1p-eaQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1107" y="1721"/>
+            <point key="canvasLocation" x="-1485" y="1805"/>
         </scene>
         <!--Map-->
         <scene sceneID="iKR-Wi-wnK">
@@ -78,7 +78,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqB-Xb-d3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-387" y="1291"/>
+            <point key="canvasLocation" x="-769" y="1431"/>
         </scene>
         <!--Winery ListVC-->
         <scene sceneID="HZ1-iR-cqG">
@@ -123,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAJ-zy-Pd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="2111"/>
+            <point key="canvasLocation" x="-21" y="2251"/>
         </scene>
         <!--Winery DetailTVC-->
         <scene sceneID="WgS-y2-FqT">
@@ -332,7 +332,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1127" y="1700"/>
+            <point key="canvasLocation" x="745" y="1840"/>
         </scene>
         <!--Winery PhotosCVC-->
         <scene sceneID="nTP-0p-Lzd">
@@ -381,7 +381,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnb-er-ZLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1127" y="2229.5"/>
+            <point key="canvasLocation" x="745" y="2369.5"/>
         </scene>
         <!--Favorite Wine ListVC-->
         <scene sceneID="I0j-OB-OBw">
@@ -422,12 +422,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzb-dS-tw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="1700"/>
+            <point key="canvasLocation" x="1409" y="1840"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Favorite WineVC-->
         <scene sceneID="9lv-Jc-f4i">
             <objects>
-                <viewController id="5Wb-Sb-G9E" sceneMemberID="viewController">
+                <viewController id="5Wb-Sb-G9E" customClass="AddFavoriteWineVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j4F-NH-2Ya"/>
                         <viewControllerLayoutGuide type="bottom" id="5d4-Ha-Pu5"/>
@@ -436,23 +436,182 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOz-vD-BT9">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOz-vD-BT9">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="2JO-Kz-MEx">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PFu-jz-HuG"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1nV-Fn-kq2"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1nV-Fn-kq2">
+                                            <connections>
+                                                <action selector="saveFavWine:" destination="5Wb-Sb-G9E" id="nXR-yE-iR9"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-Jq-FRF">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <segue destination="J04-Eu-qwx" kind="embed" identifier="favoriteWineEntrySegue" id="lpi-Ra-dN6"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KhV-Jq-FRF" firstAttribute="leading" secondItem="TOz-vD-BT9" secondAttribute="leading" id="02f-2C-eKF"/>
+                            <constraint firstItem="KhV-Jq-FRF" firstAttribute="trailing" secondItem="TOz-vD-BT9" secondAttribute="trailing" id="Ek6-lT-dvd"/>
+                            <constraint firstItem="TOz-vD-BT9" firstAttribute="leading" secondItem="sKg-KH-IRe" secondAttribute="leading" id="Fsb-fY-2ZU"/>
+                            <constraint firstItem="KhV-Jq-FRF" firstAttribute="bottom" secondItem="5d4-Ha-Pu5" secondAttribute="top" id="Gqh-2j-byY"/>
+                            <constraint firstItem="TOz-vD-BT9" firstAttribute="top" secondItem="j4F-NH-2Ya" secondAttribute="bottom" id="gV6-7B-MZf"/>
+                            <constraint firstItem="KhV-Jq-FRF" firstAttribute="top" secondItem="TOz-vD-BT9" secondAttribute="bottom" id="hIT-2l-mku"/>
+                            <constraint firstAttribute="trailing" secondItem="TOz-vD-BT9" secondAttribute="trailing" id="oOO-C7-knO"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pnk-zV-qrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2476" y="1700"/>
+            <point key="canvasLocation" x="2130" y="1840"/>
+        </scene>
+        <!--Favorite Wine EntryTVC-->
+        <scene sceneID="x7s-oe-Jlo">
+            <objects>
+                <tableViewController id="J04-Eu-qwx" customClass="FavoriteWineEntryTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="TNQ-tS-xAN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="gU4-5i-3Ke">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="82" id="dRy-Xl-7uz">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dRy-Xl-7uz" id="huz-1O-evR">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Winery:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPQ-VO-zh3">
+                                                    <rect key="frame" x="8" y="8" width="64" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9pg-v3-q6U">
+                                                    <rect key="frame" x="8" y="37" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="82" id="Naq-Id-zYD">
+                                        <rect key="frame" x="0.0" y="82" width="600" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Naq-Id-zYD" id="3sD-21-sUr">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wine:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khO-zj-Sa1">
+                                                    <rect key="frame" x="8" y="8" width="47" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RiY-Zw-94x">
+                                                    <rect key="frame" x="8" y="37" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="56" id="TJA-vl-NHH">
+                                        <rect key="frame" x="0.0" y="164" width="600" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJA-vl-NHH" id="8f9-aN-Pld">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LaQ-eM-qDH">
+                                                    <rect key="frame" x="8" y="14" width="584" height="29"/>
+                                                    <segments>
+                                                        <segment title="Red"/>
+                                                        <segment title="White"/>
+                                                        <segment title="Rosé"/>
+                                                        <segment title="Sparkling"/>
+                                                        <segment title="Dessert"/>
+                                                        <segment title="Fortified"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="43" id="dxi-WG-Qm2">
+                                        <rect key="frame" x="0.0" y="220" width="600" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dxi-WG-Qm2" id="YxV-TY-PeG">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoq-s3-kcC">
+                                                    <rect key="frame" x="8" y="8" width="43" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7NH-8F-if2">
+                                                    <rect key="frame" x="59" y="4" width="533" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="274" id="Wrf-5U-nA8">
+                                        <rect key="frame" x="0.0" y="263" width="600" height="274"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wrf-5U-nA8" id="Dmd-d7-DkU">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="273"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tu7-xF-4dO">
+                                                    <rect key="frame" x="8" y="8" width="101" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ziv-Dg-c1S">
+                                                    <rect key="frame" x="8" y="26" width="584" height="239"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="Awd-08-85q">
+                                <cells/>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="J04-Eu-qwx" id="ill-NY-iF4"/>
+                            <outlet property="delegate" destination="J04-Eu-qwx" id="Ul4-2f-ktP"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="Ziv-Dg-c1S" id="pGN-O7-amR"/>
+                        <outlet property="segmentedControl" destination="LaQ-eM-qDH" id="4Z1-2z-ZmE"/>
+                        <outlet property="wineTextField" destination="RiY-Zw-94x" id="qs2-P5-jjd"/>
+                        <outlet property="wineryTextField" destination="9pg-v3-q6U" id="A3s-Fc-WBK"/>
+                        <outlet property="yearTextField" destination="7NH-8F-if2" id="nJi-fb-vw4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sc5-n7-ZWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2130" y="2503"/>
         </scene>
         <!--Item-->
         <scene sceneID="vhI-So-YcL">
@@ -471,7 +630,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdf-lE-eYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-387" y="2111"/>
+            <point key="canvasLocation" x="-769" y="2251"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
