@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FavoriteWine.h"
+#import "Realm/Realm.h"
 
 @interface FavoriteWineListVC : UIViewController
 

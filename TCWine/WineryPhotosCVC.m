@@ -7,6 +7,7 @@
 //
 
 #import "WineryPhotosCVC.h"
+#import "WineryDetailTVC.h"
 
 @interface WineryPhotosCVC ()
 
@@ -20,14 +21,9 @@
      _foursquarePhotoArray = [NSMutableArray array];
      _foursquarePhotoData = [NSDictionary dictionary];
     
-    NSLog(@"Collection: %@", _winery);
-    
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
     _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
-    _venueId = _winery.wineryId;
-    
-    [self getFoursquarePhotos];
-    [self collectionViewLayout];
+
 
 
 //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -40,11 +36,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-//-(void)setWinery:(Winery *)winery {
-//    _winery = winery;
-//    self.title = winery.wineryId;
-//    
-//}
+-(void)viewWillAppear:(BOOL)animated {
+    
+    WineryDetailTVC *wineryDetailTVC;
+    wineryDetailTVC.winery = self.winery;
+    
+    _venueId = self.winery.wineryId;
+    NSLog(@"venue ID: %@", _venueId);
+    
+    [self getFoursquarePhotos];
+    [self collectionViewLayout];
+}
 
 
 #pragma mark <UICollectionViewDataSource>
@@ -99,6 +101,7 @@
     }];
     
 }
+
 
 #pragma mark <UICollectionViewDelegate>
 

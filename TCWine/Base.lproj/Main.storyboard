@@ -384,11 +384,7 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="Juc-0Z-JH4">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="PZ5-dY-3eV">
-                                            <connections>
-                                                <action selector="addFavoriteWine:" destination="X4H-uS-8aE" id="f9h-tv-2xs"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="PZ5-dY-3eV"/>
                                         <barButtonItem key="rightBarButtonItem" title="X" id="3d1-wx-pZ6">
                                             <connections>
                                                 <action selector="dismissView:" destination="X4H-uS-8aE" id="Ael-PV-EED"/>
