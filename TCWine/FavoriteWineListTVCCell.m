@@ -12,7 +12,9 @@
 
 
 - (void)awakeFromNib {
-
+    _descriptionTextView.layer.borderWidth = 1.0;
+    _descriptionTextView.layer.borderColor = [UIColor blackColor].CGColor;
+    _descriptionTextView.layer.cornerRadius = 10.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,5 +24,7 @@
 - (IBAction)favoriteWineListCellEditButtonTapped:(id)sender {
     [self.delegate favoriteWineListCellTapped:self];
 }
+
+
 
 @end
