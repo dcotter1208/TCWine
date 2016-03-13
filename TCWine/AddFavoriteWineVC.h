@@ -13,6 +13,7 @@
 @interface AddFavoriteWineVC : UIViewController <FavoriteWineDelegate>
 
 @property (nonatomic, strong) FavoriteWine *favoriteWine;
-
+@property (nonatomic, strong) FavoriteWine *favoriteWineToEdit;
+@property (nonatomic, strong) Winery *winery;
 
 @end

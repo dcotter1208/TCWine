@@ -10,6 +10,7 @@
 
 @implementation FavoriteWineListTVCCell
 
+
 - (void)awakeFromNib {
     // Initialization code
 }

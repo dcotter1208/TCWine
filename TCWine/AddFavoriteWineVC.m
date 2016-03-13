@@ -7,6 +7,7 @@
 //
 
 #import "AddFavoriteWineVC.h"
+#import "FavoriteWineEntryTVC.h"
 
 @interface AddFavoriteWineVC ()
 
@@ -23,6 +24,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    FavoriteWineEntryTVC *favoriteWineEntryTVC = self.childViewControllers[0];
+    favoriteWineEntryTVC.winery = self.winery;
+}
+
 - (IBAction)saveFavWine:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -38,14 +45,14 @@
 
 }
 
--(void)sendFavoriteWineInfoToAddFavWineVC:(NSString *)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *)year note:(NSString *)note {
+-(void)sendFavoriteWineInfoToAddFavWineVC:(NSString *)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *)year note:(NSString *)note wineryId:(NSString *)wineryId{
 
     _favoriteWine = [FavoriteWine initWithWineName:wineName];
     _favoriteWine.winery = winery;
     _favoriteWine.category = category;
     _favoriteWine.year = year;
     _favoriteWine.note = note;
-    _favoriteWine.note = note;
+    _favoriteWine.wineryId = wineryId;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FavoriteWine.h"
+#import "AddFavoriteWineVC.h"
 #import "Winery.h"
 #import "Realm/Realm.h"
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) FavoriteWine *favoriteWine;
 @property (nonatomic, strong) RLMResults *favoriteWinesForWineryArray;
 @property (nonatomic, strong) Winery *winery;
+@property (nonatomic, strong) FavoriteWine *selectedFavoriteWine;
 
 
 @end

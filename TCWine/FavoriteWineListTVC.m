@@ -7,11 +7,12 @@
 //
 
 #import "FavoriteWineListTVC.h"
+#import "FavoriteWineListTVCCell.h"
 
 @interface FavoriteWineListTVC ()
 @property (weak, nonatomic) IBOutlet UILabel *favoriteWineListTitle;
-@property (weak, nonatomic) IBOutlet UILabel *favoriteWineCellLabel;
-@property (weak, nonatomic) IBOutlet UILabel *favoriteWineWineryCellLabel;
+@property (weak, nonatomic) IBOutlet UITableView *favoriteWineListTableView;
+
 
 
 @end
@@ -21,9 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = true;
-    
-    _favoriteWineListTitle.text = [NSString stringWithFormat:@"%@ Favorites", _winery.name];
-    _favoriteWinesForWineryArray = [Winery objectsWhere:@"name == %@", _winery.name];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +32,9 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = false;
+    NSLog(@"View Appeared");
+    _favoriteWinesForWineryArray = [FavoriteWine objectsWhere:@"wineryId == %@", _winery.wineryId];
+
 }
 
 
@@ -42,13 +44,19 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favoriteWineCell" forIndexPath:indexPath];
+    FavoriteWineListTVCCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favoriteWineCell" forIndexPath:indexPath];
 
-    FavoriteWine *favoriteWine = [_favoriteWinesForWineryArray objectAtIndex:indexPath.row];
+    _favoriteWine = [_favoriteWinesForWineryArray objectAtIndex:indexPath.row];
     
+    cell.wineNameLabel.text = [NSString stringWithFormat:@"%@ %@", _favoriteWine.year, _favoriteWine.name];
+    cell.wineryNameLabel.text = _favoriteWine.winery;
+    cell.categoryLabel.text = _favoriteWine.category;
+    cell.descriptionTextView.text = _favoriteWine.note;
+
     return cell;
 
 }
+
 
 - (IBAction)dismissView:(id)sender {
     
@@ -56,7 +64,23 @@
     
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier  isEqualToString: @"editFavoriteWineSegue"]) {
+        
+        NSIndexPath *indexPath = [self.favoriteWineListTableView indexPathForSelectedRow];
+        _selectedFavoriteWine = [_favoriteWinesForWineryArray objectAtIndex:indexPath.row];
+        NSLog(@"Selected Favorite Wine: %@", _selectedFavoriteWine);
+        
+        AddFavoriteWineVC *destinationVC = (AddFavoriteWineVC *)segue.destinationViewController;
+        destinationVC.favoriteWineToEdit = _selectedFavoriteWine;
+        
+    } else if ([segue.identifier isEqualToString:@"addFavoriteWineSegue"]) {
+        AddFavoriteWineVC *destinationVC = (AddFavoriteWineVC *)segue.destinationViewController;
+        destinationVC.winery = self.winery;
+    }
 
+}
 
 
 

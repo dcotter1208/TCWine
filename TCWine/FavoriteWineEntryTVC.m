@@ -29,9 +29,13 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    _favoriteWineryId = _winery.wineryId;
+}
+
 -(void)viewWillDisappear:(BOOL)animated {
 
-    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text];
+    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineryId];
 
 }
 
