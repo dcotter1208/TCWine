@@ -96,13 +96,4 @@
 }
 
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//
-//    if ([segue.identifier isEqualToString:@"favoriteWineListSegue"]) {
-//        FavoriteWineListVC *favoriteWineListVC = segue.destinationViewController;
-//        favoriteWineListVC.winery = self.winery;
-//    }
-//}
-
-
 @end
