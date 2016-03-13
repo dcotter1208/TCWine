@@ -29,6 +29,9 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = false;
+    
+    _favoriteWineListTitle.text = [NSString stringWithFormat:@"%@ Favorites", _winery.name];
+    
     _favoriteWinesForWineryArray = [FavoriteWine objectsWhere:@"wineryId == %@", _winery.wineryId];
 
     [self.favoriteWineListTableView reloadData];
