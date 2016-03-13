@@ -23,21 +23,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (_passedAnnotation == nil) {
+        [self displayWineryDetails:_winery];
+    } else {
+        _winery = _passedAnnotation.wineryAtAnnotation;
+        [self displayWineryDetails:_winery];
+    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = false;
-    
+
     WineryPhotosCVC *wineryPhotosCVC = self.childViewControllers[0];
-    
-    if (_passedAnnotation == NULL) {
-        [self displayWineryDetails:_wineryFromTableview];
-        wineryPhotosCVC.winery = self.wineryFromTableview;
-    } else {
-        _winery = _passedAnnotation.wineryAtAnnotation;
-        [self displayWineryDetails:_winery];
+   
+    if (_passedAnnotation == nil) {
         wineryPhotosCVC.winery = self.winery;
+    } else {
+        wineryPhotosCVC.passedAnnotation = self.passedAnnotation;
     }
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
