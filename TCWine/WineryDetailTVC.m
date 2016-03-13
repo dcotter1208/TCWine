@@ -67,7 +67,7 @@
     
     if ([segue.identifier  isEqualToString: @"favoriteWineListVCSegue"]) {
         
-        FavoriteWineListVC *destinationVC = (FavoriteWineListVC *)segue.destinationViewController;
+        FavoriteWineListTVC *destinationVC = (FavoriteWineListTVC *)segue.destinationViewController;
         destinationVC.winery = self.winery;
     }
 }

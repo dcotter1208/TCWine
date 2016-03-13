@@ -35,7 +35,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     Winery *wineries = [_listWineryArray objectAtIndex:indexPath.row];
     cell.textLabel.text = wineries.name;
-    //cell.detailTextLabel.text = wineries.phoneNumber;
     return cell;
 }
 

@@ -12,7 +12,7 @@
 #import "Realm/Realm.h"
 
 
-@interface FavoriteWineListVC : UIViewController
+@interface FavoriteWineListTVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) FavoriteWine *favoriteWine;
 @property (nonatomic, strong) RLMResults *favoriteWinesForWineryArray;

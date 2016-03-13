@@ -14,7 +14,7 @@
 
 @end
 
-@interface FavoriteWineEntryTVC : UITableViewController
+@interface FavoriteWineEntryTVC : UITableViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) NSString *wineCategoryForSegmentedControl;
 @property(nonatomic, weak) id<FavoriteWineDelegate>delegate;

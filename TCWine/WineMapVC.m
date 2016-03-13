@@ -101,7 +101,6 @@
             _winery.address = fullAddress;
             
             if (![_winery.name isEqualToString:@"Traverse City Wine and Beer Tours"]) {
-                NSLog(@"%@", _winery.name);
                 [self writeToRealm:_winery];
             }
         }

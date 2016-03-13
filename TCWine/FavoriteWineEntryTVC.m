@@ -40,6 +40,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    return _descriptionTextField.text.length + (text.length - range.length) <= 140;
+}
+
+
 - (IBAction)segmentedControlOnePressed:(id)sender {
     
     NSInteger selectedIndex = self.segmentedControlOne.selectedSegmentIndex;
