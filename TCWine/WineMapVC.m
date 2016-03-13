@@ -26,6 +26,7 @@
 
     [self mapSetup];
     [self getFoursquareWineries];
+    [_foursquareAPI createAnnotation:mapView];
     
 }
 

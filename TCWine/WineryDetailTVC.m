@@ -23,34 +23,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    if (_passedAnnotation == nil) {
+//        [self displayWineryDetails:_winery];
+//    } else {
+//        _winery = _passedAnnotation.wineryAtAnnotation;
+//        [self displayWineryDetails:_winery];
+//    }
+//    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = false;
-    
+
     WineryPhotosCVC *wineryPhotosCVC = self.childViewControllers[0];
-    
-    if (_passedAnnotation == NULL) {
-        [self displayWineryDetails:_wineryFromTableview];
-        wineryPhotosCVC.winery = self.wineryFromTableview;
+   
+    if (_passedAnnotation == nil) {
+        wineryPhotosCVC.winery = self.winery;
+        [self displayWineryDetails:_winery];
     } else {
         _winery = _passedAnnotation.wineryAtAnnotation;
         [self displayWineryDetails:_winery];
-        wineryPhotosCVC.winery = self.winery;
+        wineryPhotosCVC.passedAnnotation = self.passedAnnotation;
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- 
- TRY RESETING THE WINERY PROPERTY TO NIL IN 'viewWillDisappear method'. This might solve the problem of having to have two different properties based on if the info is coming from the map of the table.
- 
- */
-
 
 -(void)displayWineryDetails:(Winery *)winery {
     self.wineryNameCellLabel.text = winery.name;
@@ -74,7 +75,8 @@
     if ([segue.identifier  isEqualToString: @"favoriteWineListVCSegue"]) {
         
         FavoriteWineListTVC *destinationVC = (FavoriteWineListTVC *)segue.destinationViewController;
-        destinationVC.winery = self.winery;
+        destinationVC.winery = _winery;
+        NSLog(@"Winery Name Prep Segue: %@", _winery.name);
     }
 }
 

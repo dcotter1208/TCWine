@@ -16,11 +16,10 @@
 @end
 
 @implementation WineryListVC
-@synthesize listWineryArray = _listWineryArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _listWineryArray = [Winery allObjects];
+    _listWineryArray = [[Winery allObjects] sortedResultsUsingProperty:@"name" ascending:true];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +41,7 @@
     if ([segue.identifier isEqualToString:@"toWineryDetailVC"]) {
         WineryDetailTVC *destinationVC = (WineryDetailTVC*)segue.destinationViewController;
         NSIndexPath *indexPath = [self.wineryListTableView indexPathForSelectedRow];
-        destinationVC.wineryFromTableview = [_listWineryArray objectAtIndex:indexPath.row];
+        destinationVC.winery = [_listWineryArray objectAtIndex:indexPath.row];
     }
 }
 
