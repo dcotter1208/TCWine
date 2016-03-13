@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Winery.h"
+#import "FavoriteWine.h"
 
 @protocol FavoriteWineDelegate <NSObject>
 
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) NSString *wineCategoryForSegmentedControl;
 @property (nonatomic, strong) Winery *winery;
 @property (nonatomic, strong) NSString *favoriteWineryId;
+@property (nonatomic, strong) FavoriteWine *favoriteWineToEdit;
 
 @property(nonatomic, weak) id<FavoriteWineDelegate>delegate;
 

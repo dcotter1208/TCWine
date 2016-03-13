@@ -432,7 +432,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Edit"/>
                                                     <connections>
-                                                        <action selector="editFavoriteWineButtonPressed:" destination="YLu-Dl-WZm" eventType="touchUpInside" id="9lF-o9-I8r"/>
+                                                        <action selector="favoriteWineListCellEditButtonTapped:" destination="ZH0-u0-0Sh" eventType="touchUpInside" id="9AD-e4-VJR"/>
                                                         <segue destination="5Wb-Sb-G9E" kind="presentation" identifier="editFavoriteWineSegue" id="S2g-3U-Bji"/>
                                                     </connections>
                                                 </button>

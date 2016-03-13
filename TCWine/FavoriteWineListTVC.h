@@ -14,14 +14,12 @@
 #import "Realm/Realm.h"
 
 
-@interface FavoriteWineListTVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FavoriteWineListTVC : UIViewController <UITableViewDataSource, UITableViewDelegate, CustomCellDelegate>
 
 @property (nonatomic, strong) FavoriteWine *favoriteWine;
 @property (nonatomic, strong) RLMResults *favoriteWinesForWineryArray;
 @property (nonatomic, strong) Winery *winery;
 @property (nonatomic, strong) FavoriteWine *selectedFavoriteWine;
-
-@property(nonatomic, weak) id<CustomCellDelegate>delegate;
 
 
 @end

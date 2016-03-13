@@ -11,7 +11,7 @@
 
 @protocol CustomCellDelegate <NSObject>
 
--(void)getSelectedWineToEdit:(FavoriteWine *)favoriteWine;
+-(void)favoriteWineListCellTapped:(id)sender;
 
 @end
 

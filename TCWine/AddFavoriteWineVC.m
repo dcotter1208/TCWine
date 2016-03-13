@@ -28,6 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     FavoriteWineEntryTVC *favoriteWineEntryTVC = self.childViewControllers[0];
     favoriteWineEntryTVC.winery = self.winery;
+    favoriteWineEntryTVC.favoriteWineToEdit = _favoriteWineToEdit;
 
 }
 
