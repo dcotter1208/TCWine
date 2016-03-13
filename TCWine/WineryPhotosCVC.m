@@ -8,6 +8,7 @@
 
 #import "WineryPhotosCVC.h"
 #import "WineryDetailTVC.h"
+#import "FullImageVC.h"
 
 @interface WineryPhotosCVC ()
 
@@ -48,7 +49,6 @@
 
 }
 
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 
     return 1;
@@ -67,13 +67,20 @@
     
     UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
 
-    Photo *photo = [_wineryPhotosArray objectAtIndex:indexPath.row];
+    _photo = [_wineryPhotosArray objectAtIndex:indexPath.row];
     
 //    dispatch_async(dispatch_get_main_queue(), ^{
-        [wineryImageView setImageWithURL:[NSURL URLWithString:photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
+        [wineryImageView setImageWithURL:[NSURL URLWithString:_photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
 //    });
 
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    UICollectionViewCell *cell =[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor blueColor]; // highlight selection
+    
 }
 
 -(void)getFoursquarePhotos {
@@ -98,6 +105,21 @@
         });
     }];
     
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([segue.identifier isEqualToString:@"showImageFullSize"]) {
+        FullImageVC *fullImageVC = (FullImageVC *)segue.destinationViewController;
+        
+        UICollectionViewCell *cell = (UICollectionViewCell *)sender;
+        
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        fullImageVC.selectedPhoto = [_wineryPhotosArray objectAtIndex:indexPath.row];
+        fullImageVC.winery = _winery;
+       
+    }
+
 }
 
 

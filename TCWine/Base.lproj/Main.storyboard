@@ -370,6 +370,9 @@
                                     <constraint firstItem="beI-H2-RzU" firstAttribute="top" secondItem="KxG-NI-UaN" secondAttribute="top" id="qc7-NI-GWm"/>
                                 </constraints>
                                 <size key="customSize" width="85" height="85"/>
+                                <connections>
+                                    <segue destination="LFJ-gR-Xpx" kind="presentation" identifier="showImageFullSize" id="xtc-q3-mKe"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -384,6 +387,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnb-er-ZLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="745" y="2369.5"/>
+        </scene>
+        <!--Full ImageVC-->
+        <scene sceneID="CnF-Hl-7md">
+            <objects>
+                <viewController id="LFJ-gR-Xpx" customClass="FullImageVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RBO-LZ-99B"/>
+                        <viewControllerLayoutGuide type="bottom" id="t7e-lT-aqV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KWM-Zf-ha8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oZp-0j-3GZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhH-cU-bOO">
+                                <rect key="frame" x="520" y="20" width="60" height="60"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="pYV-3v-Kxg"/>
+                                    <constraint firstAttribute="width" constant="60" id="wAo-MJ-j0z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissFullImageVC:" destination="LFJ-gR-Xpx" eventType="touchUpInside" id="p6T-DM-eEG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oZp-0j-3GZ" secondAttribute="trailing" id="OXA-Lh-ker"/>
+                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="top" secondItem="lhH-cU-bOO" secondAttribute="bottom" constant="-80" id="RxJ-01-q9a"/>
+                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="leading" secondItem="KWM-Zf-ha8" secondAttribute="leading" id="bhI-lV-qgQ"/>
+                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="bottom" secondItem="t7e-lT-aqV" secondAttribute="top" id="jek-Tq-EqZ"/>
+                            <constraint firstItem="lhH-cU-bOO" firstAttribute="leading" secondItem="oZp-0j-3GZ" secondAttribute="trailing" constant="-80" id="pGd-Xl-Jr5"/>
+                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="top" secondItem="RBO-LZ-99B" secondAttribute="bottom" id="pQX-U2-E0T"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="lhH-cU-bOO" id="9ju-OD-FYG"/>
+                        <outlet property="fullImageView" destination="oZp-0j-3GZ" id="DoG-Nk-GsP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J12-7Y-tRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1409" y="2514"/>
         </scene>
         <!--Favorite Wine ListTVC-->
         <scene sceneID="I0j-OB-OBw">
