@@ -7,7 +7,6 @@
 //
 
 #import "FavoriteWineListTVC.h"
-#import "FavoriteWineListTVCCell.h"
 
 @interface FavoriteWineListTVC ()
 @property (weak, nonatomic) IBOutlet UILabel *favoriteWineListTitle;
@@ -34,7 +33,7 @@
     self.navigationController.navigationBarHidden = false;
     NSLog(@"View Appeared");
     _favoriteWinesForWineryArray = [FavoriteWine objectsWhere:@"wineryId == %@", _winery.wineryId];
-
+    [self.favoriteWineListTableView reloadData];
 }
 
 
@@ -45,7 +44,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     FavoriteWineListTVCCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favoriteWineCell" forIndexPath:indexPath];
-
+    
     _favoriteWine = [_favoriteWinesForWineryArray objectAtIndex:indexPath.row];
     
     cell.wineNameLabel.text = [NSString stringWithFormat:@"%@ %@", _favoriteWine.year, _favoriteWine.name];
@@ -70,7 +69,7 @@
         
         NSIndexPath *indexPath = [self.favoriteWineListTableView indexPathForSelectedRow];
         _selectedFavoriteWine = [_favoriteWinesForWineryArray objectAtIndex:indexPath.row];
-        NSLog(@"Selected Favorite Wine: %@", _selectedFavoriteWine);
+//        NSLog(@"Selected Favorite Wine: %@", _selectedFavoriteWine);
         
         AddFavoriteWineVC *destinationVC = (AddFavoriteWineVC *)segue.destinationViewController;
         destinationVC.favoriteWineToEdit = _selectedFavoriteWine;
@@ -82,6 +81,15 @@
 
 }
 
+- (IBAction)editFavoriteWineButtonPressed:(id)sender {
+    
+    [self.delegate getSelectedWineToEdit:_selectedFavoriteWine];
+    
+    NSIndexPath *indexPath = [self.favoriteWineListTableView indexPathForSelectedRow];
+    _selectedFavoriteWine = [_favoriteWinesForWineryArray objectAtIndex:indexPath.row];
+    NSLog(@"EDIT BUTTON SELECTED: %@", _selectedFavoriteWine);
+    
+}
 
 
 @end

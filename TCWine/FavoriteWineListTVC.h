@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FavoriteWine.h"
 #import "AddFavoriteWineVC.h"
+#import "FavoriteWineListTVCCell.h"
 #import "Winery.h"
 #import "Realm/Realm.h"
 
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) RLMResults *favoriteWinesForWineryArray;
 @property (nonatomic, strong) Winery *winery;
 @property (nonatomic, strong) FavoriteWine *selectedFavoriteWine;
+
+@property(nonatomic, weak) id<CustomCellDelegate>delegate;
 
 
 @end

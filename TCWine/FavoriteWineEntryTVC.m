@@ -31,6 +31,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     _favoriteWineryId = _winery.wineryId;
+    _wineryTextField.text = _winery.name;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

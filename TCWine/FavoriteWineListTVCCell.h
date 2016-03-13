@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FavoriteWine.h"
+
+@protocol CustomCellDelegate <NSObject>
+
+-(void)getSelectedWineToEdit:(FavoriteWine *)favoriteWine;
+
+@end
 
 @interface FavoriteWineListTVCCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *wineNameLabel;
@@ -14,6 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
-
+@property(nonatomic, weak) id<CustomCellDelegate>delegate;
 
 @end

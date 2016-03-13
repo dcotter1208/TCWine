@@ -28,6 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     FavoriteWineEntryTVC *favoriteWineEntryTVC = self.childViewControllers[0];
     favoriteWineEntryTVC.winery = self.winery;
+
 }
 
 - (IBAction)saveFavWine:(id)sender {
@@ -45,7 +46,7 @@
 
 }
 
--(void)sendFavoriteWineInfoToAddFavWineVC:(NSString *)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *)year note:(NSString *)note wineryId:(NSString *)wineryId{
+-(void)sendFavoriteWineInfoToAddFavWineVC:(NSString *)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *)year note:(NSString *)note wineryId:(NSString *)wineryId {
 
     _favoriteWine = [FavoriteWine initWithWineName:wineName];
     _favoriteWine.winery = winery;
@@ -60,8 +61,6 @@
     [realm addOrUpdateObject:_favoriteWine];
     [realm commitWriteTransaction];
     
-    NSLog(@"Winery Name AddFavoriteWineVC: %@", _favoriteWine.name);
-
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
