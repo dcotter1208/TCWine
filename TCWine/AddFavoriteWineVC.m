@@ -57,6 +57,11 @@
 
 }
 
+- (IBAction)cancelButtonPressed:(id)sender {
+    
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+    
+}
 
 
 @end

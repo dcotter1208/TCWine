@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Winery.h"
 #import "Annotation.h"
+#import "FavoriteWineListVC.h"
 
 
 @interface WineryDetailTVC : UITableViewController

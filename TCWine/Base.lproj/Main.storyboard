@@ -310,7 +310,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YLu-Dl-WZm" kind="presentation" id="LEn-Sw-e7J"/>
+                                            <segue destination="YLu-Dl-WZm" kind="presentation" identifier="favoriteWineListVCSegue" id="LEn-Sw-e7J"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -395,30 +395,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zoH-oZ-gaU">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="Qcf-2L-ZHR">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="E1r-ZX-Ase">
-                                            <connections>
-                                                <segue destination="5Wb-Sb-G9E" kind="presentation" id="0JU-cb-21h"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="X" id="aTc-WP-8Yg">
-                                            <connections>
-                                                <action selector="dismissView:" destination="YLu-Dl-WZm" id="oAf-Hj-bDs"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A1Z-o7-b0z">
+                                <rect key="frame" x="0.0" y="61" width="600" height="539"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteWineCell" id="ZH0-u0-0Sh">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZH0-u0-0Sh" id="EpZ-8h-vpO">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traverse City Wine and Beer Tours Favorites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="IPz-7Q-ZOG">
+                                <rect key="frame" x="44" y="20" width="512" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="15"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd8-c0-qUc">
+                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="ekN-tX-4ER"/>
+                                    <constraint firstAttribute="height" constant="44" id="pBX-fe-4gg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="34"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5Wb-Sb-G9E" kind="presentation" id="RM0-RV-3K8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5g-WI-eJr">
+                                <rect key="frame" x="556" y="20" width="44" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="dismissView:" destination="YLu-Dl-WZm" eventType="touchUpInside" id="ZKq-ir-12Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sd8-c0-qUc" firstAttribute="top" secondItem="IPz-7Q-ZOG" secondAttribute="top" id="7Nq-MK-lKj"/>
+                            <constraint firstItem="IPz-7Q-ZOG" firstAttribute="top" secondItem="G5g-WI-eJr" secondAttribute="top" id="AR9-Si-xOI"/>
+                            <constraint firstItem="IPz-7Q-ZOG" firstAttribute="top" secondItem="I6X-zq-her" secondAttribute="bottom" id="Cgx-fz-xkK"/>
+                            <constraint firstItem="G5g-WI-eJr" firstAttribute="leading" secondItem="IPz-7Q-ZOG" secondAttribute="trailing" id="MDA-2b-0pW"/>
+                            <constraint firstAttribute="trailing" secondItem="A1Z-o7-b0z" secondAttribute="trailing" id="N6c-pn-VPa"/>
+                            <constraint firstItem="A1Z-o7-b0z" firstAttribute="centerX" secondItem="IPz-7Q-ZOG" secondAttribute="centerX" id="P25-M5-Kn0"/>
+                            <constraint firstItem="G5g-WI-eJr" firstAttribute="bottom" secondItem="IPz-7Q-ZOG" secondAttribute="bottom" id="PlA-io-jke"/>
+                            <constraint firstItem="IPz-7Q-ZOG" firstAttribute="bottom" secondItem="Sd8-c0-qUc" secondAttribute="bottom" id="WBc-g4-Nge"/>
+                            <constraint firstItem="A1Z-o7-b0z" firstAttribute="trailing" secondItem="G5g-WI-eJr" secondAttribute="trailing" id="ZwI-Lo-Inm"/>
+                            <constraint firstItem="A1Z-o7-b0z" firstAttribute="bottom" secondItem="e85-F4-fd5" secondAttribute="top" id="goi-Vd-sMv"/>
+                            <constraint firstItem="A1Z-o7-b0z" firstAttribute="leading" secondItem="mEI-ck-LIl" secondAttribute="leading" id="n4j-5m-zfs"/>
+                            <constraint firstItem="A1Z-o7-b0z" firstAttribute="top" secondItem="I6X-zq-her" secondAttribute="bottom" constant="41" id="rHn-NB-aOk"/>
+                            <constraint firstItem="IPz-7Q-ZOG" firstAttribute="leading" secondItem="Sd8-c0-qUc" secondAttribute="trailing" id="wCk-f6-fvJ"/>
+                            <constraint firstItem="A1Z-o7-b0z" firstAttribute="leading" secondItem="Sd8-c0-qUc" secondAttribute="leading" id="y6S-Vi-OAO"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="favoriteWineListTitle" destination="IPz-7Q-ZOG" id="sI0-lx-ADW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzb-dS-tw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -441,7 +487,11 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="2JO-Kz-MEx">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PFu-jz-HuG"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PFu-jz-HuG">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="5Wb-Sb-G9E" id="xdr-3f-AOP"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1nV-Fn-kq2">
                                             <connections>
                                                 <action selector="saveFavWine:" destination="5Wb-Sb-G9E" id="nXR-yE-iR9"/>
