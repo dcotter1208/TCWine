@@ -33,21 +33,23 @@
     
     if (_favoriteWineToEdit == nil) {
         _wineryTextField.text = _winery.name;
+        _uniqueWineId = [[NSUUID UUID] UUIDString];
     } else {
         _wineTextField.text = _favoriteWineToEdit.name;
         _wineryTextField.text = _favoriteWineToEdit.winery;
         _yearTextField.text = _favoriteWineToEdit.year;
         _descriptionTextField.text = _favoriteWineToEdit.note;
+        _uniqueWineId = _favoriteWineToEdit.uniqueWineId;
         [self setSegmentedControlBasedOnWineCategoryInEditMode];
     }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-
+    
     if (_favoriteWineToEdit == nil) {
-    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineryId];
+    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineryId uniqueWineId:(NSString *)_uniqueWineId];
     } else {
-    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineToEdit.wineryId];
+    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineToEdit.wineryId uniqueWineId:(NSString *)_uniqueWineId];
     }
     
 }
@@ -72,17 +74,14 @@
         case 0:
             _wineCategoryForSegmentedControl = @"Red";
             self.segmentedControlTwo.selectedSegmentIndex = -1;
-            NSLog(@"%@", _wineCategoryForSegmentedControl);
             break;
         case 1:
             _wineCategoryForSegmentedControl = @"White";
             self.segmentedControlTwo.selectedSegmentIndex = -1;
-            NSLog(@"%@", _wineCategoryForSegmentedControl);
             break;
         case 2:
             _wineCategoryForSegmentedControl = @"Rosé";
             self.segmentedControlTwo.selectedSegmentIndex = -1;
-            NSLog(@"%@", _wineCategoryForSegmentedControl);
             break;
         default:
             break;
@@ -98,17 +97,14 @@
         case 0:
             _wineCategoryForSegmentedControl = @"Sparkling";
             self.segmentedControlOne.selectedSegmentIndex = -1;
-            NSLog(@"%@", _wineCategoryForSegmentedControl);
             break;
         case 1:
             _wineCategoryForSegmentedControl = @"Dessert";
             self.segmentedControlOne.selectedSegmentIndex = -1;
-            NSLog(@"%@", _wineCategoryForSegmentedControl);
             break;
         case 2:
             _wineCategoryForSegmentedControl = @"Fortified";
             self.segmentedControlOne.selectedSegmentIndex = -1;
-            NSLog(@"%@", _wineCategoryForSegmentedControl);
             break;
         default:
             break;

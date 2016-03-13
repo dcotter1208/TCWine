@@ -43,6 +43,7 @@
         [self getFoursquarePhotos];
     } else {
         _venueId = _passedAnnotation.wineryAtAnnotation.wineryId;
+        _winery = _passedAnnotation.wineryAtAnnotation;
         _wineryPhotosArray = [Photo objectsWhere:@"wineryId = %@", _venueId];
         [self getFoursquarePhotos];
     }
@@ -60,7 +61,7 @@
     return _wineryPhotosArray.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"photoCell";
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
@@ -69,9 +70,7 @@
 
     _photo = [_wineryPhotosArray objectAtIndex:indexPath.row];
     
-//    dispatch_async(dispatch_get_main_queue(), ^{
-        [wineryImageView setImageWithURL:[NSURL URLWithString:_photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
-//    });
+    [wineryImageView setImageWithURL:[NSURL URLWithString:_photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
 
     return cell;
 }
@@ -92,7 +91,8 @@
         _foursquarePhotoData = data;
         
         for (NSDictionary *foursquarePhotos in _foursquarePhotoData) {
-            _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:@"450x450" suffix:[foursquarePhotos valueForKey:@"suffix"]wineryId:_venueId];
+            
+            _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:[NSString stringWithFormat:@"%@x%@", [foursquarePhotos valueForKey:@"height"], [foursquarePhotos valueForKey:@"width"]] suffix:[foursquarePhotos valueForKey:@"suffix"]wineryId:_venueId];
             
             RLMRealm *realm = [RLMRealm defaultRealm];
             [realm beginWriteTransaction];
@@ -110,11 +110,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if ([segue.identifier isEqualToString:@"showImageFullSize"]) {
-        FullImageVC *fullImageVC = (FullImageVC *)segue.destinationViewController;
-        
         UICollectionViewCell *cell = (UICollectionViewCell *)sender;
-        
+        FullImageVC *fullImageVC = (FullImageVC *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        
         fullImageVC.selectedPhoto = [_wineryPhotosArray objectAtIndex:indexPath.row];
         fullImageVC.winery = _winery;
        

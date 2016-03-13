@@ -12,7 +12,7 @@
 
 @protocol FavoriteWineDelegate <NSObject>
 
--(void)sendFavoriteWineInfoToAddFavWineVC:(NSString*)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *) year note:(NSString *)note wineryId:(NSString *)wineryId;
+-(void)sendFavoriteWineInfoToAddFavWineVC:(NSString*)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *) year note:(NSString *)note wineryId:(NSString *)wineryId uniqueWineId:(NSString *)uniqueWineId;
 
 @end
 
@@ -22,6 +22,7 @@
 @property (nonatomic, strong) Winery *winery;
 @property (nonatomic, strong) NSString *favoriteWineryId;
 @property (nonatomic, strong) FavoriteWine *favoriteWineToEdit;
+@property (nonatomic, strong) NSString *uniqueWineId;
 
 @property(nonatomic, weak) id<FavoriteWineDelegate>delegate;
 

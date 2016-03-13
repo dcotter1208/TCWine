@@ -59,6 +59,20 @@
 
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle==UITableViewCellEditingStyleDelete) {
+        [[RLMRealm defaultRealm] beginWriteTransaction];
+        [[RLMRealm defaultRealm]deleteObject:[_favoriteWinesForWineryArray objectAtIndex:indexPath.row]];
+        [[RLMRealm defaultRealm] commitWriteTransaction];
+        _favoriteWinesForWineryArray = [FavoriteWine objectsWhere:@"wineryId == %@", _winery.wineryId];
+        
+        [_favoriteWineListTableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [_favoriteWineListTableView setEditing:NO animated:YES];
+    }
+    
+    [_favoriteWineListTableView reloadData];
+}
+
 - (IBAction)dismissView:(id)sender {
     
     [self dismissViewControllerAnimated:FALSE completion:nil];
@@ -76,7 +90,6 @@
 
         AddFavoriteWineVC *destinationVC = (AddFavoriteWineVC *)segue.destinationViewController;
         destinationVC.favoriteWineToEdit = _selectedFavoriteWine;
-        NSLog(@"Selected Wine in prepareForSegue: %@", _selectedFavoriteWine);
         
     } else if ([segue.identifier isEqualToString:@"addFavoriteWineSegue"]) {
         AddFavoriteWineVC *destinationVC = (AddFavoriteWineVC *)segue.destinationViewController;

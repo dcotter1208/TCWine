@@ -35,6 +35,7 @@
 - (IBAction)saveFavWine:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -47,7 +48,7 @@
 
 }
 
--(void)sendFavoriteWineInfoToAddFavWineVC:(NSString *)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *)year note:(NSString *)note wineryId:(NSString *)wineryId {
+-(void)sendFavoriteWineInfoToAddFavWineVC:(NSString *)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *)year note:(NSString *)note wineryId:(NSString *)wineryId uniqueWineId:(NSString *)uniqueWineId{
 
     _favoriteWine = [FavoriteWine initWithWineName:wineName];
     _favoriteWine.winery = winery;
@@ -55,6 +56,7 @@
     _favoriteWine.year = year;
     _favoriteWine.note = note;
     _favoriteWine.wineryId = wineryId;
+    _favoriteWine.uniqueWineId = uniqueWineId;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
@@ -68,6 +70,18 @@
     
     [self dismissViewControllerAnimated:TRUE completion:nil];
     
+}
+
+-(void)displayAlert {
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Please Enter Wine Name!" preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:action];
+    
+    [self presentViewController:alertController animated:false completion:nil];
+        
 }
 
 
