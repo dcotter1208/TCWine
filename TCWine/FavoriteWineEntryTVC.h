@@ -7,16 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Winery.h"
+#import "FavoriteWine.h"
 
 @protocol FavoriteWineDelegate <NSObject>
 
--(void)sendFavoriteWineInfoToAddFavWineVC:(NSString*)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *) year note:(NSString *)note;
+-(void)sendFavoriteWineInfoToAddFavWineVC:(NSString*)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *) year note:(NSString *)note wineryId:(NSString *)wineryId;
 
 @end
 
-@interface FavoriteWineEntryTVC : UITableViewController
+@interface FavoriteWineEntryTVC : UITableViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) NSString *wineCategoryForSegmentedControl;
+@property (nonatomic, strong) Winery *winery;
+@property (nonatomic, strong) NSString *favoriteWineryId;
+@property (nonatomic, strong) FavoriteWine *favoriteWineToEdit;
+
 @property(nonatomic, weak) id<FavoriteWineDelegate>delegate;
 
 

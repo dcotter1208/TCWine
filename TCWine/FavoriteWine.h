@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *category;
 @property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSString *note;
+@property (nonatomic, strong) NSString *wineryId;
 
 -(id)initWithWineName:(NSString *)wineName;
 +(id)initWithWineName:(NSString *)wineName;

@@ -11,10 +11,10 @@
 @interface FavoriteWineEntryTVC ()
 @property (weak, nonatomic) IBOutlet UITextField *wineryTextField;
 @property (weak, nonatomic) IBOutlet UITextField *wineTextField;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlOne;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlTwo;
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlOne;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlTwo;
 
 @end
 
@@ -26,12 +26,25 @@
     self.segmentedControlOne.selectedSegmentIndex = -1;
     self.segmentedControlTwo.selectedSegmentIndex = -1;
 
+}
 
+-(void)viewWillAppear:(BOOL)animated {
+    _favoriteWineryId = _winery.wineryId;
+    
+    if (_favoriteWineToEdit == nil) {
+        _wineryTextField.text = _winery.name;
+    } else {
+        _wineTextField.text = _favoriteWineToEdit.name;
+        _wineryTextField.text = _favoriteWineToEdit.winery;
+        _yearTextField.text = _favoriteWineToEdit.year;
+        _descriptionTextField.text = _favoriteWineToEdit.note;
+        [self setSegmentedControlBasedOnWineCategoryInEditMode];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
 
-    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text];
+    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineryId];
 
 }
 
@@ -39,6 +52,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    return _descriptionTextField.text.length + (text.length - range.length) <= 140;
+}
+
 
 - (IBAction)segmentedControlOnePressed:(id)sender {
     
@@ -91,6 +111,21 @@
     }
 }
 
+-(void)setSegmentedControlBasedOnWineCategoryInEditMode {
+    if ([_favoriteWineToEdit.category isEqualToString: @"Red"]) {
+        _segmentedControlOne.selectedSegmentIndex = 0;
+    } else if ([_favoriteWineToEdit.category isEqualToString:@"White"]) {
+        _segmentedControlOne.selectedSegmentIndex = 1;
+    } else if ([_favoriteWineToEdit.category isEqualToString:@"Rosé"]) {
+        _segmentedControlOne.selectedSegmentIndex = 2;
+    } else if ([_favoriteWineToEdit.category isEqualToString:@"Sparkling"]) {
+        _segmentedControlTwo.selectedSegmentIndex = 0;
+    } else if ([_favoriteWineToEdit.category isEqualToString:@"Dessert"]) {
+        _segmentedControlTwo.selectedSegmentIndex = 1;
+    } else if ([_favoriteWineToEdit.category isEqualToString:@"Fortified"]) {
+        _segmentedControlTwo.selectedSegmentIndex = 2;
+    }
+}
 
 
 

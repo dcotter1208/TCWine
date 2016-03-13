@@ -8,15 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "FavoriteWine.h"
+#import "AddFavoriteWineVC.h"
+#import "FavoriteWineListTVCCell.h"
 #import "Winery.h"
 #import "Realm/Realm.h"
 
 
-@interface FavoriteWineListVC : UIViewController
+@interface FavoriteWineListTVC : UIViewController <UITableViewDataSource, UITableViewDelegate, CustomCellDelegate>
 
 @property (nonatomic, strong) FavoriteWine *favoriteWine;
 @property (nonatomic, strong) RLMResults *favoriteWinesForWineryArray;
 @property (nonatomic, strong) Winery *winery;
+@property (nonatomic, strong) FavoriteWine *selectedFavoriteWine;
 
 
 @end
