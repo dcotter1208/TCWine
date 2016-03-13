@@ -9,6 +9,7 @@
 #import "FavoriteWineListVC.h"
 
 @interface FavoriteWineListVC ()
+@property (weak, nonatomic) IBOutlet UILabel *favoriteWineListTitle;
 
 @end
 
@@ -17,8 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = true;
+    
+    NSLog(@"Winery Name: %@", _winery.name);
 
-    // Do any additional setup after loading the view.
+    _favoriteWineListTitle.text = [NSString stringWithFormat:@"%@ Favorites", _winery.name];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,18 +34,12 @@
     self.navigationController.navigationBarHidden = false;
 }
 
-
-- (IBAction)addFavoriteWine:(id)sender {
-    
-}
-
-
-
 - (IBAction)dismissView:(id)sender {
     
     [self dismissViewControllerAnimated:FALSE completion:nil];
     
 }
+
 
 
 

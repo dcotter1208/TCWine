@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -61,6 +60,15 @@
         self.wineryWebsiteLabel.text = @"Not Available";
     } else {
         self.wineryWebsiteLabel.text = winery.website;
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier  isEqualToString: @"favoriteWineListVCSegue"]) {
+        
+        FavoriteWineListVC *destinationVC = (FavoriteWineListVC *)segue.destinationViewController;
+        destinationVC.winery = self.winery;
     }
 }
 

@@ -11,7 +11,8 @@
 @interface FavoriteWineEntryTVC ()
 @property (weak, nonatomic) IBOutlet UITextField *wineryTextField;
 @property (weak, nonatomic) IBOutlet UITextField *wineTextField;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlOne;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlTwo;
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
 
@@ -22,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.segmentedControlOne.selectedSegmentIndex = -1;
+    self.segmentedControlTwo.selectedSegmentIndex = -1;
+
 
 }
 
@@ -35,6 +39,58 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)segmentedControlOnePressed:(id)sender {
+    
+    NSInteger selectedIndex = self.segmentedControlOne.selectedSegmentIndex;
+    
+    switch (selectedIndex) {
+        case 0:
+            _wineCategoryForSegmentedControl = @"Red";
+            self.segmentedControlTwo.selectedSegmentIndex = -1;
+            NSLog(@"%@", _wineCategoryForSegmentedControl);
+            break;
+        case 1:
+            _wineCategoryForSegmentedControl = @"White";
+            self.segmentedControlTwo.selectedSegmentIndex = -1;
+            NSLog(@"%@", _wineCategoryForSegmentedControl);
+            break;
+        case 2:
+            _wineCategoryForSegmentedControl = @"Rosé";
+            self.segmentedControlTwo.selectedSegmentIndex = -1;
+            NSLog(@"%@", _wineCategoryForSegmentedControl);
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (IBAction)segmentedControlTwoPressed:(id)sender {
+    
+    NSInteger selectedIndex = self.segmentedControlTwo.selectedSegmentIndex;
+    
+    switch (selectedIndex) {
+        case 0:
+            _wineCategoryForSegmentedControl = @"Sparkling";
+            self.segmentedControlOne.selectedSegmentIndex = -1;
+            NSLog(@"%@", _wineCategoryForSegmentedControl);
+            break;
+        case 1:
+            _wineCategoryForSegmentedControl = @"Dessert";
+            self.segmentedControlOne.selectedSegmentIndex = -1;
+            NSLog(@"%@", _wineCategoryForSegmentedControl);
+            break;
+        case 2:
+            _wineCategoryForSegmentedControl = @"Fortified";
+            self.segmentedControlOne.selectedSegmentIndex = -1;
+            NSLog(@"%@", _wineCategoryForSegmentedControl);
+            break;
+        default:
+            break;
+    }
+}
+
 
 
 
