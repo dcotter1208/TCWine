@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _listWineryArray = [Winery allObjects];
+    _listWineryArray = [[Winery allObjects] sortedResultsUsingProperty:@"name" ascending:true];
 }
 
 - (void)didReceiveMemoryWarning {
