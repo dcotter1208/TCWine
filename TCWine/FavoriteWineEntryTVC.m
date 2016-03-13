@@ -44,8 +44,12 @@
 
 -(void)viewWillDisappear:(BOOL)animated {
 
+    if (_favoriteWineToEdit == nil) {
     [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineryId];
-
+    } else {
+    [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineToEdit.wineryId];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
