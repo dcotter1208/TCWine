@@ -16,7 +16,7 @@
     if (self) {
         _wineryAtAnnotation = winery;
         _title = title;
-        _subtitle = subtitle;
+        _subtitle = @"";
         _coordinate = coordinate;
 
     }
