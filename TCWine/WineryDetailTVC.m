@@ -8,14 +8,14 @@
 
 #import "WineryDetailTVC.h"
 #import "WineryPhotosCVC.h"
-#import "WineryWebsiteVC.h"
 
 @interface WineryDetailTVC ()
 
 @property (weak, nonatomic) IBOutlet UILabel *wineryNameCellLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wineryAddressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wineryPhoneLabel;
-@property (weak, nonatomic) IBOutlet UILabel *wineryWebsiteLabel;
+@property (weak, nonatomic) IBOutlet UITextView *addressTextView;
+@property (weak, nonatomic) IBOutlet UITextView *phoneTextView;
+@property (weak, nonatomic) IBOutlet UITextView *websiteTextView;
+
 
 @end
 
@@ -49,18 +49,18 @@
 
 -(void)displayWineryDetails:(Winery *)winery {
     self.wineryNameCellLabel.text = winery.name;
-    self.wineryAddressLabel.text = winery.address;
+    self.addressTextView.text = winery.address;
     
     if (winery.phoneNumber == NULL){
-        self.wineryPhoneLabel.text = @"Not Available";
+        self.phoneTextView.text = @"Not Available";
     } else {
-        self.wineryPhoneLabel.text = winery.phoneNumber;
+        self.phoneTextView.text = winery.phoneNumber;
     }
     
     if (winery.website == NULL){
-        self.wineryWebsiteLabel.text = @"Not Available";
+        _websiteTextView.text = @"Not Available";
     } else {
-        self.wineryWebsiteLabel.text = winery.website;
+        _websiteTextView.text = winery.website;
     }
 }
 
@@ -70,19 +70,6 @@
         FavoriteWineListTVC *destinationVC = (FavoriteWineListTVC *)segue.destinationViewController;
         destinationVC.winery = _winery;
     }
-    
-    //FIGURE OUT HOW TO PREVENT SEGUE FROM OCCURRING IF THE WEBSITE IS NOT AVAILABLE!
-    
-    if ([_wineryWebsiteLabel.text isEqualToString:@"Not Available"]) {
-            NSLog(@"DISPLAY ALERT FOR NOT AVAILABLE");
-    } else if (![_wineryWebsiteLabel.text isEqualToString:@"Not Available"]) {
-        if ([segue.identifier isEqualToString:@"segueToWineryWebsite"]) {
-            WineryWebsiteVC *wineryWebsiteVC = (WineryWebsiteVC *)segue.destinationViewController;
-
-            wineryWebsiteVC.wineryWebsiteURLString = _wineryWebsiteLabel.text;
-        }
-    }
-    
 
 }
 
