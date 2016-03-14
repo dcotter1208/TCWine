@@ -135,6 +135,7 @@
     _distanceSpan = 55000;
     _viewRegion = MKCoordinateRegionMakeWithDistance(mapZoomLocation, _distanceSpan, _distanceSpan);
     [mapView setRegion:_viewRegion];
+    mapView.showsPointsOfInterest = FALSE;
 }
 
 -(void)writeToRealm:(Winery*)winery{
