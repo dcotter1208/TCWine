@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		531AF710637602CCEB0040C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DFEF9A63115F6700094A45D /* libPods.a */; };
+		7CC75D771C973AF7003B9C5B /* keyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC75D761C973AF7003B9C5B /* keyList.plist */; };
 		C01B8E1D1C8763650044F937 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C01B8E1C1C8763650044F937 /* main.m */; };
 		C01B8E201C8763650044F937 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C01B8E1F1C8763650044F937 /* AppDelegate.m */; };
 		C01B8E261C8763650044F937 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01B8E241C8763650044F937 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		4DA87E1716AAEEC5B1132879 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7CC75D761C973AF7003B9C5B /* keyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keyList.plist; sourceTree = "<group>"; };
 		8DFEF9A63115F6700094A45D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7380C0052EE90D5F39214C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C01B8E181C8763650044F937 /* TCWine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCWine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +206,7 @@
 				C0CE32C51C89F465006E0C82 /* Model */,
 				C01B8E2C1C8763650044F937 /* Info.plist */,
 				C01B8E531C8770140044F937 /* .gitignore */,
+				7CC75D761C973AF7003B9C5B /* keyList.plist */,
 				C01B8E1B1C8763650044F937 /* Supporting Files */,
 			);
 			path = TCWine;
@@ -366,6 +369,7 @@
 			files = (
 				C01B8E541C8770140044F937 /* .gitignore in Resources */,
 				C01B8E2B1C8763650044F937 /* LaunchScreen.storyboard in Resources */,
+				7CC75D771C973AF7003B9C5B /* keyList.plist in Resources */,
 				C01B8E281C8763650044F937 /* Assets.xcassets in Resources */,
 				C01B8E261C8763650044F937 /* Main.storyboard in Resources */,
 			);

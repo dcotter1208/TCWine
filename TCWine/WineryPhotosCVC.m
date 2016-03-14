@@ -27,8 +27,11 @@
      _foursquarePhotoArray = [NSMutableArray array];
      _foursquarePhotoData = [NSDictionary dictionary];
     
-    _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
-    _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"keyList" ofType:@"plist"];
+    NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    
+    _clientSecret = configuration[@"FoursquareAPI"][@"ClientSecret"];
+    _clientId = configuration[@"FoursquareAPI"][@"ClientID"];
     
     
 }
