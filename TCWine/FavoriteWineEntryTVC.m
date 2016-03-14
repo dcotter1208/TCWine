@@ -31,6 +31,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     _favoriteWineryId = _winery.wineryId;
     
