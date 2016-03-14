@@ -21,15 +21,11 @@
     
     [self collectionViewSetup];
     
-//    _collectionViewWidth = self.collectionView.bounds.size.width;
-//    _collectionViewHeight = self.collectionView.bounds.size.height;
-//    
      _foursquarePhotoArray = [NSMutableArray array];
      _foursquarePhotoData = [NSDictionary dictionary];
     
     _clientSecret = @"5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM";
     _clientId = @"ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT";
-    
     
 }
 
@@ -134,6 +130,10 @@
     [flowLayout setMinimumLineSpacing:0.0f];
     [flowLayout setItemSize:CGSizeMake(50.0f, 50.0f)];
     [self.collectionView setCollectionViewLayout:flowLayout];
+    self.collectionView.layer.cornerRadius = 10.0;
+    self.collectionView.layer.borderWidth = 2.5;
+    self.collectionView.layer.borderColor = [UIColor blackColor].CGColor;
+    
 }
 
 

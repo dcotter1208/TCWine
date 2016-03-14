@@ -99,10 +99,8 @@
     _foursquareAPI = [FoursquareAPI initWithClientSecret: _clientSecret clientID:_clientId categoryId: _categoryId];
     
     [_foursquareAPI foursquareAPI:^(NSDictionary *data) {
-    
-        _foursquareWineryData = data;
         
-        for (NSDictionary *wineryDict in _foursquareWineryData) {
+        for (NSDictionary *wineryDict in data) {
             
             _winery = [Winery initWithWineryName:[wineryDict valueForKey:@"name"]];
             _winery.phoneNumber = [wineryDict valueForKeyPath:@"contact.formattedPhone"];
@@ -135,6 +133,7 @@
     _distanceSpan = 55000;
     _viewRegion = MKCoordinateRegionMakeWithDistance(mapZoomLocation, _distanceSpan, _distanceSpan);
     [mapView setRegion:_viewRegion];
+    mapView.showsPointsOfInterest = FALSE;
 }
 
 -(void)writeToRealm:(Winery*)winery{
