@@ -73,5 +73,11 @@
 
 }
 
+- (IBAction)foursquareButtonTapped:(id)sender {
+
+    NSURL *websiteURL = [[NSURL alloc] initWithString:[NSString stringWithFormat: @"https://foursquare.com/v/%@", _winery.wineryId]];
+    [[UIApplication sharedApplication]openURL:websiteURL];
+    
+}
 
 @end

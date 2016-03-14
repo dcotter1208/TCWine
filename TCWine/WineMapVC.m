@@ -99,10 +99,8 @@
     _foursquareAPI = [FoursquareAPI initWithClientSecret: _clientSecret clientID:_clientId categoryId: _categoryId];
     
     [_foursquareAPI foursquareAPI:^(NSDictionary *data) {
-    
-        _foursquareWineryData = data;
         
-        for (NSDictionary *wineryDict in _foursquareWineryData) {
+        for (NSDictionary *wineryDict in data) {
             
             _winery = [Winery initWithWineryName:[wineryDict valueForKey:@"name"]];
             _winery.phoneNumber = [wineryDict valueForKeyPath:@"contact.formattedPhone"];
@@ -113,6 +111,8 @@
             NSMutableArray *formattedAddress = [wineryDict valueForKeyPath:@"location.formattedAddress"];
             NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
             _winery.address = fullAddress;
+            
+            NSLog(@"%@", _winery);
             
             if (![_winery.name isEqualToString:@"Traverse City Wine and Beer Tours"]) {
                 [self writeToRealm:_winery];
