@@ -55,3 +55,6 @@ xcuserdata/
 .DS_Store
 
 Carthage/Build
+
+# Key List
+TCWine/keyList.plist
