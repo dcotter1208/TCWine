@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   keyList.plist
+   TCWine
+
+   Created by David MacGuidwin on 3/14/16.
+   Copyright (c) 2016 DonovanCotter. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>FoursquareAPI</key>
+        <dict>
+            <key>ClientID</key>
+            <string>ICKPUV0E20DW1NOOGWGW1S0U3B2EAJEYJ2XF02VIW0CXTPTT</string>
+            <key>ClientSecret</key>
+            <string>5M4R4U4ZOBZCURJPVXBUAGKCDRGAUPN3IGT12PD54LUYQ5VM</string>
+        </dict>
+    </dict>
+</plist>
