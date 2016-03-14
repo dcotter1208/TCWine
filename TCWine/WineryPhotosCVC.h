@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FoursquarePhotosAPI.h"
+#import "FoursquarePhotoURLRequest.h"
 #import "Winery.h"
 #import "Photo.h"
 #import "Annotation.h"

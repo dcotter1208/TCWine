@@ -29,6 +29,7 @@
 		C0C8D54E1C94BFDB0015817B /* FavoriteWineEntryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8D54D1C94BFDB0015817B /* FavoriteWineEntryTVC.m */; };
 		C0C8D5511C9513370015817B /* FavoriteWineListTVCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8D5501C9513370015817B /* FavoriteWineListTVCCell.m */; };
 		C0C8D5541C95CE550015817B /* FullImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8D5531C95CE550015817B /* FullImageVC.m */; };
+		C0C8D5571C95FDCF0015817B /* FoursquarePhotoURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C8D5561C95FDCF0015817B /* FoursquarePhotoURLRequest.m */; };
 		C0CE32C11C89F1F0006E0C82 /* Winery.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C01C89F1F0006E0C82 /* Winery.m */; };
 		C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C31C89F45B006E0C82 /* FavoriteWine.m */; };
 		C0CE32C81C8A47C8006E0C82 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */; };
@@ -95,6 +96,8 @@
 		C0C8D5501C9513370015817B /* FavoriteWineListTVCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteWineListTVCCell.m; sourceTree = "<group>"; };
 		C0C8D5521C95CE550015817B /* FullImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullImageVC.h; sourceTree = "<group>"; };
 		C0C8D5531C95CE550015817B /* FullImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullImageVC.m; sourceTree = "<group>"; };
+		C0C8D5551C95FDCF0015817B /* FoursquarePhotoURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquarePhotoURLRequest.h; sourceTree = "<group>"; };
+		C0C8D5561C95FDCF0015817B /* FoursquarePhotoURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquarePhotoURLRequest.m; sourceTree = "<group>"; };
 		C0CE32BF1C89F1F0006E0C82 /* Winery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Winery.h; sourceTree = "<group>"; };
 		C0CE32C01C89F1F0006E0C82 /* Winery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Winery.m; sourceTree = "<group>"; };
 		C0CE32C21C89F45B006E0C82 /* FavoriteWine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteWine.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				C0CE32C71C8A47C8006E0C82 /* FoursquareAPI.m */,
 				C04E59C01C8E04E30097684B /* FoursquarePhotosAPI.h */,
 				C04E59C11C8E04E30097684B /* FoursquarePhotosAPI.m */,
+				C0C8D5551C95FDCF0015817B /* FoursquarePhotoURLRequest.h */,
+				C0C8D5561C95FDCF0015817B /* FoursquarePhotoURLRequest.m */,
 				C0CE32BF1C89F1F0006E0C82 /* Winery.h */,
 				C0CE32C01C89F1F0006E0C82 /* Winery.m */,
 				C04E59C31C8E567C0097684B /* Photo.h */,
@@ -448,6 +453,7 @@
 				C0CE32CB1C8B6B88006E0C82 /* Annotation.m in Sources */,
 				C0C8D5481C93308E0015817B /* WineryPhotosCVC.m in Sources */,
 				C01B8E201C8763650044F937 /* AppDelegate.m in Sources */,
+				C0C8D5571C95FDCF0015817B /* FoursquarePhotoURLRequest.m in Sources */,
 				C01B8E1D1C8763650044F937 /* main.m in Sources */,
 				C04E59C51C8E567C0097684B /* Photo.m in Sources */,
 				C0CE32C41C89F45B006E0C82 /* FavoriteWine.m in Sources */,

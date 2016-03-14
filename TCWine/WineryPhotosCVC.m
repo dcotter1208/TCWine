@@ -43,6 +43,7 @@
         [self getFoursquarePhotos];
     } else {
         _venueId = _passedAnnotation.wineryAtAnnotation.wineryId;
+        _winery = _passedAnnotation.wineryAtAnnotation;
         _wineryPhotosArray = [Photo objectsWhere:@"wineryId = %@", _venueId];
         [self getFoursquarePhotos];
     }
@@ -60,66 +61,69 @@
     return _wineryPhotosArray.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"photoCell";
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
     UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
 
     _photo = [_wineryPhotosArray objectAtIndex:indexPath.row];
     
-//    dispatch_async(dispatch_get_main_queue(), ^{
-        [wineryImageView setImageWithURL:[NSURL URLWithString:_photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
-//    });
+    [wineryImageView setImageWithURL:[NSURL URLWithString:_photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
 
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    UICollectionViewCell *cell =[collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blueColor]; // highlight selection
+-(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    CGFloat screenWidth = CGRectGetWidth(self.collectionView.bounds);
+    CGFloat cellWidth = screenWidth/4;
+    
+    return CGSizeMake(cellWidth, cellWidth);
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    
+    return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+
+    return 0;
+}
+
+
 -(void)getFoursquarePhotos {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
     
     FoursquarePhotosAPI *foursquarePhotoAPI = [FoursquarePhotosAPI initWithClientSecret:_clientSecret clientID:_clientId venueId:_venueId];
     
     [foursquarePhotoAPI foursquarePhotosAPI:^(NSDictionary *data) {
         
-        _foursquarePhotoData = data;
-        
-        for (NSDictionary *foursquarePhotos in _foursquarePhotoData) {
-            _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:@"450x450" suffix:[foursquarePhotos valueForKey:@"suffix"]wineryId:_venueId];
+        for (NSDictionary *foursquarePhotos in data) {
             
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            [realm beginWriteTransaction];
-            [realm addOrUpdateObject:_photo];
-            [realm commitWriteTransaction];
+            _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:[NSString stringWithFormat:@"%@x%@", [foursquarePhotos valueForKey:@"height"], [foursquarePhotos valueForKey:@"width"]] suffix:[foursquarePhotos valueForKey:@"suffix"]wineryId:_venueId];
+                [realm addOrUpdateObject:_photo];
         }
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
+        [realm commitWriteTransaction];
+        [self.collectionView reloadData];
     }];
-    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if ([segue.identifier isEqualToString:@"showImageFullSize"]) {
-        FullImageVC *fullImageVC = (FullImageVC *)segue.destinationViewController;
-        
         UICollectionViewCell *cell = (UICollectionViewCell *)sender;
-        
+        FullImageVC *fullImageVC = (FullImageVC *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        
         fullImageVC.selectedPhoto = [_wineryPhotosArray objectAtIndex:indexPath.row];
         fullImageVC.winery = _winery;
        
     }
-
+    
 }
 
 

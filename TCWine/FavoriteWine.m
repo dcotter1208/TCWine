@@ -25,7 +25,7 @@
 }
 
 + (NSString *)primaryKey {
-    return @"name";
+    return @"uniqueWineId";
 }
 
 
