@@ -850,7 +850,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ziv-Dg-c1S">
-                                                    <rect key="frame" x="8" y="75" width="584" height="123"/>
+                                                    <rect key="frame" x="8" y="37" width="584" height="198"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -860,12 +860,12 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="top" secondItem="tu7-xF-4dO" secondAttribute="bottom" constant="46" id="Fym-tE-rkC"/>
-                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="trailing" secondItem="Dmd-d7-DkU" secondAttribute="trailingMargin" id="GBy-ij-5HO"/>
+                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="centerY" secondItem="Dmd-d7-DkU" secondAttribute="centerY" id="C6t-Aq-OZS"/>
                                                 <constraint firstItem="tu7-xF-4dO" firstAttribute="top" secondItem="Dmd-d7-DkU" secondAttribute="topMargin" id="JCD-tp-mpZ"/>
-                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="leading" secondItem="tu7-xF-4dO" secondAttribute="leading" id="cwd-w0-8bw"/>
-                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="leading" secondItem="Dmd-d7-DkU" secondAttribute="leadingMargin" id="eWJ-Ig-WaP"/>
-                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="centerY" secondItem="Dmd-d7-DkU" secondAttribute="centerY" id="vqb-ug-BIc"/>
+                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="top" secondItem="tu7-xF-4dO" secondAttribute="bottom" constant="8" symbolic="YES" id="Nty-qI-M32"/>
+                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="trailing" secondItem="Dmd-d7-DkU" secondAttribute="trailingMargin" id="XGq-iN-fix"/>
+                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="leading" secondItem="Dmd-d7-DkU" secondAttribute="leadingMargin" id="hpl-da-7DF"/>
+                                                <constraint firstItem="Ziv-Dg-c1S" firstAttribute="leading" secondItem="tu7-xF-4dO" secondAttribute="leading" id="oDm-G1-TcE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

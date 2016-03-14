@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlOne;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlTwo;
 @property (strong, nonatomic) IBOutlet UITableView *containerTableView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -52,6 +51,7 @@
 -(void)viewWillDisappear:(BOOL)animated {
 
     if (_favoriteWineToEdit == nil) {
+        
     [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineryId uniqueWineId:(NSString *)_uniqueWineId];
     } else {
     [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineToEdit.wineryId uniqueWineId:(NSString *)_uniqueWineId];
@@ -65,7 +65,7 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:true];
+    [self.containerTableView endEditing:true];
     [super touchesBegan:touches withEvent:event];
 }
 
@@ -117,16 +117,22 @@
 -(void)setSegmentedControlBasedOnWineCategoryInEditMode {
     if ([_favoriteWineToEdit.category isEqualToString: @"Red"]) {
         _segmentedControlOne.selectedSegmentIndex = 0;
+        _wineCategoryForSegmentedControl = @"Red";
     } else if ([_favoriteWineToEdit.category isEqualToString:@"White"]) {
         _segmentedControlOne.selectedSegmentIndex = 1;
+        _wineCategoryForSegmentedControl = @"White";
     } else if ([_favoriteWineToEdit.category isEqualToString:@"Rosé"]) {
         _segmentedControlOne.selectedSegmentIndex = 2;
+        _wineCategoryForSegmentedControl = @"Rosé";
     } else if ([_favoriteWineToEdit.category isEqualToString:@"Sparkling"]) {
         _segmentedControlTwo.selectedSegmentIndex = 0;
+        _wineCategoryForSegmentedControl = @"Sparkling";
     } else if ([_favoriteWineToEdit.category isEqualToString:@"Dessert"]) {
         _segmentedControlTwo.selectedSegmentIndex = 1;
+        _wineCategoryForSegmentedControl = @"Dessert";
     } else if ([_favoriteWineToEdit.category isEqualToString:@"Fortified"]) {
         _segmentedControlTwo.selectedSegmentIndex = 2;
+        _wineCategoryForSegmentedControl = @"Fortified";
     }
 }
 

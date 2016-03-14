@@ -50,6 +50,8 @@
 
 -(void)sendFavoriteWineInfoToAddFavWineVC:(NSString *)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *)year note:(NSString *)note wineryId:(NSString *)wineryId uniqueWineId:(NSString *)uniqueWineId{
 
+    NSLog(@"Wine Name: %@", wineName);
+    
     _favoriteWine = [FavoriteWine initWithWineName:wineName];
     _favoriteWine.winery = winery;
     _favoriteWine.category = category;
@@ -60,10 +62,12 @@
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
-    [realm beginWriteTransaction];
-    [realm addOrUpdateObject:_favoriteWine];
-    [realm commitWriteTransaction];
-    
+    if (![wineName isEqualToString: @""]) {
+        [realm beginWriteTransaction];
+        [realm addOrUpdateObject:_favoriteWine];
+        [realm commitWriteTransaction];
+    }
+
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
