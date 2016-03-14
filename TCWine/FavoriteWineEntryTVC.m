@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlOne;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControlTwo;
+@property (strong, nonatomic) IBOutlet UITableView *containerTableView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -22,13 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.segmentedControlOne.selectedSegmentIndex = -1;
     self.segmentedControlTwo.selectedSegmentIndex = -1;
 
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     _favoriteWineryId = _winery.wineryId;
     
     if (_favoriteWineToEdit == nil) {
@@ -42,10 +46,11 @@
         _uniqueWineId = _favoriteWineToEdit.uniqueWineId;
         [self setSegmentedControlBasedOnWineCategoryInEditMode];
     }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    
+
     if (_favoriteWineToEdit == nil) {
     [self.delegate sendFavoriteWineInfoToAddFavWineVC:self.wineTextField.text Winery:self.wineryTextField.text category:_wineCategoryForSegmentedControl year:self.yearTextField.text note:self.descriptionTextField.text wineryId:_favoriteWineryId uniqueWineId:(NSString *)_uniqueWineId];
     } else {
@@ -59,12 +64,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    return _descriptionTextField.text.length + (text.length - range.length) <= 140;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:true];
+    [super touchesBegan:touches withEvent:event];
 }
-
 
 - (IBAction)segmentedControlOnePressed:(id)sender {
     
@@ -126,7 +129,6 @@
         _segmentedControlTwo.selectedSegmentIndex = 2;
     }
 }
-
 
 
 @end

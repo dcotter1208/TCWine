@@ -22,14 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    if (_passedAnnotation == nil) {
-//        [self displayWineryDetails:_winery];
-//    } else {
-//        _winery = _passedAnnotation.wineryAtAnnotation;
-//        [self displayWineryDetails:_winery];
-//    }
-//    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -73,10 +66,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier  isEqualToString: @"favoriteWineListVCSegue"]) {
-        
         FavoriteWineListTVC *destinationVC = (FavoriteWineListTVC *)segue.destinationViewController;
         destinationVC.winery = _winery;
-        NSLog(@"Winery Name Prep Segue: %@", _winery.name);
     }
 }
 

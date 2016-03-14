@@ -42,6 +42,7 @@
     
     _dismissButton.layer.cornerRadius = _dismissButton.frame.size.width / 2;
     _dismissButton.layer.opacity = .80;
+    _fullImageView.clipsToBounds = TRUE;
 
 }
 

@@ -65,7 +65,6 @@
     static NSString *identifier = @"photoCell";
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
     UIImageView *wineryImageView = (UIImageView *)[cell viewWithTag:100];
 
     _photo = [_wineryPhotosArray objectAtIndex:indexPath.row];
@@ -75,36 +74,42 @@
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    UICollectionViewCell *cell =[collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blueColor]; // highlight selection
+-(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    CGFloat screenWidth = CGRectGetWidth(self.collectionView.bounds);
+    CGFloat cellWidth = screenWidth/4;
+    
+    return CGSizeMake(cellWidth, cellWidth);
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    
+    return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+
+    return 0;
+}
+
+
 -(void)getFoursquarePhotos {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
     
     FoursquarePhotosAPI *foursquarePhotoAPI = [FoursquarePhotosAPI initWithClientSecret:_clientSecret clientID:_clientId venueId:_venueId];
     
     [foursquarePhotoAPI foursquarePhotosAPI:^(NSDictionary *data) {
         
-        _foursquarePhotoData = data;
-        
-        for (NSDictionary *foursquarePhotos in _foursquarePhotoData) {
+        for (NSDictionary *foursquarePhotos in data) {
             
             _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:[NSString stringWithFormat:@"%@x%@", [foursquarePhotos valueForKey:@"height"], [foursquarePhotos valueForKey:@"width"]] suffix:[foursquarePhotos valueForKey:@"suffix"]wineryId:_venueId];
-            
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            [realm beginWriteTransaction];
-            [realm addOrUpdateObject:_photo];
-            [realm commitWriteTransaction];
+                [realm addOrUpdateObject:_photo];
         }
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
+        [realm commitWriteTransaction];
+        [self.collectionView reloadData];
     }];
-    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -118,7 +123,7 @@
         fullImageVC.winery = _winery;
        
     }
-
+    
 }
 
 
