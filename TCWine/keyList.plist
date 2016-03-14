@@ -8,6 +8,9 @@
    Copyright (c) 2016 DonovanCotter. All rights reserved.
 -->
 <plist version="1.0">
+    <!--
+     testing hiding plist
+     -->
     <dict>
         <key>FoursquareAPI</key>
         <dict>
