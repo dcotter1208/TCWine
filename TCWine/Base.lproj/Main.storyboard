@@ -70,7 +70,7 @@
         <scene sceneID="iKR-Wi-wnK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1XF-JB-my0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="Svs-Yo-7Gr"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="mapTabBarIcon" id="Svs-Yo-7Gr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j3e-Mn-gq1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -950,7 +950,7 @@
         <scene sceneID="vhI-So-YcL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W3c-8a-c1D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="VN3-6q-2eG"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="listingTabBarIcon" id="VN3-6q-2eG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BGr-Jv-m0L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -968,6 +968,8 @@
     </scenes>
     <resources>
         <image name="Foursquare" width="32" height="32"/>
+        <image name="listingTabBarIcon" width="538" height="196"/>
+        <image name="mapTabBarIcon" width="538" height="196"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eh6-GP-ec2"/>

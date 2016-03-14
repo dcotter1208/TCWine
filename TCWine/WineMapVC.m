@@ -112,8 +112,6 @@
             NSString *fullAddress = [NSString stringWithFormat: @"%@, %@", formattedAddress[0], formattedAddress[1]];
             _winery.address = fullAddress;
             
-            NSLog(@"%@", _winery);
-            
             if (![_winery.name isEqualToString:@"Traverse City Wine and Beer Tours"]) {
                 [self writeToRealm:_winery];
             }
