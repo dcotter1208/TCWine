@@ -19,9 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _collectionViewWidth = self.collectionView.bounds.size.width;
-    _collectionViewHeight = self.collectionView.bounds.size.height;
+    [self collectionViewSetup];
     
+//    _collectionViewWidth = self.collectionView.bounds.size.width;
+//    _collectionViewHeight = self.collectionView.bounds.size.height;
+//    
      _foursquarePhotoArray = [NSMutableArray array];
      _foursquarePhotoData = [NSDictionary dictionary];
     
@@ -124,6 +126,14 @@
        
     }
     
+}
+
+-(void)collectionViewSetup{
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setMinimumInteritemSpacing:0.0f];
+    [flowLayout setMinimumLineSpacing:0.0f];
+    [flowLayout setItemSize:CGSizeMake(50.0f, 50.0f)];
+    [self.collectionView setCollectionViewLayout:flowLayout];
 }
 
 

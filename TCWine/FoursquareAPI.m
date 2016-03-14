@@ -53,7 +53,6 @@
 -(void)createAnnotation:(MKMapView *)mapView {
 
     RLMResults *wineryArray = [Winery allObjects];
-    NSLog(@"%lu", wineryArray.count);
     
     for (Winery *winery in wineryArray) {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(winery.latitude, winery.longitude);
