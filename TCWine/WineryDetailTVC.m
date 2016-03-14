@@ -8,6 +8,7 @@
 
 #import "WineryDetailTVC.h"
 #import "WineryPhotosCVC.h"
+#import "WineryWebsiteVC.h"
 
 @interface WineryDetailTVC ()
 
@@ -69,6 +70,20 @@
         FavoriteWineListTVC *destinationVC = (FavoriteWineListTVC *)segue.destinationViewController;
         destinationVC.winery = _winery;
     }
+    
+    //FIGURE OUT HOW TO PREVENT SEGUE FROM OCCURRING IF THE WEBSITE IS NOT AVAILABLE!
+    
+    if ([_wineryWebsiteLabel.text isEqualToString:@"Not Available"]) {
+            NSLog(@"DISPLAY ALERT FOR NOT AVAILABLE");
+    } else if (![_wineryWebsiteLabel.text isEqualToString:@"Not Available"]) {
+        if ([segue.identifier isEqualToString:@"segueToWineryWebsite"]) {
+            WineryWebsiteVC *wineryWebsiteVC = (WineryWebsiteVC *)segue.destinationViewController;
+
+            wineryWebsiteVC.wineryWebsiteURLString = _wineryWebsiteLabel.text;
+        }
+    }
+    
+
 }
 
 
