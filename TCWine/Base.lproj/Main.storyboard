@@ -154,7 +154,6 @@
         <!--Winery DetailTVC-->
         <scene sceneID="WgS-y2-FqT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="RN2-oR-zqw" customClass="WineryDetailTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VTM-gO-aqf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -387,6 +386,7 @@
                         <outlet property="wineryNameCellLabel" destination="GUJ-jk-UDe" id="eW2-iM-Bfx"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="745" y="1840"/>
         </scene>
