@@ -21,6 +21,7 @@
     [super setSelected:selected animated:animated];
 
 }
+
 - (IBAction)favoriteWineListCellEditButtonTapped:(id)sender {
     [self.delegate favoriteWineListCellTapped:self];
 }
