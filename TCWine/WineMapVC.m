@@ -88,7 +88,7 @@
 
 -(void)getFoursquareWineries {
 
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"keyList" ofType:@"plist"];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"newList" ofType:@"plist"];
     NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
     
     _clientSecret = configuration[@"FoursquareAPI"][@"ClientSecret"];
