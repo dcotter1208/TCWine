@@ -12,8 +12,8 @@
 
 
 - (void)awakeFromNib {
-    _descriptionTextView.layer.borderWidth = 1.0;
-    _descriptionTextView.layer.borderColor = [UIColor blackColor].CGColor;
+    _descriptionTextView.layer.borderWidth = 2.0;
+    _descriptionTextView.layer.borderColor = [UIColor colorWithRed:87.0f/255.0f green:60.0f/255.0f blue:131.0f/255.0f alpha:1.0f].CGColor;;
     _descriptionTextView.layer.cornerRadius = 10.0;
 }
 

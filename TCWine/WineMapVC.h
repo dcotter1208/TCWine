@@ -15,21 +15,20 @@
 
 @interface WineMapVC : UIViewController {
 
-    MKMapView *mapView;
     RLMResults *wineryArray;
     RLMRealm *realm;
 }
 
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+//@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
 @property(nonatomic, strong) NSString *clientSecret;
 @property(nonatomic, strong) NSString *clientId;
 @property(nonatomic, strong) NSString *categoryId;
-@property(nonatomic, strong) NSDictionary *foursquareWineryData;
 @property(nonatomic, strong) FoursquareAPI *foursquareAPI;
+@property(nonatomic, strong) Winery *winery;
 @property(nonatomic) int distanceSpan;
 @property(nonatomic) MKCoordinateRegion viewRegion;
 @property(nonatomic, strong) Annotation *selectedAnnotation;
-@property(nonatomic, strong) Winery *winery;
+
 
 @end

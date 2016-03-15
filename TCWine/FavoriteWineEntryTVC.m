@@ -65,11 +65,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.containerTableView endEditing:true];
-    [super touchesBegan:touches withEvent:event];
-}
-
 - (IBAction)segmentedControlOnePressed:(id)sender {
     
     NSInteger selectedIndex = self.segmentedControlOne.selectedSegmentIndex;

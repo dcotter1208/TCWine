@@ -8,6 +8,7 @@
 
 #import "WineryDetailTVC.h"
 #import "WineryPhotosCVC.h"
+#import "FavoriteWineListTVC.h"
 
 @interface WineryDetailTVC ()
 
@@ -15,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *addressTextView;
 @property (weak, nonatomic) IBOutlet UITextView *phoneTextView;
 @property (weak, nonatomic) IBOutlet UITextView *websiteTextView;
-
 
 @end
 
@@ -28,9 +28,9 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = false;
-
+    
     WineryPhotosCVC *wineryPhotosCVC = self.childViewControllers[0];
-   
+    
     if (_passedAnnotation == nil) {
         wineryPhotosCVC.winery = self.winery;
         [self displayWineryDetails:_winery];
@@ -51,13 +51,13 @@
     self.wineryNameCellLabel.text = winery.name;
     self.addressTextView.text = winery.address;
     
-    if (winery.phoneNumber == NULL){
+    if (winery.phoneNumber == nil){
         self.phoneTextView.text = @"Not Available";
     } else {
         self.phoneTextView.text = winery.phoneNumber;
     }
     
-    if (winery.website == NULL){
+    if (winery.website == nil){
         _websiteTextView.text = @"Not Available";
     } else {
         _websiteTextView.text = winery.website;

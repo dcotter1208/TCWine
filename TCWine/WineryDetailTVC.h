@@ -9,14 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Winery.h"
 #import "Annotation.h"
-#import "FavoriteWineListTVC.h"
-
 
 @interface WineryDetailTVC : UITableViewController
 
 @property(nonatomic, strong) Winery *winery;
 @property(nonatomic, strong) Annotation *passedAnnotation;
-@property(nonatomic, strong) Winery *wineryFromTableview;
-
 
 @end

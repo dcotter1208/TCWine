@@ -12,6 +12,8 @@
 
 @interface WineMapVC ()
 
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 @end
 
 @implementation WineMapVC
@@ -22,8 +24,6 @@
     [super viewDidLoad];
     
     realm = [RLMRealm defaultRealm];
-    NSLog(@"%@", realm.path);
-
     [self mapSetup];
     [self getFoursquareWineries];
     [_foursquareAPI createAnnotation:mapView];
@@ -33,10 +33,6 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     self.navigationController.navigationBarHidden = true;
-}
-
--(void)viewDidAppear:(BOOL)animated {
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,10 +53,11 @@
         } else {
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
         }
-        annotationView.image = [UIImage imageNamed:@"wineAnnotation"];
+        annotationView.image = [UIImage imageNamed:@"GrapeAnnotation"];
         annotationView.canShowCallout = YES;
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        
+        annotationView.rightCalloutAccessoryView.tintColor = [UIColor colorWithRed:87.0f/255.0f green:60.0f/255.0f blue:131.0f/255.0f alpha:1.0f];
+
         return annotationView;
     }
     return nil;
@@ -87,10 +84,9 @@
         destinationVC.passedAnnotation = _selectedAnnotation;
 
     }
-
 }
 
--(void)getFoursquareWineries{
+-(void)getFoursquareWineries {
 
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"keyList" ofType:@"plist"];
     NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
@@ -124,9 +120,7 @@
             [_foursquareAPI createAnnotation:mapView];
         });
     }];
-    
-    
-    
+
 }
 
 -(void)mapSetup {
@@ -143,7 +137,6 @@
     [realm beginWriteTransaction];
     [realm addOrUpdateObject:winery];
     [realm commitWriteTransaction];
-    
 }
 
 @end

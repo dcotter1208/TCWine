@@ -15,7 +15,6 @@
 
 @interface FullImageVC : UIViewController
 
-
 @property(nonatomic, strong) Photo *selectedPhoto;
 @property(nonatomic, strong) Winery *winery;
 
