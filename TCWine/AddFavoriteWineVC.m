@@ -50,8 +50,6 @@
 
 -(void)sendFavoriteWineInfoToAddFavWineVC:(NSString *)wineName Winery:(NSString *)winery category:(NSString *)category year:(NSString *)year note:(NSString *)note wineryId:(NSString *)wineryId uniqueWineId:(NSString *)uniqueWineId{
 
-    NSLog(@"Wine Name: %@", wineName);
-    
     _favoriteWine = [FavoriteWine initWithWineName:wineName];
     _favoriteWine.winery = winery;
     _favoriteWine.category = category;
@@ -63,6 +61,7 @@
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     if (![wineName isEqualToString: @""]) {
+        
         [realm beginWriteTransaction];
         [realm addOrUpdateObject:_favoriteWine];
         [realm commitWriteTransaction];
@@ -75,18 +74,5 @@
     [self dismissViewControllerAnimated:TRUE completion:nil];
     
 }
-
--(void)displayAlert {
-
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Please Enter Wine Name!" preferredStyle:UIAlertControllerStyleAlert];
-
-    UIAlertAction* action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
-    
-    [alertController addAction:action];
-    
-    [self presentViewController:alertController animated:false completion:nil];
-        
-}
-
 
 @end

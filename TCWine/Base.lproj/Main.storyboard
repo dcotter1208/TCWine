@@ -38,7 +38,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4SO-rc-GCG"/>
                     <connections>
-                        <outlet property="mapView" destination="Hp2-BH-rVf" id="ey0-Jb-xF6"/>
+                        <outlet property="mapView" destination="Hp2-BH-rVf" id="YWW-LP-nBq"/>
                         <segue destination="RN2-oR-zqw" kind="show" identifier="showDetailViewFromMap" id="eh6-GP-ec2"/>
                     </connections>
                 </viewController>
@@ -66,11 +66,11 @@
             </objects>
             <point key="canvasLocation" x="-1485" y="1805"/>
         </scene>
-        <!--Map-->
+        <!--Navigation Controller-->
         <scene sceneID="iKR-Wi-wnK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1XF-JB-my0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="mapTabBarIcon" id="Svs-Yo-7Gr"/>
+                    <tabBarItem key="tabBarItem" title="" image="mapTabBarIcon" id="Svs-Yo-7Gr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j3e-Mn-gq1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -154,6 +154,7 @@
         <!--Winery DetailTVC-->
         <scene sceneID="WgS-y2-FqT">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="RN2-oR-zqw" customClass="WineryDetailTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VTM-gO-aqf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -339,18 +340,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favorite Wines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNY-0v-FoF">
-                                                    <rect key="frame" x="16" y="11" width="576" height="39"/>
-                                                    <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="14"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Favorites" translatesAutoresizingMaskIntoConstraints="NO" id="v8b-UQ-xQi">
+                                                    <rect key="frame" x="8" y="9" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="tjl-v2-2v6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Wines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNY-0v-FoF">
+                                                    <rect key="frame" x="60" y="11" width="163" height="39"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="163" id="l3X-uA-XcT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.3411764706" green="0.23529411759999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sNY-0v-FoF" firstAttribute="trailing" secondItem="v2I-1M-auc" secondAttribute="trailingMargin" id="BrQ-u2-dOW"/>
-                                                <constraint firstItem="sNY-0v-FoF" firstAttribute="top" secondItem="v2I-1M-auc" secondAttribute="topMargin" constant="3" id="CNE-zn-7ui"/>
-                                                <constraint firstItem="sNY-0v-FoF" firstAttribute="centerY" secondItem="v2I-1M-auc" secondAttribute="centerY" constant="-0.5" id="Sau-Fp-MOZ"/>
-                                                <constraint firstItem="sNY-0v-FoF" firstAttribute="leading" secondItem="v2I-1M-auc" secondAttribute="leadingMargin" constant="8" id="n8e-TH-Yqu"/>
+                                                <constraint firstItem="v8b-UQ-xQi" firstAttribute="top" secondItem="v2I-1M-auc" secondAttribute="topMargin" constant="1" id="0fa-6a-hvJ"/>
+                                                <constraint firstItem="v8b-UQ-xQi" firstAttribute="leading" secondItem="v2I-1M-auc" secondAttribute="leadingMargin" id="2za-id-8Ib"/>
+                                                <constraint firstItem="sNY-0v-FoF" firstAttribute="centerY" secondItem="v2I-1M-auc" secondAttribute="centerY" id="BPo-QA-zzi"/>
+                                                <constraint firstItem="sNY-0v-FoF" firstAttribute="leading" secondItem="v8b-UQ-xQi" secondAttribute="trailing" constant="8" id="VPu-gZ-A0K"/>
+                                                <constraint firstItem="v8b-UQ-xQi" firstAttribute="bottom" secondItem="sNY-0v-FoF" secondAttribute="bottom" constant="3" id="cgx-bH-l5Q"/>
+                                                <constraint firstItem="sNY-0v-FoF" firstAttribute="top" secondItem="v2I-1M-auc" secondAttribute="topMargin" constant="3" id="dEL-4X-jGB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -375,14 +387,13 @@
                         <outlet property="wineryNameCellLabel" destination="GUJ-jk-UDe" id="eW2-iM-Bfx"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9GF-LZ-V8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="745" y="1840"/>
         </scene>
         <!--Winery PhotosCVC-->
         <scene sceneID="nTP-0p-Lzd">
             <objects>
-                <collectionViewController extendedLayoutIncludesOpaqueBars="YES" id="UMy-FQ-IRN" customClass="WineryPhotosCVC" sceneMemberID="viewController">
+                <collectionViewController extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="UMy-FQ-IRN" customClass="WineryPhotosCVC" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="LVY-D7-2D2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="265"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -449,15 +460,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oZp-0j-3GZ">
                                 <rect key="frame" x="0.0" y="68" width="600" height="493"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="oZp-0j-3GZ" secondAttribute="height" multiplier="600:493" id="4QX-ss-UAA"/>
+                                    <constraint firstAttribute="height" constant="493" id="sOC-Rd-AdL"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhH-cU-bOO">
-                                <rect key="frame" x="540" y="20" width="40" height="40"/>
+                                <rect key="frame" x="542" y="20" width="38" height="38"/>
                                 <color key="backgroundColor" red="0.3411764706" green="0.23529411759999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="pYV-3v-Kxg"/>
-                                    <constraint firstAttribute="width" constant="40" id="wAo-MJ-j0z"/>
+                                    <constraint firstAttribute="width" secondItem="lhH-cU-bOO" secondAttribute="height" multiplier="1:1" id="ur7-eA-gET"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <state key="normal" title="X">
@@ -470,12 +480,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="oZp-0j-3GZ" secondAttribute="trailing" id="OXA-Lh-ker"/>
-                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="top" secondItem="lhH-cU-bOO" secondAttribute="bottom" constant="8" id="RxJ-01-q9a"/>
-                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="leading" secondItem="KWM-Zf-ha8" secondAttribute="leading" id="bhI-lV-qgQ"/>
-                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="bottom" secondItem="t7e-lT-aqV" secondAttribute="top" constant="-39" id="jek-Tq-EqZ"/>
-                            <constraint firstItem="lhH-cU-bOO" firstAttribute="leading" secondItem="oZp-0j-3GZ" secondAttribute="trailing" constant="-60" id="pGd-Xl-Jr5"/>
-                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="top" secondItem="RBO-LZ-99B" secondAttribute="bottom" constant="68" id="pQX-U2-E0T"/>
+                            <constraint firstItem="t7e-lT-aqV" firstAttribute="top" secondItem="oZp-0j-3GZ" secondAttribute="bottom" constant="39" id="22g-oK-bFI"/>
+                            <constraint firstItem="lhH-cU-bOO" firstAttribute="top" secondItem="RBO-LZ-99B" secondAttribute="bottom" constant="20" id="Gz5-TL-pf5"/>
+                            <constraint firstAttribute="trailing" secondItem="oZp-0j-3GZ" secondAttribute="trailing" id="Wi7-QS-bAV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lhH-cU-bOO" secondAttribute="trailing" id="dYV-bV-uDv"/>
+                            <constraint firstItem="oZp-0j-3GZ" firstAttribute="leading" secondItem="KWM-Zf-ha8" secondAttribute="leading" id="ilT-Jr-hUD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -505,7 +514,7 @@
                                 <color key="separatorColor" red="0.3411764706" green="0.23529411759999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="favoriteWineCell" rowHeight="236" id="ZH0-u0-0Sh" customClass="FavoriteWineListTVCCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="236"/>
+                                        <rect key="frame" x="0.0" y="48" width="600" height="236"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZH0-u0-0Sh" id="EpZ-8h-vpO">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
@@ -933,7 +942,6 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="containerTableView" destination="TNQ-tS-xAN" id="hoq-W7-rgu"/>
                         <outlet property="descriptionTextField" destination="Ziv-Dg-c1S" id="pGN-O7-amR"/>
                         <outlet property="segmentedControlOne" destination="LaQ-eM-qDH" id="mcX-aR-FXe"/>
                         <outlet property="segmentedControlTwo" destination="hAf-xd-a17" id="liC-Un-ZZQ"/>
@@ -946,11 +954,11 @@
             </objects>
             <point key="canvasLocation" x="2130" y="2503"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="vhI-So-YcL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W3c-8a-c1D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="listingTabBarIcon" id="VN3-6q-2eG"/>
+                    <tabBarItem key="tabBarItem" title="" image="listingTabBarIcon" id="VN3-6q-2eG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BGr-Jv-m0L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -967,9 +975,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Favorites" width="108" height="100"/>
         <image name="Foursquare" width="32" height="32"/>
-        <image name="listingTabBarIcon" width="538" height="196"/>
-        <image name="mapTabBarIcon" width="538" height="196"/>
+        <image name="listingTabBarIcon" width="24" height="24"/>
+        <image name="mapTabBarIcon" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eh6-GP-ec2"/>

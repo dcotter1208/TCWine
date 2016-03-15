@@ -11,9 +11,7 @@
 @interface FullImageVC ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *fullImageView;
-
 @property (weak, nonatomic) IBOutlet UIButton *dismissButton;
-@property (weak, nonatomic) IBOutlet UILabel *wineryNameLabel;
 
 @end
 
@@ -24,7 +22,6 @@
     
     [_fullImageView setImageWithURL:[NSURL URLWithString:_selectedPhoto.photoURLString] placeholderImage:[UIImage imageNamed:@"ImagePlaceholder"]];
     
-    _wineryNameLabel.text = _winery.name;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,8 +38,7 @@
 -(void)viewWillLayoutSubviews {
     
     _dismissButton.layer.cornerRadius = _dismissButton.frame.size.width / 2;
-    _dismissButton.layer.opacity = .80;
-    _fullImageView.clipsToBounds = TRUE;
+
 
 }
 

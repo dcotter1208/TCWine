@@ -20,8 +20,6 @@
 @property (nonatomic, strong) RLMResults *wineryPhotosArray;
 @property(nonatomic, strong) Photo *photo;
 @property(nonatomic, strong) Annotation *passedAnnotation;
-@property(nonatomic, strong) NSMutableArray *foursquarePhotoArray;
-@property(nonatomic, strong) NSDictionary *foursquarePhotoData;
 @property(nonatomic, strong) NSString *photoURL;
 @property(nonatomic, strong) Winery *winery;
 @property(nonatomic, strong) NSString *venueId;

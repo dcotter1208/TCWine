@@ -9,6 +9,7 @@
 #import "FavoriteWineListTVC.h"
 
 @interface FavoriteWineListTVC ()
+
 @property (weak, nonatomic) IBOutlet UILabel *favoriteWineListTitle;
 @property (weak, nonatomic) IBOutlet UITableView *favoriteWineListTableView;
 
@@ -29,10 +30,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = false;
-    
-    _favoriteWineListTitle.text = [NSString stringWithFormat:@"%@ Favorites", _winery.name];
-    
     _favoriteWinesForWineryArray = [FavoriteWine objectsWhere:@"wineryId == %@", _winery.wineryId];
+    _favoriteWineListTitle.text = [NSString stringWithFormat:@"%@ Favorites", _winery.name];
 
     [self.favoriteWineListTableView reloadData];
 }
@@ -61,9 +60,12 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if(editingStyle==UITableViewCellEditingStyleDelete) {
-        [[RLMRealm defaultRealm] beginWriteTransaction];
-        [[RLMRealm defaultRealm]deleteObject:[_favoriteWinesForWineryArray objectAtIndex:indexPath.row]];
-        [[RLMRealm defaultRealm] commitWriteTransaction];
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        
+        [realm beginWriteTransaction];
+        [realm deleteObject:[_favoriteWinesForWineryArray objectAtIndex:indexPath.row]];
+        [realm commitWriteTransaction];
         _favoriteWinesForWineryArray = [FavoriteWine objectsWhere:@"wineryId == %@", _winery.wineryId];
         
         [_favoriteWineListTableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];

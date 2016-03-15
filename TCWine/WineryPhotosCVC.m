@@ -18,12 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self collectionViewSetup];
-    
-     _foursquarePhotoArray = [NSMutableArray array];
-     _foursquarePhotoData = [NSDictionary dictionary];
-    
+
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"keyList" ofType:@"plist"];
     NSDictionary *configuration = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
     
@@ -70,7 +67,7 @@
 
     _photo = [_wineryPhotosArray objectAtIndex:indexPath.row];
     
-    [wineryImageView setImageWithURL:[NSURL URLWithString:_photo.photoURLString] placeholderImage:[UIImage imageNamed:@"Grapes"]];
+    [wineryImageView setImageWithURL:[NSURL URLWithString:_photo.photoURLString] placeholderImage:[UIImage imageNamed:@"PurpleLogoJPEG"]];
 
     return cell;
 }
@@ -83,17 +80,6 @@
     return CGSizeMake(cellWidth, cellWidth);
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    
-    return 0;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-
-    return 0;
-}
-
-
 -(void)getFoursquarePhotos {
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
@@ -103,8 +89,9 @@
     [foursquarePhotoAPI foursquarePhotosAPI:^(NSDictionary *data) {
         
         for (NSDictionary *foursquarePhotos in data) {
+
+            _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:@"1080x1080"suffix:[foursquarePhotos valueForKey:@"suffix"]wineryId:_venueId];
             
-            _photo = [Photo initWithPrefix:[foursquarePhotos valueForKey:@"prefix"] size:[NSString stringWithFormat:@"%@x%@", [foursquarePhotos valueForKey:@"height"], [foursquarePhotos valueForKey:@"width"]] suffix:[foursquarePhotos valueForKey:@"suffix"]wineryId:_venueId];
                 [realm addOrUpdateObject:_photo];
         }
         
@@ -133,9 +120,10 @@
     [flowLayout setMinimumLineSpacing:0.0f];
     [flowLayout setItemSize:CGSizeMake(50.0f, 50.0f)];
     [self.collectionView setCollectionViewLayout:flowLayout];
-    self.collectionView.layer.cornerRadius = 10.0;
+    self.collectionView.layer.cornerRadius = 5.0;
     self.collectionView.layer.borderWidth = 2.5;
     self.collectionView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.collectionView.layer.borderColor = [UIColor colorWithRed:87.0f/255.0f green:60.0f/255.0f blue:131.0f/255.0f alpha:1.0f].CGColor;
     
 }
 

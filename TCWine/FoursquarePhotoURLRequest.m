@@ -19,7 +19,6 @@
     return self;
 }
 
-
 +(id)initWithURLString:(NSString *)URLString {
     return [[self alloc]initWithURLString:URLString];
 }
